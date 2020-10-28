@@ -68,7 +68,7 @@
 
             <div class="top-right links">
                 <ul>
-                    <li>Nombre - Apellido - Matricula aqui</li>
+                    <li>Juan - Barreto - UG0278</li>
                 </ul>
             </div>
 
@@ -80,7 +80,8 @@
                 Enlaces:
                 <div class="links">
                     <!-- Agregar los enlaces a cada pagina aqui -->
-
+                    <a href="{{ route('listado-ug0278') }}"
+                       title="Listado de Coches">Listado de Coches</a>
                 </div>
             </div>
         </div>
