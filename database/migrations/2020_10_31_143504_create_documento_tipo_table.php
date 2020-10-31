@@ -13,6 +13,10 @@ class CreateDocumentoTipoTable extends Migration
      */
     public function up()
     {
+        /*
+         * Crear seeders que inserte al menos 10 tipos de documentos existentes
+         * Se entiende como tipo de documento a Cedula Identidad, RUC, Pasaporte, buscar otras
+         */
         Schema::create('documento_tipo', function (Blueprint $table) {
             $table->id();
 
