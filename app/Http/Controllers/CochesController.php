@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class CochesController extends Controller
 {
@@ -26,7 +27,7 @@ class CochesController extends Controller
      */
     public function create()
     {
-        //
+	   return view('crear-ug0278');
     }
 
     /**
@@ -37,7 +38,34 @@ class CochesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $codigo = $request->input('codigo');
+        $km_actual = intval($request->input('km_actual'));
+        $estado = $request->input('estado') === 'true'? true: false;
+        $chapa = strtoupper($request->input('chapa'));
+
+        $nuevoCoche = new \App\Coche();
+        $nuevoCoche->codigo = $codigo;
+        $nuevoCoche->km_actual = $km_actual;
+        $nuevoCoche->activo = $estado;
+        $nuevoCoche->chapa = $chapa;
+		
+		//Validacion
+		$request->validate([
+			'codigo' => 'unique:App\Coche,codigo'
+		],
+		[
+			'unique' => 'Código ingresado ya existe en la Base de Datos. Intente con otro Código'
+		]);
+
+		//Alertas
+		try {
+        	$nuevoCoche->save();
+			session()->flash('exito', 'El registro fue guardado con exito');
+        	
+        	return redirect()->route('listado-ug0278');
+		}catch (QueryException $e){
+			return redirect()->route('crear-ug0278')->withInput()->with('error', $e->errorInfo[2]);
+		}
     }
 
     /**

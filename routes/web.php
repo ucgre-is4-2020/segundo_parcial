@@ -18,3 +18,7 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/listado-coche', 'CochesController@index')->name('listado-ug0278');
+
+Route::get('/crear-coche', 'CochesController@create')->name('crear-ug0278');
+
+Route::post('/creacion-coche', 'CochesController@store')->name('creacion-ug0278');

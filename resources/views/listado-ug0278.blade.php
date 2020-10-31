@@ -3,6 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<title>Listado de Coches</title>
+	<script type="text/javascript">
+		function cerrar() {
+			document.getElementById("miModal").style.display = "none";
+		}
+	</script>
 	<style type="text/css">
 		html {
 			font-family: calibri;
@@ -34,9 +39,16 @@
 		h1 {
 			text-align: center;
 		}
+		.center {
+			margin: 0 auto;
+			width: 370px;
+		}
+		a:nth-child(1) {
+			margin-right: 5px;
+		}
 		a {
 			background-color: #35B5FF;
-			display: block;
+			display: inline-block;
 			font-family: calibri;
 			text-align: center;
 			color: white;
@@ -45,7 +57,6 @@
 			border-radius: 5px;
 			padding-top: 10px;
 			text-decoration: none;
-			margin: 0 auto;
 			margin-top: 30px;
 		}
 		a:hover {
@@ -54,9 +65,57 @@
 			letter-spacing: 1px;
 			box-shadow: 0px 0px 1px #00A2FF, 0px 0px 12px #00A2FF;	
 		}
+		.modal-contenido{
+			background-color: #3fdb88;
+		    border-radius: 15px;
+		    color: white;
+			width:300px;
+			height: 200px;
+			padding: 10px 20px;
+			margin: 16% auto;
+			position: relative;
+		}
+		.modal-contenido button {
+			border: 1px solid white;
+		    border-radius: 2px;
+		    color: white;
+		    background-color: #3fdb88;
+    		margin-top: 10px;
+		}
+		.modal-contenido button:hover {
+			transition: 0.5s;
+			cursor: pointer;
+			box-shadow: 0px 0px 1px white, 0px 0px 12px white;	
+		}
+		.modal-contenido h2 {
+			text-align: center;
+			margin-top: 50px;
+		}
+		.modal{
+			background-color: rgba(0,0,0,.6);
+			position:fixed;
+			top:0;
+			right:0;
+			bottom:0;
+			left:0;
+			transition: all 1s;
+		}
+		#miModal:target{
+			opacity:1;
+			pointer-events:auto;
+		}
 	</style>
+
 </head>
 <body>
+	@if($flash = Session::get('exito'))
+		<div id="miModal" onclick="cerrar()" class="modal">
+		  <div class="modal-contenido">
+		    <button onclick="cerrar()">X</button>
+		    <h2>{{ $flash }}</h2>
+		  </div>  
+		</div>
+	@endif
 	<h1>Listado de Coches</h1>
 
 	<table>
@@ -86,7 +145,9 @@
 		</tr>
 		@endforeach
 	</table>
-		
-	<a href="{{ route('welcome') }}" title="Página Principal">Volver a Página Principal</a>
+	<div class="center">		
+		<a href="{{ route('welcome') }}" title="Página Principal">Volver a Página Principal</a>
+		<a href="{{ route('crear-ug0278') }}" title="Crear Registro">Crear Registro</a>
+	</div>	
 </body>
 </html>
