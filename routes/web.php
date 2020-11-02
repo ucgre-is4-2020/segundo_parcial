@@ -22,3 +22,7 @@ Route::get('/listado-coche', 'CochesController@index')->name('listado-ug0278');
 Route::get('/crear-coche', 'CochesController@create')->name('crear-ug0278');
 
 Route::post('/creacion-coche', 'CochesController@store')->name('creacion-ug0278');
+
+Route::get('/editar-coche/{id}', 'CochesController@edit')->name('editar-ug0278');
+
+Route::put('/edicion-coche/{id}', 'CochesController@update')->name('edicion-ug0278');

@@ -16,7 +16,7 @@
 			width: 120px;
 		}
 		tr {
-			height: 25px;	
+			height: 37px;	
 		}
 		th {
 			background-color: #68C5FB;
@@ -35,6 +35,7 @@
 		table {
 			margin: 0 auto;
 			border-collapse: collapse;
+			font-size: 15px;
 		}
 		h1 {
 			text-align: center;
@@ -64,6 +65,17 @@
 			transition: 0.5s;
 			letter-spacing: 1px;
 			box-shadow: 0px 0px 1px #00A2FF, 0px 0px 12px #00A2FF;	
+		}
+		.accion {
+			margin-top: 0px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			width: 95px;
+			height: 20px;
+		}
+		.accion:hover {
+			width: 95px;
+			transition: 0.3s;
 		}
 		.modal-contenido{
 			background-color: #3fdb88;
@@ -129,7 +141,7 @@
 			<th>Fecha Actualizado</th>
 		</tr>
 		
-		@foreach($coches as $uncoche)
+		@foreach($coches->sortBy('id') as $uncoche)
 		<tr>
 			<td>{{ $uncoche->id }}</td>
 			<td>{{ $uncoche->codigo }}</td>
@@ -142,6 +154,14 @@
 			<td>{{ $uncoche->chapa }}</td>
 			<td>{{ $uncoche->created_at }}</td>
 			<td>{{ $uncoche->updated_at }}</td>
+			<td><a class="accion" 
+				href="{{ route('editar-ug0278', ['id' => $uncoche->id]) }}"
+				title="Editar Registro">Editar</a>
+			</td>
+			<td><a class="accion" 
+				href="{{ route('editar-ug0278', ['id' => $uncoche->id]) }}"
+				title="Borrar Registro">Borrar</a>
+			</td>
 		</tr>
 		@endforeach
 	</table>

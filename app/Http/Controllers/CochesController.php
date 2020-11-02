@@ -60,7 +60,7 @@ class CochesController extends Controller
 		//Alertas
 		try {
         	$nuevoCoche->save();
-			session()->flash('exito', 'El registro fue guardado con exito');
+			session()->flash('exito', 'El registro fue guardado con éxito');
         	
         	return redirect()->route('listado-ug0278');
 		}catch (QueryException $e){
@@ -85,9 +85,9 @@ class CochesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(\App\Coche $id)
     {
-        //
+       return view('editar-ug0278', ['coche' => $id]);
     }
 
     /**
@@ -97,9 +97,34 @@ class CochesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, \App\Coche $id)
     {
-        //
+    	$codigo = $request->get('codigo');
+        //Validacion
+    	if($codigo != $id->codigo){
+    		//Si el codigo es igual al antiguo no se verifica
+    		//pero si es diferente, se debe verificar si no existe ese codigo en otro registro
+			$request->validate([
+				'codigo' => 'unique:App\Coche,codigo'
+			],
+			[
+				'unique' => 'Código ingresado ya existe en la Base de Datos. Intente con otro Código'
+			]);
+		}
+
+		//Alertas
+		try {
+			$id->codigo = $codigo;
+			$id->km_actual = $request->get('km_actual');
+			$id->activo = $request->get('estado');
+			$id->chapa = $request->get('chapa');
+        	$id->save();
+			session()->flash('exito', 'Los cambios fueron guardados con éxito');
+        	
+        	return redirect()->route('editar-ug0278', ['id' => $id->id]);
+		}catch (QueryException $e){
+			return redirect()->route('editar-ug0278', ['id' => $id->id])->withInput()->with('error', $e->errorInfo[2]);
+		}
     }
 
     /**
