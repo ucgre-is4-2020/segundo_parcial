@@ -9,8 +9,9 @@
 		}
 	</script>
 	<style type="text/css">
-		html {
+		html, body {
 			font-family: calibri;
+			margin: 0;
 		}
 		th {
 			width: 120px;
@@ -34,14 +35,21 @@
 		}
 		table {
 			margin: 0 auto;
+			margin-bottom: 100px;
 			border-collapse: collapse;
 			font-size: 15px;
 		}
 		h1 {
 			text-align: center;
 		}
+		.fondo {
+			background-color: #56747c;
+			position: fixed;
+			width: 100%;
+		    bottom: 0px;
+		}
 		.center {
-			margin: 0 auto;
+			margin: 15px auto;
 			width: 370px;
 		}
 		a:nth-child(1) {
@@ -65,6 +73,21 @@
 			transition: 0.5s;
 			letter-spacing: 1px;
 			box-shadow: 0px 0px 1px #00A2FF, 0px 0px 12px #00A2FF;	
+		}
+		.center a {
+			margin-top: 0px;
+		}
+		a.borrar:hover {
+			box-shadow: 0px 0px 1px #ff5555, 0px 0px 12px #ff5555;	
+		}
+		a.borrar {
+			background-color: #ff5555;
+		}
+		a.editar:hover {
+			box-shadow: 0px 0px 1px #f3ae3d, 0px 0px 12px #f3ae3d;	
+		}
+		a.editar {
+			background-color: #f3ae3d;
 		}
 		.accion {
 			margin-top: 0px;
@@ -128,6 +151,7 @@
 		  </div>  
 		</div>
 	@endif
+
 	<h1>Listado de Coches</h1>
 
 	<table>
@@ -139,6 +163,7 @@
 			<th>Chapa</th>
 			<th>Fecha Creado</th>
 			<th>Fecha Actualizado</th>
+			<th colspan="2">Acciones</th>
 		</tr>
 		
 		@foreach($coches->sortBy('id') as $uncoche)
@@ -154,20 +179,22 @@
 			<td>{{ $uncoche->chapa }}</td>
 			<td>{{ $uncoche->created_at }}</td>
 			<td>{{ $uncoche->updated_at }}</td>
-			<td><a class="accion" 
+			<td><a class="accion editar" 
 				href="{{ route('editar-ug0278', ['id' => $uncoche->id]) }}"
 				title="Editar Registro">Editar</a>
 			</td>
-			<td><a class="accion" 
-				href="{{ route('editar-ug0278', ['id' => $uncoche->id]) }}"
+			<td><a class="accion borrar" 
+				href="{{ route('confirmar-borrar-ug0278', ['id' => $uncoche->id]) }}"
 				title="Borrar Registro">Borrar</a>
 			</td>
 		</tr>
 		@endforeach
 	</table>
-	<div class="center">		
-		<a href="{{ route('welcome') }}" title="Página Principal">Volver a Página Principal</a>
-		<a href="{{ route('crear-ug0278') }}" title="Crear Registro">Crear Registro</a>
-	</div>	
+	<div class="fondo">
+		<div class="center">		
+			<a href="{{ route('welcome') }}" title="Página Principal">Volver a Página Principal</a>
+			<a href="{{ route('crear-ug0278') }}" title="Crear Registro">Crear Registro</a>
+		</div>	
+	</div>
 </body>
 </html>

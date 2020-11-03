@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Database\QueryException;
+use \Illuminate\Database\QueryException;
+use Exception;
 
 class CochesController extends Controller
 {
@@ -128,13 +129,31 @@ class CochesController extends Controller
     }
 
     /**
+     * Confirmacion de Borrado de Registro.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function confirm(\App\Coche $id)
+    {
+        return view('borrar-ug0278', ['coche' => $id]);
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(\App\Coche $id)
     {
-        //
+        try{
+            $id->delete();
+            session()->flash('exito', 'Registro Borrado con éxito');
+
+            return redirect()->route('listado-ug0278');
+        }catch (QueryException $e){
+            return redirect()->route('confirmar-borrar-ug0278', ['id' => $id->id])->with('error', $e->errorInfo[2]);
+        }
     }
 }

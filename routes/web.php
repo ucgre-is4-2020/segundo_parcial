@@ -26,3 +26,7 @@ Route::post('/creacion-coche', 'CochesController@store')->name('creacion-ug0278'
 Route::get('/editar-coche/{id}', 'CochesController@edit')->name('editar-ug0278');
 
 Route::put('/edicion-coche/{id}', 'CochesController@update')->name('edicion-ug0278');
+
+Route::get('/borrar-coche/{id}', 'CochesController@destroy')->name('borrar-ug0278');
+
+Route::get('/confirmar-borrar-coche/{id}', 'CochesController@confirm')->name('confirmar-borrar-ug0278');
