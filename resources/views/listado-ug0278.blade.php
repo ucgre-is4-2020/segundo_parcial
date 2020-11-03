@@ -52,10 +52,15 @@
 			margin: 15px auto;
 			width: 370px;
 		}
-		a:nth-child(1) {
+		td > a {
+			color: #006dab;
+			font-size: 16px;
+			font-weight: bold;
+		}
+		.center a:nth-child(1) {
 			margin-right: 5px;
 		}
-		a {
+		.center a, a.accion  {
 			background-color: #35B5FF;
 			display: inline-block;
 			font-family: calibri;
@@ -68,7 +73,7 @@
 			text-decoration: none;
 			margin-top: 30px;
 		}
-		a:hover {
+		.center a:hover,  a.accion:hover{
 			width: 190px;
 			transition: 0.5s;
 			letter-spacing: 1px;
@@ -89,14 +94,14 @@
 		a.editar {
 			background-color: #f3ae3d;
 		}
-		.accion {
+		a.accion {
 			margin-top: 0px;
 			padding-top: 5px;
 			padding-bottom: 5px;
 			width: 95px;
 			height: 20px;
 		}
-		.accion:hover {
+		a.accion:hover {
 			width: 95px;
 			transition: 0.3s;
 		}
@@ -168,7 +173,8 @@
 		
 		@foreach($coches->sortBy('id') as $uncoche)
 		<tr>
-			<td>{{ $uncoche->id }}</td>
+			<td><a href="{{ route('ver-ug0278', ['id' => $uncoche->id]) }}"
+			 title="Mostrar datos del Coche">{{ $uncoche->id }}</a></td>
 			<td>{{ $uncoche->codigo }}</td>
 			<td>{{number_format($uncoche->km_actual,0,',','.')}}</td>
 			@if ($uncoche->activo)

@@ -30,3 +30,5 @@ Route::put('/edicion-coche/{id}', 'CochesController@update')->name('edicion-ug02
 Route::get('/borrar-coche/{id}', 'CochesController@destroy')->name('borrar-ug0278');
 
 Route::get('/confirmar-borrar-coche/{id}', 'CochesController@confirm')->name('confirmar-borrar-ug0278');
+
+Route::get('/ver-coche/{id}', 'CochesController@show')->name('ver-ug0278');
