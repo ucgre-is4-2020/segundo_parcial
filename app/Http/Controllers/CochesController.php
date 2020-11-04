@@ -13,9 +13,25 @@ class CochesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-    	$coches = \App\Coche::get();
+        if(empty($request->query())){
+        	$coches = \App\Coche::get();
+        }else {
+            //Filtrado por campo Codigo de la tabla
+            $cod = $request->get('buscar');
+            if(!empty($cod)){
+                $coches = \DB::table('coche')
+                                ->whereRaw('upper(codigo) like \'%'.strtoupper($cod).'%\'')
+                                ->get();
+            }else {
+                $coches = \App\Coche::get();
+            }
+            return view('listado-ug0278', 
+                ['coches' => $coches, 'busqueda' => $cod]
+            );
+        }
+
         return view('listado-ug0278', 
         	['coches' => $coches]
         );

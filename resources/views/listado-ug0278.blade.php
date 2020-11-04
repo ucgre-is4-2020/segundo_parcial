@@ -32,6 +32,12 @@
 		td {
 			text-align: center;
 			font-family: calibri;
+			width: 120px;
+			height: 35px;
+		}
+		td:nth-child(9), td:nth-child(8) {
+			width: 100px;
+			height: 35px;	
 		}
 		table {
 			margin: 0 auto;
@@ -50,9 +56,22 @@
 		}
 		.center {
 			margin: 15px auto;
-			width: 370px;
+			width: 1050px;
 		}
-		td > a {
+		.buscar {
+			margin-left: 250px;
+			border: none;
+			border-radius: 6px;
+			height: 30px;
+			width: 240px;
+			padding-left: 10px;
+		}
+		.buscar:focus {
+			outline: none;
+			border: border: 1px solid #35B5FF;
+			box-shadow: 0px 0px 7px white;
+		}
+		tr td:nth-child(1) a {
 			color: #006dab;
 			font-size: 16px;
 			font-weight: bold;
@@ -60,7 +79,7 @@
 		.center a:nth-child(1) {
 			margin-right: 5px;
 		}
-		.center a, a.accion  {
+		.center a, a.accion, .btn-buscar {
 			background-color: #35B5FF;
 			display: inline-block;
 			font-family: calibri;
@@ -73,11 +92,14 @@
 			text-decoration: none;
 			margin-top: 30px;
 		}
-		.center a:hover,  a.accion:hover{
-			width: 190px;
+		.center a:hover,  a.accion:hover, .btn-buscar:hover{
 			transition: 0.5s;
 			letter-spacing: 1px;
 			box-shadow: 0px 0px 1px #00A2FF, 0px 0px 12px #00A2FF;	
+		}
+		.btn-buscar:focus {
+			outline: none;
+			border: 1px solid white;
 		}
 		.center a {
 			margin-top: 0px;
@@ -144,6 +166,22 @@
 			opacity:1;
 			pointer-events:auto;
 		}
+		form {
+			display: inline-block;
+		}
+		.btn-buscar {
+			width: 90px !important;
+			font-size: 14px;
+			padding: 0px;
+			border: none;
+			cursor: pointer;
+			margin-top: 0px;
+		}
+		a.btn-buscar {
+			height: 22px !important;
+			padding-top: 6px;
+    		padding-bottom: 2px;
+		}
 	</style>
 
 </head>
@@ -198,8 +236,17 @@
 	</table>
 	<div class="fondo">
 		<div class="center">		
-			<a href="{{ route('welcome') }}" title="Página Principal">Volver a Página Principal</a>
+		
+			<a href="{{ route('welcome') }}" title="Página Principal">Página Principal</a>
 			<a href="{{ route('crear-ug0278') }}" title="Crear Registro">Crear Registro</a>
+			
+			<form action="/listado-coche" method="GET">
+				<input class="buscar" id="buscar" name="buscar" type="text" 
+				placeholder="Buscar por código..." value="{{ empty($busqueda)?'':$busqueda }}">
+				<button class="btn-buscar" type="submit">Buscar</button>
+				<a href="{{ route('listado-ug0278') }}" class="btn-buscar" >Limpiar</a>
+			</form>
+
 		</div>	
 	</div>
 </body>
