@@ -82,8 +82,6 @@
                     <!-- Agregar los enlaces a cada pagina aqui -->
                     <a href="{{ route('listado-ug0278') }}"
                        title="Listado de Coches">Listado de Coches</a>
-                   <a href="{{ route('crear-ug0278') }}"
-                       title="Crear Registro">Crear Registro de Coche</a>
                 </div>
             </div>
         </div>
