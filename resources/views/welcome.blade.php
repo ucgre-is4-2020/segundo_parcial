@@ -68,7 +68,7 @@
 
             <div class="top-right links">
                 <ul>
-                    <li>Nombre - Apellido - Matricula aqui</li>
+                    <li>Dennis Rafael - Noguera Mongelos - ug0307</li>
                 </ul>
             </div>
 
@@ -78,9 +78,12 @@
                     Laravel
                 </div>
                 Enlaces:
+                <br>
+                <br>
                 <div class="links">
                     <!-- Agregar los enlaces a cada pagina aqui -->
-
+                    <a href="{{route('listar-ug0307')}}">Listar Departamentos</a>
+                        
                 </div>
             </div>
         </div>
