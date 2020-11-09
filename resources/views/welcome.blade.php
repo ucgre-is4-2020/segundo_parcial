@@ -68,7 +68,7 @@
 
             <div class="top-right links">
                 <ul>
-                    <li>Nombre - Apellido - Matricula aqui</li>
+                    <li>Higinio Raúl Bordón Martínez - UG0282 - raulbordon94@gmail.com</li>
                 </ul>
             </div>
 
@@ -79,8 +79,8 @@
                 </div>
                 Enlaces:
                 <div class="links">
-                    <!-- Agregar los enlaces a cada pagina aqui -->
-
+                    <a href=listado_tubo_estado>Listado UG0282 tubo_estado</a>
+                    
                 </div>
             </div>
         </div>
