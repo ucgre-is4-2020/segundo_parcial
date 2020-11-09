@@ -82,7 +82,7 @@
                             <td>{{ $compuesto->nombre }}</td>
                             <td>{{ $compuesto->estado }}</td>
                             <td>{{ $compuesto->created_at }}</td>
-                            <td>{{ $compuesto->update_at }}</td>
+                            <td>{{ $compuesto->updated_at }}</td>
                         </tr>
                     </table><br>
 					

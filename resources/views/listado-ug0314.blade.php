@@ -37,7 +37,7 @@
 
             #formulario{
 					
-					width: 480px;
+					width: 680px;
 					margin: auto;
 					padding: 6px;
 
@@ -81,6 +81,8 @@
 							<td>Nombre</td>
 							<td>Codigo</td>
 							<td>Estado</td>
+							<td>Fecha de creación</td>
+							<td>Fecha de modificación</td>
 							<td>Acciones</td>
 
 						</tr>
@@ -90,6 +92,9 @@
 							<td>{{ $unCompuesto->nombre }} </td>
 							<td>{{ $unCompuesto->codigo }}</td>
 							<td>{{ $unCompuesto->estado }} </td>
+							<td>{{ $unCompuesto->created_at }}</td>
+							<td>{{ $unCompuesto->updated_at }} </td>
+
 							<td><a href="{{ route ('borrar-ug0314', ['id' => $unCompuesto->id]) }}" onclick="return confirm('¿Está seguro de borrar este registro?')">Borrar</a>
 								<a href="{{ route ('ver-ug0314', ['id' => $unCompuesto->id]) }}">Ver</a>
 								<a href="{{ route ('editar-ug0314', ['id' => $unCompuesto->id]) }}">Editar</a><br></td>

@@ -132,16 +132,16 @@ class ContenidoController extends Controller
         //validador
         $validatedData = $request->validate(
             [
-                'codigo' => 'required|max:8|unique:contenido,codigo',
+                
                 'nombre' => 'required|max:40',
                 'estado' =>''
             ],
             [
-                'codigo.required' => 'El campo codigo es obligatorio',
+                
                 'nombre.required' => 'El campo nombre es obligatorio',
-                'codigo.max' => 'El codigo no puede tener más de 8 caracteres',
+                
                 'nombre.max' => 'El nombre no puede tener más de 40 caracteres',
-                'codigo.unique' => 'El codigo ya existe'
+               
 
             ]
 
@@ -149,11 +149,11 @@ class ContenidoController extends Controller
         //
         
         $nombre = $request->get('nombre');
-        $codigo = $request->get('codigo');
+        
         $estado = $request->get('estado');
 
         $id->nombre = $nombre;
-        $id->codigo = $codigo;
+       
         $id->estado = $estado;
         
         $id->save();
