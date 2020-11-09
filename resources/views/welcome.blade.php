@@ -68,7 +68,8 @@
 
             <div class="top-right links">
                 <ul>
-                    <li>Nombre - Apellido - Matricula aqui</li>
+                    <li>Luis Felipe- Samaniego Mora- ug0314</li>
+                    <li>luissamaniegobusiness@gmail.com</li>
                 </ul>
             </div>
 
@@ -80,6 +81,8 @@
                 Enlaces:
                 <div class="links">
                     <!-- Agregar los enlaces a cada pagina aqui -->
+                    <a href="{{route('listado-ug0314')}}">Compuestos</a>
+
 
                 </div>
             </div>
