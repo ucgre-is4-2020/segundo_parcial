@@ -67,7 +67,8 @@ class ColorController extends Controller
         $nuevocolor->activo= $activo;
         $nuevocolor->codigo= $codigo;
         $nuevocolor->save();
-        return view("Listado-Ug0093");
+        //return view("Listado-Ug0093");
+        return redirect('/Listado-Color');
     }
 
     /**
