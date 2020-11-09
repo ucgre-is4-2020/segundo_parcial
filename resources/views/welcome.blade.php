@@ -68,8 +68,9 @@
 
             <div class="top-right links">
                 <ul>
-                    <li>Nombre - Apellido - Matricula aqui</li>
+                    <li>Dahiana - Taboada - UG0317 - dahiiataboada@gmail.com</li>
                 </ul>
+                 
             </div>
 
 
@@ -79,7 +80,9 @@
                 </div>
                 Enlaces:
                 <div class="links">
-                    <!-- Agregar los enlaces a cada pagina aqui -->
+                     <a href="{{ route('listado-ug0317') }}">Listados de Registros</a>
+
+                     <a href="{{ route('crear-ug0317') }}">Crear Registros</a>
 
                 </div>
             </div>
