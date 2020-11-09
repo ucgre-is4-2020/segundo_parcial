@@ -68,19 +68,22 @@
 
             <div class="top-right links">
                 <ul>
-                    <li>Nombre - Apellido - Matricula aqui</li>
+                    <li>Justo Miguel Ojeda Rojas - UG0093</li>
+                    <li>just.ojeda1997@gmail.com</li>
+                    <li>0984-648-576</li>
                 </ul>
             </div>
 
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="title m-b-md" style="color: #FF0000">
+                    Colores
                 </div>
                 Enlaces:
                 <div class="links">
                     <!-- Agregar los enlaces a cada pagina aqui -->
-
+                    <a href="{{ route ('Listado-Ug0093') }}">Listado-Ug0093</a>
+                    <a href="{{ route ('Crear-Ug0093') }}">Crear-Ug0093</a>
                 </div>
             </div>
         </div>
