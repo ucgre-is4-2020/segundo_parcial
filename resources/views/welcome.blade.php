@@ -11,9 +11,10 @@
 
         <!-- Styles -->
         <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
+            html, body {   
+                
+			
+                color: black;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -36,8 +37,8 @@
 
             .top-right {
                 position: absolute;
-                right: 10px;
-                top: 18px;
+                align: center;
+                top: 518px;
             }
 
             .content {
@@ -45,11 +46,11 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 100px;
             }
 
             .links > a {
-                color: #636b6f;
+                color: blue;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -68,7 +69,7 @@
 
             <div class="top-right links">
                 <ul>
-                    <li>Nombre - Apellido - Matricula aqui</li>
+                    <li>Carlos Dario - Gonzalez Veron - UG0299 - CVeron20@gmail.com</li>
                 </ul>
             </div>
 
@@ -77,12 +78,9 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-                Enlaces:
-                <div class="links">
-                    <!-- Agregar los enlaces a cada pagina aqui -->
-
-                </div>
-            </div>
+               <a href="{{ route('listado-ug0299') }}" title="Listado de Empresas"><img src="../resources/imagenes/listado.png" height= "50px" width= "50px"></a>
+           
+		   </div>
         </div>
     </body>
 </html>
