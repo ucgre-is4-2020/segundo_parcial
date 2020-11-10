@@ -15,11 +15,12 @@ class ControllerEmpresa extends Controller
      */
     public function index(Request $request)
     {
+
         if(empty($request->query())){
         	$empresatipo = \App\Empresa::get();
         }else {
             //Filtrado por campo Codigo de la tabla
-            $cod = $request->get('buscar');
+            $nom = $request->get('buscar');
             if(!empty($cod)){
                 $empresatipo = \DB::table('Empresa')
                                 ->whereRaw('upper(nombre) like \'%'.strtoupper($nom).'%\'')

@@ -4,47 +4,11 @@
 	<title>Datos del Registro</title>
 	<meta charset="utf-8">
 	<style type="text/css">
-		html {
-			font-family: calibri;
-		}
-		h1 {
-			text-align: center;
-		}
-		table {
-			margin: 0 auto;
-			width: 500px;
-		}
-		tr {
-			height: 45px;
-			width: 350px;
-		}
-		td:nth-child(odd) {
-			text-align: right;
-		}
-		input {
-			margin-left: 40px;
-	
-			border-radius: 3px;
-			height: 18px;
-		}
-		input:focus {
-			outline: none;
-			
-			box-shadow: 0px 0px 2px #00A2FF;
-		}
-		input[type="number"] {
-			width: 166px;
-		}
 		
-		.center {
-			margin: 0 auto;
-			width: 170px;
-    		display: block;
-		}
 	</style>
 </head>
 <body>
-	<h1>Visualización de Registro </h1>
+	<h1>Datos del Registro </h1>
 	<table>
 		<tr>
 			<td>

@@ -28,102 +28,8 @@
 		}
 	</script>
 	<style type="text/css">
-		html {
-			font-family: calibri;
-		}
-		h1 {
-			text-align: center;
-		}
-		table {
-			margin: 0 auto;
-			width: 500px;
-		}
-		tr {
-			height: 45px;
-			width: 350px;
-		}
-		td:nth-child(odd) {
-			text-align: right;
-		}
-		input, select {
-			margin-left: 40px;
-			border-radius: 3px;
-		}
-		input {
-			height: 18px;
-		}
-	
-		select {
-			width: 176px;
-			height: 23px;
-		}
-		input[type="number"] {
-			width: 166px;
-
-		}
-		input[type="submit"] {
-			font-size: 16px;
-		    height: 39px !important;
-		    padding-bottom: 10px;
-		    margin-right: 20px !important;
-		    box-shadow: none !important;
-		}
-		a, input[type="submit"] {
-			border: none;
-			display: inline-block;
-			font-family: calibri;
-			text-align: center;
-			color: white;
-			width: 170px;
-			height: 30px;
-			border-radius: 5px;
-			padding-top: 10px;
-			text-decoration: none;
-			margin-top: 30px;
-			margin: 0 auto;
-		}
 		
-		.center {
-			margin: 0 auto;
-			width: 390px;
-		}
-		.modal-contenido{
 		
-		    color: white;
-			width:300px;
-			min-height: 200px;
-			height: auto;
-			padding: 10px 20px;
-			margin: 16% auto;
-			position: relative;
-		}
-		.modal-contenido button {
-			border: 1px solid white;
-		    border-radius: 2px;
-		    color: white;
-    		margin-top: 10px;
-		}
-		
-		.modal-contenido h1, p {
-			text-align: center;
-		}
-		.modal-contenido p {
-		    max-height: 260px;
-			overflow-y: auto;
-		}
-		.modal{
-		
-			position:fixed;
-			top:0;
-			right:0;
-			bottom:0;
-			left:0;
-			transition: all 1s;
-		}
-		#miModal:target{
-			opacity:1;
-			pointer-events:auto;
-		}
 	</style>
 </head>
 
@@ -196,17 +102,17 @@
 				<td>
 					<input type="{!! $Empresa->updated_at?'date-time':'text' !!}"
 					name="fec_update" id="fec_update"
-					value="{!! $Empresa->updated_at?$coche->updated_at:'Sin datos' !!}"
+					value="{!! $Empresa->updated_at?$Empresa->updated_at:'Sin datos' !!}"
 					title="Fecha de Actualización" disabled>
 				</td>
 			</tr>
 		</table>
 
-		<div class="center">
-			<button  type="submit" title="Crear Registro"><img src="../resources/imagenes/crearregistro.png" height= "50px" width= "50px"></button>
-			 <a href="{{ route('listado-ug0299') }}" title="Listado de Empresas"><img src="../resources/imagenes/listado.png" height= "50px" width= "50px"></a>
+		
+			<button  type="submit" title="Editar Registro">Editar</button>
+			 <a href="{{ route('listado-ug0299') }}" title="Listado de Empresas">Listado Empresa</a>
            
-		</div>
+		
 	</form>
 
 	@if($errors->any()) 
