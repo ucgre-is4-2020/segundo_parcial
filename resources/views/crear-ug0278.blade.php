@@ -122,6 +122,12 @@
 			opacity:1;
 			pointer-events:auto;
 		}
+		td.msg {
+			text-align: center;
+		    color: #b81111;
+		    background-color: #ffabab;
+		    border-radius: 7px;
+		}
 	</style>
 </head>
 <body>
@@ -134,37 +140,40 @@
 					<label for="codigo">Código</label>
 				</td>
 				<td>
-					<input type="text" name="codigo" id="codigo" title="Ingrese minimo 1 caracter y máximo 10" pattern="[A-Za-z0-9]{1,10}" required="required"
-					value="{{ old('codigo') }}">
+					<input type="text" name="codigo" id="codigo" title="Ingrese minimo 1 caracter y máximo 10" value="{{ old('codigo') }}">
 				</td>
 			</tr>
+			{!! $errors->first('codigo','<tr><td class="msg" colspan="2">:message</td></tr>') !!}
 			<tr>
 				<td>
 					<label for="km_actual">Kilometraje Actual</label>
 				</td>
 				<td>
-					<input type="number" name="km_actual" id="km_actual" min=0 required="required" value="{{ old('km_actual') }}" title="Ingrese un valor. Minimo 0 km.">
+					<input type="number" name="km_actual" id="km_actual" value="{{ old('km_actual') }}" title="Ingrese un valor. Minimo 0 km.">
 				</td>
 			</tr>
+			{!! $errors->first('km_actual','<tr><td class="msg" colspan="2">:message</td></tr>') !!}
 			<tr>
 				<td>
 					<label for="estado">Estado</label>						
 				</td>
 				<td>
 					<select id="estado" name="estado">
-						<option <?= old('estado')=="true"?"selected":"" ?> value="true">Activo</option>
-						<option <?= old('estado')=="false"?"selected":"" ?> value="false">Inactivo</option>
+						<option <?= old('estado')=="1"?"selected":"" ?> value="1">Activo</option>
+						<option <?= old('estado')=="0"?"selected":"" ?> value="0">Inactivo</option>
 					</select>
 				</td>
 			</tr>
+			{!! $errors->first('estado','<tr><td class="msg" colspan="2">:message</td></tr>') !!}
 			<tr>
 				<td>
 					<label for="chapa">Número de Chapa</label>
 				</td>
 				<td>
-					<input type="text" pattern="[A-Za-z0-9]{1,12}" name="chapa" id="chapa"  required="required" value="{{ old('chapa') }}" title="Ingrese un valor. Minimo 1 y máximo 12 caracteres">
+					<input type="text" name="chapa" id="chapa" value="{{ old('chapa') }}" title="Ingrese un valor. Minimo 1 y máximo 12 caracteres">
 				</td>
 			</tr>
+			{!! $errors->first('chapa','<tr><td class="msg" colspan="2">:message</td></tr>') !!}
 		</table>
 
 		<div class="center">
@@ -174,17 +183,7 @@
 		</div>
 	</form>
 
-	@if($errors->any()) 
-		<div id="miModal" onclick="cerrar()" class="modal">
-		  <div class="modal-contenido">
-		    <button onclick="cerrar()">X</button>
-		    @foreach($errors->all() as $error)
-		    	<h1>Error :(</h1>
-		    	<p>{{ $error }}</p>
-	    	@endforeach
-		  </div>  
-		</div>
-	@elseif(session('error'))
+	@if(session('error'))
 		<div id="miModal" onclick="cerrar()" class="modal">
 		  <div class="modal-contenido">
 		    <button onclick="cerrar()">X</button>

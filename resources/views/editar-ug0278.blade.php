@@ -162,6 +162,12 @@
 			opacity:1;
 			pointer-events:auto;
 		}
+		td.msg {
+			text-align: center;
+		    color: #b81111;
+		    background-color: #ffabab;
+		    border-radius: 7px;
+		}
 	</style>
 </head>
 <body>
@@ -184,23 +190,25 @@
 					<label for="codigo">Código</label>
 				</td>
 				<td>
-					<input type="text" name="codigo" id="codigo" title="Ingrese minimo 1 caracter y máximo 10" pattern="[A-Za-z0-9]{1,10}" required="required"
+					<input type="text" name="codigo" id="codigo" title="Ingrese minimo 1 caracter y máximo 10"
 					value="{{ empty(old('codigo'))?$coche->codigo:old('codigo') }}" onchange="habilitarBoton('{{ $coche }}')"
 					onkeyup="habilitarBoton('{{ $coche }}')">
 				</td>
 			</tr>
+			{!! $errors->first('codigo','<tr><td class="msg" colspan="2">:message</td></tr>') !!}
 			<tr>
 				<td>
 					<label for="km_actual">Kilometraje Actual</label>
 				</td>
 				<td>
-					<input type="number" name="km_actual" id="km_actual" min=0 required="required"
+					<input type="number" name="km_actual" id="km_actual"
 					value="{{ empty(old('km_actual'))?$coche->km_actual:old('km_actual') }}"
 					title="Ingrese un valor. Minimo 0 km."
 					onchange="habilitarBoton('{{ $coche }}')"
 					onkeyup="habilitarBoton('{{ $coche }}')">
 				</td>
 			</tr>
+			{!! $errors->first('km_actual','<tr><td class="msg" colspan="2">:message</td></tr>') !!}
 			<tr>
 				<td>
 					<label for="estado">Estado</label>						
@@ -209,34 +217,35 @@
 					<select id="estado" name="estado" onchange="habilitarBoton('{{ $coche }}')">
 						<option 
 						<?= (
-								empty(old('estado'))?
+								(old('estado')==null)?
 								($coche->activo ==1?"selected":""):
-								(old('estado')=="true"?"selected":"")
+								(old('estado')=="1"?"selected":"")
 							 )?>
-						 value="true">Activo</option>
+						 value="1">Activo</option>
 						<option
 						<?= (
-								empty(old('estado'))?
+								(old('estado')==null)?
 								($coche->activo ==0?"selected":"" ):
-								(old('estado')=="false"?"selected":"")
+								(old('estado')=="0"?"selected":"")
 							)?>
-							 value="false">Inactivo</option>
+							 value="0">Inactivo</option>
 					</select>
 				</td>
 			</tr>
+			{!! $errors->first('estado','<tr><td class="msg" colspan="2">:message</td></tr>') !!}
 			<tr>
 				<td>
 					<label for="chapa">Número de Chapa</label>
 				</td>
 				<td>
-					<input type="text" pattern="[A-Za-z0-9]{1,12}" name="chapa" id="chapa"
-					 required="required"
+					<input type="text" name="chapa" id="chapa"
 					 value="{{ empty(old('chapa'))?$coche->chapa:old('chapa') }}"
 					 title="Ingrese un valor. Minimo 1 y máximo 12 caracteres"
 					 onchange="habilitarBoton('{{ $coche }}')"
 					 onkeyup="habilitarBoton('{{ $coche }}')">
 				</td>
 			</tr>
+			{!! $errors->first('chapa','<tr><td class="msg" colspan="2">:message</td></tr>') !!}
 			<tr>
 				<td>
 					<label for="fec_create">Fecha de Creación</label>
@@ -268,17 +277,7 @@
 		</div>
 	</form>
 
-	@if($errors->any()) 
-		<div id="miModal" onclick="cerrar()" class="modal">
-		  <div class="modal-contenido">
-		    <button onclick="cerrar()">X</button>
-		    @foreach($errors->all() as $error)
-		    	<h1>Error :(</h1>
-		    	<p>{{ $error }}</p>
-	    	@endforeach
-		  </div>  
-		</div>
-	@elseif(session('error'))
+	@if(session('error'))
 		<div id="miModal" onclick="cerrar()" class="modal">
 		  <div class="modal-contenido">
 		    <button onclick="cerrar()">X</button>

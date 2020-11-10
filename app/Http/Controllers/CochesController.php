@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \Illuminate\Database\QueryException;
+use \Illuminate\Validation\Rule;
 use Exception;
 
 class CochesController extends Controller
@@ -57,7 +58,7 @@ class CochesController extends Controller
     {
         $codigo = $request->input('codigo');
         $km_actual = intval($request->input('km_actual'));
-        $estado = $request->input('estado') === 'true'? true: false;
+        $estado = $request->input('estado') == '1'? true: false;
         $chapa = strtoupper($request->input('chapa'));
 
         $nuevoCoche = new \App\Coche();
@@ -68,11 +69,35 @@ class CochesController extends Controller
 		
 		//Validacion
 		$request->validate([
-			'codigo' => 'unique:App\Coche,codigo'
-		],
-		[
-			'unique' => 'Código ingresado ya existe en la Base de Datos. Intente con otro Código'
-		]);
+            //required, unique, alfa numerico, min=1, max=10 
+            'codigo' => 'required|unique:\App\Coche,codigo|alpha_num|min:1|max:10',
+            //required, number, min=0
+            'km_actual' => 'required|numeric|min:0',
+            //required, boolean
+            'estado' => 'required|boolean',
+            //required, alfa numerico, min=1, max=12
+            'chapa' => 'required|alpha_num|min:1|max:12'
+        ],
+        [
+            //codigo
+            'codigo.required' => 'El Código es requerido. Debe ingresar algún valor',
+            'codigo.unique' => 'El Código ingresado ya existe en la Base de Datos. Intente con otro Código',
+            'codigo.alpha_num' => 'El Código ingresado es inválido. Debe ingresar solo números y/o letras',
+            'codigo.min' => 'El Código es muy corto. Debe ser como minimo 1 caracter',
+            'codigo.max' => 'El Código es muy largo. No debe exceder 10 caracteres',
+            //kilometraje
+            'km_actual.required' => 'El Kilometraje es requerido. Debe ingresar algún valor',
+            'km_actual.numeric' => 'El Kilometraje ingresado es inválido. Debe ingresar un valor numérico',
+            'km_actual.min' => 'El valor de Kilometraje es inválido. Debe ingresar un valor mayor o igual a 0 (cero)',
+            //Estado
+            'estado.required' => 'El Estado es requerido. Debe ingresar algún valor',
+            'estado.boolean' => 'El Estado es inválido. Debe ingresar 1 (Activo) o 0 (Inactivo)',
+            //Chapa
+            'chapa.required' => 'El número de Chapa es requerido. Debe ingresar algún valor ',
+            'chapa.alpha_num' => 'El número de Chapa es inválido. Debe ingresar solo números y/o letras ',
+            'chapa.min' => 'El número de Chapa es muy corto. Debe ser como mínimo 1 caracter',
+            'chapa.max' => 'El número de Chapa es muy largo. No debe exceder 12 caracteres',
+        ]);
 
 		//Alertas
 		try {
@@ -116,24 +141,49 @@ class CochesController extends Controller
      */
     public function update(Request $request, \App\Coche $id)
     {
-    	$codigo = $request->get('codigo');
         //Validacion
-    	if($codigo != $id->codigo){
-    		//Si el codigo es igual al antiguo no se verifica
-    		//pero si es diferente, se debe verificar si no existe ese codigo en otro registro
-			$request->validate([
-				'codigo' => 'unique:App\Coche,codigo'
-			],
-			[
-				'unique' => 'Código ingresado ya existe en la Base de Datos. Intente con otro Código'
-			]);
-		}
+    	$request->validate([
+            //required, unique, alfa numerico, min=1, max=10 
+            'codigo' => [
+                            'required',
+                             Rule::unique('coche')->ignore($id->id),
+                            'alpha_num',
+                            'min:1', 
+                            'max:10'
+                        ],
+            //required, number, min=0
+            'km_actual' => 'required|numeric|min:0',
+            //required, boolean
+            'estado' => 'required|boolean',
+            //required, alfa numerico, min=1, max=12
+            'chapa' => 'required|alpha_num|min:1|max:12'
+        ],
+        [
+            //codigo
+            'codigo.required' => 'El Código es requerido. Debe ingresar algún valor',
+            'codigo.alpha_num' => 'El Código ingresado es inválido. Debe ingresar solo números y/o letras',
+            'codigo.min' => 'El Código es muy corto. Debe ser como minimo 1 caracter',
+            'codigo.max' => 'El Código es muy largo. No debe exceder 10 caracteres',
+            'codigo.unique' => 'Código ingresado ya existe en la Base de Datos. Intente con otro Código',
+            //kilometraje
+            'km_actual.required' => 'El Kilometraje es requerido. Debe ingresar algún valor',
+            'km_actual.numeric' => 'El Kilometraje ingresado es inválido. Debe ingresar un valor numérico',
+            'km_actual.min' => 'El valor de Kilometraje es inválido. Debe ingresar un valor mayor o igual a 0 (cero)',
+            //Estado
+            'estado.required' => 'El Estado es requerido. Debe ingresar algún valor',
+            'estado.boolean' => 'El Estado es inválido. Debe ingresar 1 (Activo) o 0 (Inactivo)',
+            //Chapa
+            'chapa.required' => 'El número de Chapa es requerido. Debe ingresar algún valor ',
+            'chapa.alpha_num' => 'El número de Chapa es inválido. Debe ingresar solo números y/o letras ',
+            'chapa.min' => 'El número de Chapa es muy corto. Debe ser como mínimo 1 caracter',
+            'chapa.max' => 'El número de Chapa es muy largo. No debe exceder 12 caracteres',
+        ]);
 
 		//Alertas
 		try {
-			$id->codigo = $codigo;
+			$id->codigo = $request->get('codigo');
 			$id->km_actual = $request->get('km_actual');
-			$id->activo = $request->get('estado');
+			$id->activo = $request->input('estado') == '1'? true: false;
 			$id->chapa = $request->get('chapa');
         	$id->save();
 			session()->flash('exito', 'Los cambios fueron guardados con éxito');
