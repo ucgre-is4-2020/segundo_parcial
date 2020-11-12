@@ -1,0 +1,100 @@
+<?php
+
+namespace App\Http\Controllers;
+use App\Factura;
+use Illuminate\Http\Request;
+
+class factura_tipoController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Contracts\Views\Factory\Illuminate\Views\Views
+     */
+    public function index()
+    {
+        //
+            $facturas = Factura::get();
+            return view('listado-ug0287',
+            ['misFacturas' => $facturas]
+
+            );
+    }
+
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Contracts\Views\Factory\Illuminate\Views\Views
+     */
+    public function create()
+    {
+        return view('crear-ug0287');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+          $codigo = $request->input('codigo');
+          $nombre = $request->input('nombre');
+
+          $nuevaFactura= newFactura();
+          $nuevaFactura->codigo = $codigo;
+          $nuevaFactura->nombre = $nombre;
+          $nuevaFactura->save();
+          return view('crear-ug0287');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Factura $id)
+    {
+        return view("editar-ug0287", ['$factura ->id ']);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Producto $id)
+    {
+        $requets = requets();
+        $id->delete();
+        $requets->session->flash('mensaje', "Registro Borrado $id->nombre ");
+        return view("editar-ug0287", ['$factura ->id ']);
+    }
+}

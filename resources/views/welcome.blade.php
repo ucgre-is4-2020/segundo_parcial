@@ -68,18 +68,19 @@
 
             <div class="top-right links">
                 <ul>
-                    <li>Nombre - Apellido - Matricula aqui</li>
+                    <li>Sinthia Raquel Cristaldo Gill - UG0287 - sinthiacristaldo11@gmail.com </li>
                 </ul>
             </div>
 
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
-                Enlaces:
-                <div class="links">
+                   // Laravel //
+
                     <!-- Agregar los enlaces a cada pagina aqui -->
+                    <a href="{{ route('listado-ug0287') }}">Facturas -</a>
+
+
 
                 </div>
             </div>
