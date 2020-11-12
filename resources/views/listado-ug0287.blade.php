@@ -9,9 +9,11 @@
     @foreach($misFacturas as $unaFactura)
         <li>
             <a href="{{route('editar-ug0287',['id' =>$unaFactura->id])}}">EditarFactura</a>
-            <a href="{{route('borrar-ug0287',['id' => $unaFactura->id])}}">BorrarFactura</a>
+            
 
-                {{$unaFactura->nombre}} - {{ $unaFactura->codigo}}
+            <a href="{{ route ('borrar-ug0287', ['id' => $unaFactura->id]) }}" onclick="return confirm('¿Está seguro de borrar este registro?')">BorrarFactura</a>
+
+             {{$unaFactura->nombre}} - {{ $unaFactura->codigo}}
         </li>
     @endforeach
 </ul>

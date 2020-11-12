@@ -22,7 +22,7 @@ Route::get('/listado-adm_factura_tipo', 'factura_tipoController@index')->name('l
 
 Route::get('/listado-adm_factura_tipo/crear-adm_factura_tipo', 'factura_tipoController@create')->name('crear-ug0287');
 
-Route::get('/listado-adm_factura_tipo/creacion-adm_factura_tipo', 'factura_tipoController@store')->name('creacion-ug0287');
+Route::post('/listado-adm_factura_tipo/creacion-adm_factura_tipo', 'factura_tipoController@store')->name('creacion-ug0287');
 
 Route::get('/listado-adm_factura_tipo/borrar-adm_factura_tipo/{id}', 'factura_tipoController@destroy')->name('borrar-ug0287');
 

@@ -43,7 +43,7 @@ class factura_tipoController extends Controller
           $codigo = $request->input('codigo');
           $nombre = $request->input('nombre');
 
-          $nuevaFactura= newFactura();
+          $nuevaFactura= new Factura();
           $nuevaFactura->codigo = $codigo;
           $nuevaFactura->nombre = $nombre;
           $nuevaFactura->save();
@@ -90,11 +90,13 @@ class factura_tipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Producto $id)
+    public function destroy(Factura $id)
     {
-        $requets = requets();
+        $request = request();
         $id->delete();
         $requets->session->flash('mensaje', "Registro Borrado $id->nombre ");
-        return view("editar-ug0287", ['$factura ->id ']);
+
+         return redirect('/listado-adm_factura_tipo');
+        
     }
 }
