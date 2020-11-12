@@ -31,6 +31,6 @@ Route::get('/listado-adm_factura_tipo/ver-adm_factura_tipo/{id}', 'factura_tipoC
 
 Route::get('/listado-adm_factura_tipo/editar-adm_factura_tipo/{id}', 'factura_tipoController@edit')->name('editar-ug0287');
 
-Route::get('/listado-adm_factura_tipo/edicion-adm_factura_tipo/{id}', 'factura_tipoController@update')->name('edicion-ug0287');
+Route::put('/listado-adm_factura_tipo/edicion-adm_factura_tipo/{id}', 'factura_tipoController@update')->name('edicion-ug0287');
 
 

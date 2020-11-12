@@ -2,7 +2,10 @@
 
 <h1> Editar Factura </h1>
 
-<form action="/ug0287/creacion" method="post">
+<form action="{{ route('edicion-ug0287', ['id' => $factura->id]) }}" method="POST">
+
+	@method('PUT')
+
     @csrf
     <input type="hidden" name="id" value="{{$factura ->id}}"><br>
     <label>Nombre</label> <input name="nombre"value="{{$factura ->nombre}}"><br>
@@ -12,4 +15,3 @@
 
 <a href="{{ route('listado-ug0287') }}">Volver al listado </a>
 
-s

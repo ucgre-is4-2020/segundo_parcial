@@ -56,9 +56,9 @@ class factura_tipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Factura $id)
     {
-
+        return view('ver-ug0287', ['factura'=>$id]);
     }
 
     /**
@@ -69,7 +69,7 @@ class factura_tipoController extends Controller
      */
     public function edit(Factura $id)
     {
-        return view("editar-ug0287", ['$factura ->id ']);
+        return view("editar-ug0287", ['factura' =>$id ]);
     }
 
     /**
@@ -79,9 +79,22 @@ class factura_tipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Factura $id)
     {
         //
+         $nombre = $request->get('nombre');
+        
+        $codigo = $request->get('codigo');
+
+        $id->nombre = $nombre;
+       
+        $id->codigo = $codigo;
+        
+        $id->save();
+
+        $request->session()->flash('mensaje', "La edición del registro $id->id fue exitoso");
+
+        return redirect('/listado-adm_factura_tipo/ver-adm_factura_tipo/'. $id->id );
     }
 
     /**
@@ -94,7 +107,7 @@ class factura_tipoController extends Controller
     {
         $request = request();
         $id->delete();
-        $requets->session->flash('mensaje', "Registro Borrado $id->nombre ");
+        $request->session()->flash('mensaje', "Registro Borrado $id->nombre ");
 
          return redirect('/listado-adm_factura_tipo');
         
