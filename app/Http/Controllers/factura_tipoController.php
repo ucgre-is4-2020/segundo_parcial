@@ -14,7 +14,11 @@ class factura_tipoController extends Controller
     public function index()
     {
         //
-            $facturas = Factura::get();
+
+            $request = request();
+            $nombre = $request->get('buscarpor');
+            $facturas = Factura::where('nombre', 'ilike', "%$nombre%")->paginate(10);
+
             return view('listado-ug0287',
             ['misFacturas' => $facturas]
 

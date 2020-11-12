@@ -3,7 +3,14 @@
 
 <a href="{{route('crear-ug0287')}}">NuevaFactura </a>
 
+<nav class="navbar navbar-light bg-light">
+				  <form class="form-inline">
 
+				    <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
+				    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+				   
+				  </form>
+				</nav><br>
 
 <ul>
     @foreach($misFacturas as $unaFactura)
