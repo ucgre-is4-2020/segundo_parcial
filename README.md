@@ -45,4 +45,4 @@
 1. Configurar el acceso Web y probar en el navegador. Debe visualizar la pagina principal de Laravel en el mismo
 1. ¡Empezar a programar!
 
-Una modificacion en el archivo README.
+## Una modificacion en el archivo README
