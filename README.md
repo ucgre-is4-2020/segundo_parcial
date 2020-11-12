@@ -44,3 +44,5 @@
 1. Verificar en la base de datos se crearon algunas tablas, en la herramienta de acceso a la base de datos
 1. Configurar el acceso Web y probar en el navegador. Debe visualizar la pagina principal de Laravel en el mismo
 1. ¡Empezar a programar!
+
+Una modificacion en el archivo README
