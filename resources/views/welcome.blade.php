@@ -68,7 +68,7 @@
 
             <div class="top-right links">
                 <ul>
-                    <li>Nombre - Apellido - Matricula aqui</li>
+                    <li>Mercedes María Luz - Enciso Núñez - UG0289</li>
                 </ul>
             </div>
 
@@ -79,8 +79,7 @@
                 </div>
                 Enlaces:
                 <div class="links">
-                    <!-- Agregar los enlaces a cada pagina aqui -->
-
+                    <a href = "{{route ('listado_documento_tipo')}}"> Listado de Documentos </a>
                 </div>
             </div>
         </div>
