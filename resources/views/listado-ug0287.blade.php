@@ -13,6 +13,8 @@
 
             <a href="{{ route ('borrar-ug0287', ['id' => $unaFactura->id]) }}" onclick="return confirm('¿Está seguro de borrar este registro?')">BorrarFactura</a>
 
+            <a href="{{ route ('ver-ug0287', ['id' => $unaFactura->id]) }}">Ver</a>
+
              {{$unaFactura->nombre}} - {{ $unaFactura->codigo}}
         </li>
     @endforeach
