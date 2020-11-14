@@ -48,9 +48,15 @@ class ListadosController extends Controller
     {
         $nombre = $request->input('nombre');
 
-        $this->validate($request, [
-            'nombre' => 'required|max:10',
-        ]);
+        $this->validate($request, 
+            [
+                'nombre' => 'required|min:3|max:30|unique:seguimiento_tipo,nombre',
+            ],
+            [
+                'nombre.min' => 'El campo nombre debe tener al menos 3 letras',
+                'nombre.unique' => 'El nombre que ingresaste ya existe'
+            ]
+        );
 
         $nuevoRegistro = new \App\Listado();
         $nuevoRegistro->nombre = $nombre;

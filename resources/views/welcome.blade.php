@@ -82,8 +82,6 @@
                 <div class="links">
                      <a href="{{ route('listado-ug0317') }}">Listados de Registros</a>
 
-                     <a href="{{ route('crear-ug0317') }}">Crear Registros</a>
-
                 </div>
             </div>
         </div>
