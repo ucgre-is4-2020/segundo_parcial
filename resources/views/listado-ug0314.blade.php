@@ -86,12 +86,19 @@
 							<td>Acciones</td>
 
 						</tr>
+
 						@foreach($misCompuestos as $unCompuesto)
 						<tr>
 							<td>{{ $unCompuesto->id }}</td>
 							<td>{{ $unCompuesto->nombre }} </td>
-							<td>{{ $unCompuesto->codigo }}</td>
-							<td>{{ $unCompuesto->estado }} </td>
+							<td>{{$unCompuesto->codigo}}</td>
+							<td>
+								@if ($unCompuesto->estado == true)
+							   		activo
+							   	@else
+							   		inactivo
+								@endif
+							</td>
 							<td>{{ $unCompuesto->created_at }}</td>
 							<td>{{ $unCompuesto->updated_at }} </td>
 
@@ -99,6 +106,11 @@
 								<a href="{{ route ('ver-ug0314', ['id' => $unCompuesto->id]) }}">Ver</a>
 								<a href="{{ route ('editar-ug0314', ['id' => $unCompuesto->id]) }}">Editar</a><br></td>
 						</tr>
+
+
+
+
+							
 						@endforeach
 				
 					</table><br>

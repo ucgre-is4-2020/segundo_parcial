@@ -21,8 +21,15 @@ class ContenidoController extends Controller
 
         $nombre = $request->get('buscarpor');
 
+        //$nombre = iconv('UTF-8', 'ASCII//TRANSLIT', $nombre);
 
-        $compuestos = Contenido::where('nombre', 'ilike', "%$nombre%")->paginate(50);
+        //dd($nombre);
+
+
+        $compuestos = Contenido::where( 'nombre', 'ilike', "%$nombre%")->paginate(50);
+
+        //se ordena el array por id
+        $compuestos = $compuestos->sortBy('id');
 
         //a que vista queremos ir desde aqui
         return view('listado-ug0314', 
@@ -128,35 +135,67 @@ class ContenidoController extends Controller
     public function update(Request $request, Contenido $id)
     {
 
+        $codigo = $request->get('codigo');
 
-        //validador
-        $validatedData = $request->validate(
-            [
-                
-                'nombre' => 'required|max:40',
-                'estado' =>''
-            ],
-            [
-                
-                'nombre.required' => 'El campo nombre es obligatorio',
-                
-                'nombre.max' => 'El nombre no puede tener más de 40 caracteres',
-               
+//
+        if ($id->codigo == $codigo) {
+             $validatedData = $request->validate(
+                [
+                    
+                    'nombre' => 'required|max:40',
+                    'codigo' => 'required|max:8',
+                    'estado' =>''
+                ],
+                [
+                    
+                    'nombre.required' => 'El campo nombre es obligatorio',
+                    'codigo.required' => 'El campo codigo es obligatorio',
+                    'codigo.max' => 'El código no puede tener más de 8 caracteres',
+                    'nombre.max' => 'El nombre no puede tener más de 40 caracteres',
+                   
+                ]
 
-            ]
+            );
+        }else{
+            //validador
+            $validatedData = $request->validate(
+                [
+                    
+                    'nombre' => 'required|max:40',
+                    'codigo' => 'required|max:8|unique:contenido',
+                    'estado' =>''
+                ],
+                [
+                    
+                    'nombre.required' => 'El campo nombre es obligatorio',
+                    'codigo.required' => 'El campo codigo es obligatorio',
+                    'codigo.max' => 'El código no puede tener más de 8 caracteres',
+                    'codigo.unique' => 'El código ya está en uso',
+                    'nombre.max' => 'El nombre no puede tener más de 40 caracteres',
+                   
 
-        );
-        //
+                ]
+
+            );
+        }
+
+
         
         $nombre = $request->get('nombre');
+        $codigo = $request->get('codigo');
         
         $estado = $request->get('estado');
 
         $id->nombre = $nombre;
-       
+        $id->codigo = $codigo; 
         $id->estado = $estado;
+
+
+        
         
         $id->save();
+
+
 
         $request->session()->flash('mensaje', "La edición del compuesto $id->nombre fue exitoso");
 

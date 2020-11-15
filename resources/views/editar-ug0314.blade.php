@@ -83,14 +83,14 @@
 						</tr>
 						<tr>
 							<td><input name="id" value="{{$compuesto->id}}" disabled="disabled"></td>
-							<td><input type="text" name="codigo" value="{{$compuesto->codigo}}" disabled=""></td>
+							<td><input type="text" name="codigo" value="{{$compuesto->codigo}}"></td>
 							<td> <input type="text" name="nombre" value="{{$compuesto->nombre}}"></td>
 							<td><select name="estado" value="{{$compuesto->estado}}">
 				  							<option value="true">activo </option>
 				  							<option value="false">inactivo </option>  
 										</select></td>
 							<td><input type="text" name="creacion" value="{{$compuesto->created_at}}" disabled="disabled"></td>
-							<td><input type="text" name="modificacion" value="{{$compuesto->update_at}}" disabled="disabled"></td>
+							<td><input type="text" name="modificacion" value="{{$compuesto->updated_at}}" disabled="disabled"></td>
 						</tr>
 					</table><br>
 

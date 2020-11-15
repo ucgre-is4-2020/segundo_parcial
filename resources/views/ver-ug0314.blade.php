@@ -80,7 +80,13 @@
                             <td>{{ $compuesto->id }}</td>
                             <td>{{ $compuesto->codigo }}</td>
                             <td>{{ $compuesto->nombre }}</td>
-                            <td>{{ $compuesto->estado }}</td>
+                            <td>
+                                @if ($compuesto->estado == true)
+                                    activo
+                                @else
+                                    inactivo
+                                @endif
+                            </td>
                             <td>{{ $compuesto->created_at }}</td>
                             <td>{{ $compuesto->updated_at }}</td>
                         </tr>
