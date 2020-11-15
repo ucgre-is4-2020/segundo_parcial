@@ -97,7 +97,7 @@
                 </div>
 				
                 </div>
-				<a href="{{ route('listado-ug0314') }}">Listar productos</a>
+				<a href="{{ route('listado-ug0314') }}">Listar registros</a>
 
 			</div>
 
