@@ -4,7 +4,7 @@
 }	
 #centro{
 		border:3px solid green;
-		width: 40%;
+		width: 65%;
 </style>
 
 <div id="centro">
@@ -21,15 +21,28 @@
 <ul>
 	@foreach($listado as $unestado)
 	<li>
-		<a href="{{route('borrar_tubo_estado',['id'=>$unestado->id])}}" onclick="return confirm('Desea borrar el registro?')">Borrar</a>
-		<a href="{{route('ver_tubo_estado',['id'=>$unestado->id])}}">Ver</a>
-		<a href="{{route('editar_tubo_estado',['id'=>$unestado->id])}}">Editar</a>
-		{{$unestado->nombre}} - {{$unestado->activo}}</li>
+		<a href="{{route('borrar_tubo_estado',['id'=>$unestado->id])}}" onclick="return confirm('Desea borrar el registro?')">Borrar - </a>
+		<a href="{{route('ver_tubo_estado',['id'=>$unestado->id])}}">Ver - </a>
+		<a href="{{route('editar_tubo_estado',['id'=>$unestado->id])}}">Editar - </a>
+		
+		
+		{{$unestado->nombre}} - 
+		<?php If ($unestado->activo == "1"){
+				echo "activo - "; 
+				}else{
+				echo "inactivo - ";
+				}
+		?>
+		{{$unestado->created_at}} - 
+		{{$unestado->updated_at}}
+		
+		</li>
+		
 	@endforeach
 	<input name="buscarpor" type="search" placeholder="Buscar por nombre" aria-label="Search">
     <button type="submit">Buscar</button>
 </ul>
 </form>
 <a href="{{route('raiz')}}">Volver a la página Principal</a><br>
-<a href=/ug0282/public/listado_tubo_estado>Ver Listado Completo</a>
+<a href="{{route('listado_tubo_estado')}}">Ver Listado Completo</a>
 </div>

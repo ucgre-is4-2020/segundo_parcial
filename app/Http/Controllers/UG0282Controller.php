@@ -17,8 +17,9 @@ class UG0282Controller extends Controller
         //dd($listado_ug0282);
         $request=request();
         $nombre = $request->get('buscarpor');
+        $id = $request->get('orden');
         return view('listado_ug0282',
-        ['listado' => $tubo_estado=\DB::table('tubo_estado')->whereRaw('upper(nombre)like\'%'.strtoupper($nombre).'%\'')->get()]);    
+        ['listado' => $tubo_estado=\DB::table('tubo_estado')->whereRaw('upper(nombre)like\'%'.strtoupper($nombre).'%\'')->get()->sort()]);    
     }
 
     /**
@@ -39,6 +40,19 @@ class UG0282Controller extends Controller
      */
     public function store(Request $request)
     {
+        $validateData = $request->validate(
+            [
+                'nombre'=> 'required|regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)|min:3|max:15|unique:tubo_estado,nombre',
+                'activo'=> 'required',
+            ],
+            [
+                'nombre.required'=>'El campo nombre es obligatorio',
+                'activo.required'=> 'El campo Activo es obligatorio',
+                'nombre.min'=> 'El campo Nombre debe tener más de 2 caracteres',
+                'nombre.max'=> 'El campo Nombre no debe pasar los 15 caracteres',
+                'nombre.unique'=> 'El Nombre ya se esta usando',
+                'nombre.regex'=> 'Debe ingresar letras no numeros',
+            ]);
         try{
         $nombre= $request-> input('nombre');
         $activo= $request-> input ('activo');
@@ -49,7 +63,7 @@ class UG0282Controller extends Controller
         $nuevotubo_estado->save();
         return redirect()->route('listado_tubo_estado',['nuevotubo_estado'=>$nuevotubo_estado->nuevotubo_estado]);}
       catch(QueryException $error){
-        return redirect()->route('crear_tubo_estado',['inuevotubo_estadod'=>$nuevotubo_estado->nuevotubo_estado])->with('error',$error->errorInfo[2]);
+        return redirect()->route('crear_tubo_estado',['nuevotubo_estado'=>$nuevotubo_estado->nuevotubo_estado])->with('error',$error->errorInfo[2]);
       }
     }
 
@@ -84,6 +98,19 @@ class UG0282Controller extends Controller
      */
     public function update(Request $request,\App\listado_tubo_estado $id)
     {
+        $validateData = $request->validate(
+            [
+                'nombre'=> 'required|regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)|min:3|max:15|unique:tubo_estado,nombre',
+                'activo'=> 'required',
+            ],
+            [
+                'nombre.required'=>'El campo nombre es obligatorio',
+                'activo.required'=> 'El campo Activo es obligatorio',
+                'nombre.min'=> 'El campo Nombre debe tener más de 2 caracteres',
+                'nombre.max'=> 'El campo Nombre no debe pasar los 15 caracteres',
+                'nombre.unique'=> 'El Nombre ya se esta usando',
+                'nombre.regex'=> 'Debe ingresar letras no numeros',
+            ]);
      try{
       $nombre= $request->get('nombre');
       $activo= $request->get('activo');

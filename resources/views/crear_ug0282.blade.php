@@ -8,12 +8,22 @@
 <div id="centro">
 <h1 style="color: green;">Crear UG0282</h1>
 
+@if ($errors-> any())
+	<div class="alert alert-danger">
+		<ul>
+			@foreach($errors->all() as $error)
+				<li>{{$error}}</li>
+				@endforeach
+		</ul>
+	</div>
+@endif
+
 <form action="{{route('creacion_tubo_estado')}}" method="post">
 	@csrf
 	<label>Nombre</label> <input name="nombre"><br>
-	<p>Estado:
-		<input type="radio" name="activo" value="true">Verdadero
-		<input type="radio" name="activo" value="false">Falso
+	<p>Activo:
+		<input type="radio" name="activo" value="true">Activo
+		<input type="radio" name="activo" value="false">Inactivo
 	</p><br>
 
 	<input type="submit"><br>
@@ -26,5 +36,5 @@
 	<p>{{session('error')}}</p>
 </div>
 @endif
-<a href=/ug0282/public/listado_tubo_estado>Ver Listado</a>
+<a href="{{route('listado_tubo_estado')}}">Ver Listado Completo</a>
 </div>

@@ -8,6 +8,16 @@
 <div id="centro">
 <h1>Editar Estado {{$editar_tubo_estado->id}}</h1>
 
+@if ($errors-> any())
+	<div class="alert alert-danger">
+		<ul>
+			@foreach($errors->all() as $error)
+				<li>{{$error}}</li>
+				@endforeach
+		</ul>
+	</div>
+@endif
+
 <form action="{{route('edicion_tubo_estado',['id'=>$editar_tubo_estado->id])}}" method="post">
 	@method('PUT')
 	@csrf
@@ -16,13 +26,13 @@
 	<p>Estado:
 		<?php If ($editar_tubo_estado->activo == "1")
 {
-echo "Verdadero"; 
+echo "Activo"; 
 }else{
-	echo "Falso";
+	echo "Inactivo";
 }
 ?><br>
-		<input type="radio" name="activo" id="activo" value="true">Verdadero
-		<input type="radio" name="activo" id="activo" value="false">Falso
+		<input type="radio" name="activo" id="activo" value="true">Activo
+		<input type="radio" name="activo" id="activo" value="false">Inactivo
 	</p><br>
 	{{$editar_tubo_estado->created_at}}<br>
 	{{$editar_tubo_estado->update_at}}

@@ -11,10 +11,15 @@
 <div>
 	{{$ver_tubo_estado->id}}<br>
 	{{$ver_tubo_estado->nombre}}<br>
-	{{$ver_tubo_estado->activo}}<br>
+	<?php If ($ver_tubo_estado->activo == "1"){
+				echo "activo "; 
+				}else{
+				echo "inactivo ";
+				}
+		?><br>
 	{{$ver_tubo_estado->created_at}}<br>
 	{{$ver_tubo_estado->updated_at}}<br>
 </div>
 
-<a href=/ug0282/public/listado_tubo_estado>Ver Listado</a>
+<a href="{{route('listado_tubo_estado')}}">Ver Listado Completo</a>
 </div>
