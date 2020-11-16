@@ -22,6 +22,16 @@
 
   <h1>Editar Departamento</h1>
 
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
   <form action="{{route('edicion',['id' =>$departamento->id])}}" method="post">
     @method('PUT')
     

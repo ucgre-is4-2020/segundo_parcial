@@ -22,6 +22,18 @@
 
   <h1>Crear Departamento</h1>
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+  
+
   <form action="{{route('creacion-departamento')}}" method="post">
     
   @csrf 

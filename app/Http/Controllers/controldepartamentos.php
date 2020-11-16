@@ -54,6 +54,35 @@ class controldepartamentos extends Controller
      */
     public function store(Request $request)
     {
+
+
+        $validateData = $request->validate(
+
+            [
+
+                'nombre' => 'required|max:40|unique:departamento,nombre|min:3',
+                "abreviacion" => 'required|max:10|unique:departamento,abreviacion|min:2'
+
+            ],
+            [
+
+                'nombre.required'=> 'El campo nombre es obligatorio',
+                
+                'nombre.max'=> 'El nombre no puede superar los 40 caracteres',
+                'nombre.unique'=> 'Ya existe un departamento con ese nombre',
+                'nombre.min'=> 'El nombre del departamento debe tener al menos 3 caracteres',
+
+               
+                'abreviacion.min'=> 'La abreviacion debe tener al menos 2 caracteres',
+                'abreviacion.required'=> 'El campo abreviacion es obligatorio',
+                'abreviacion.max'=> 'La abreviacion no puede superar los 10 caracteres',
+                'abreviacion.unique'=> 'Ya existe un departamento con esa abreviacion',
+
+            ]
+
+        );
+
+
         $nombre = $request->input('nombre');
         $abreviacion = $request->input('abreviacion');
 
@@ -111,7 +140,34 @@ class controldepartamentos extends Controller
      */
     public function update(Request $request, \App\Departamentos $id)
     {
-        
+
+         $validateData = $request->validate(
+
+            [
+
+                'nombre' => 'required|min:3|max:40|unique:departamento,nombre,'.$id->id,
+                "abreviacion" => 'required|max:10|min:2|unique:departamento,abreviacion,'.$id->id
+
+            ],
+            [
+
+                'nombre.required'=> 'El campo nombre es obligatorio',
+                'nombre.alpha_num'=> 'El Nombre del departamento debe contener solo Letras',
+                'nombre.max'=> 'El nombre no puede superar los 40 caracteres',
+                'nombre.unique'=> 'Ya existe un departamento con ese nombre',
+                'nombre.min'=> 'El nombre del departamento debe tener al menos 3 caracteres',
+
+                'abreviacion.alpha_num'=> 'La abreviacion debe contener solo letras ',
+                'abreviacion.min'=> 'La abreviacion debe tener al menos 2 caracteres',
+                'abreviacion.required'=> 'El campo abreviacion es obligatorio',
+                'abreviacion.max'=> 'La abreviacion no puede superar los 10 caracteres',
+                'abreviacion.unique'=> 'Ya existe un departamento con esa abreviacion',
+
+            ]
+
+        );
+
+
         $nombre = $request->get('nombre');
         $abreviacion = $request->get('abreviacion');
 

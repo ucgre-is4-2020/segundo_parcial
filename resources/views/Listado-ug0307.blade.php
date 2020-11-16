@@ -16,24 +16,12 @@
     <body>
  <h1> Lista de productos </h1>
 
- <div class="links" style="display: inline-block;">
+ <div class="links" style="display: inline-block; position: ">
    
                     <a href="{{route('welcome')}}">Pagina principal</a>
                      <a href="{{route('crear-ug0307')}}">Crear-ucg0307</a> 
                     
    </div>
-
-   @if(session('correcto'))
-        <h3 style="color: gray">{{session('correcto')}}</h3>
-   @endif
-
-  
-   @if(session('incorrecto'))
-        <h1 style="color: red">Se produjeron los siguientes errores *</h1>
-        <h3 style="color: red">{{session('incorrecto')}}</h3>
-   @endif
-
-
 
 <form style="display: inline-block;">
     <select name="tipo" id="tipo" style="display: inline-block;">
@@ -46,25 +34,34 @@
   <button type="submit">buscar</button>
 
 </form>
-  
-  <br><br>
 
+   @if(session('correcto'))
+        <h3 style="color: gray">{{session('correcto')}}</h3>
+   @endif
+
+  
+   @if(session('incorrecto'))
+        <h1 style="color: red">Se produjeron los siguientes errores *</h1>
+        <h3 style="color: red">{{session('incorrecto')}}</h3>
+   @endif
+
+<table border="1" style="margin-top: 20px;">
+  <tr>
+    
+
+  </tr>
   @foreach ($misDepartamentos as $departamentos)
-
-<a href="{{route('ver-ug0307',['id' => $departamentos->id])}}">{{$departamentos ->id}} </a>
+ 
+ <tr>
+   <td><a href="{{route('ver-ug0307',['id' => $departamentos->id])}}">{{$departamentos ->id}} </a>
 <a href="{{route('editar-ug0307',['id' => $departamentos->id])}}">Editar</a>
-  <a href="{{route('borrar-ug0307',['id' => $departamentos->id])}}" onclick="return confirm('Esta seguro?')">Borrar</a>
-
-
-
-  - {{$departamentos ->nombre}} - {{$departamentos ->abreviacion}}
-  
-<br>
+  <a href="{{route('borrar-ug0307',['id' => $departamentos->id])}}" onclick="return confirm('Esta seguro?')">Borrar</a></td><td>{{$departamentos ->nombre}}</td> <td>{{$departamentos ->abreviacion}}</td> <td>{{$departamentos ->created_at}}</td> <td>{{$departamentos ->updated_at}}</td>
+ </tr>
 
 
 @endforeach
 
-
+</table>
   
    
 
