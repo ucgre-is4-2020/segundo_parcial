@@ -5,7 +5,13 @@
 <div>
     {{$color->id}} <br>
     {{$color->nombre}} <br>
-    {{$color->activo}} <br>
+    <?php
+    if ($color->activo == "1"){
+        echo "activo  ";
+    }else{
+        echo "inactivo";
+    }
+    ?><br>
     {{$color->codigo}} <br>
     {{$color->created_at}} <br>
     {{$color->updated_at}} <br>

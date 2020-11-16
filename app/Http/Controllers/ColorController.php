@@ -14,15 +14,12 @@ class ColorController extends Controller
      */
     public function index(Request $request)
     {
+        $listar= \App\Color::get();
         $request = request();
         $nombre = $request->get('buscarpor');
-
-        $resultado = Color::where('nombre' , 'ilike' , "%$nombre$%")->paginate(10);
-        $Listado = Color::get();
-
+        $id = $request->get('orden');
         return view('Listado-Ug0093',
-        ['misColores' => $Listado]
-        );
+        ['misColores' => $color=\DB::table('color')->whereRaw('upper(nombre)like\'%'.strtoupper($nombre).'%\'')->get()->sort()]);
     }
 
     /**
@@ -46,15 +43,18 @@ class ColorController extends Controller
     {
         $validatedData = $request->validate(
             [
-                'nombre' => 'required',
+                'nombre' => 'required| regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)',
                 'activo' => 'required',
-                'codigo' => 'required |unique:color,codigo'
+                'codigo' => 'required |unique:color,codigo|min:2|max:3'
             ],
             [
                 'nombre.required' => 'el campo nombre es obligatorio',
                 'activo.required' => 'el campo activo es obligatorio',
                 'codigo.required' => 'el campo codigo es obligatorio',
                 'codigo.unique' => 'este codigo ya existe',
+                'codigo.min' => 'El codigo debe ser más extenso',
+                'codigo.max' => 'El codigo es muy extenso',
+                'nombre.regex' => "Debe ingresar letras no numeros",
                 ]
         );
 
@@ -89,6 +89,7 @@ return view('Ver-Ug0093',['color'=> $id]);
      * @return \Illuminate\Contracts\View\Factory\Illuminate\View\View
      */
     public function edit(Color $id)
+
     {
         //
         return view("editar-Ug0093", ['Colores' => $id]);
@@ -103,11 +104,27 @@ return view('Ver-Ug0093',['color'=> $id]);
      */
     public function update(Request $request, Color $id)
     {
+        $validatedData = $request->validate(
+            [
+                'nombre' => 'required | regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)',
+                'activo' => 'required',
+                'codigo' => 'required |unique:color,codigo|min:2|max:3'
+
+            ],
+            [
+                'nombre.required' => 'el campo nombre es obligatorio',
+                'activo.required' => 'el campo activo es obligatorio',
+                'codigo.required' => 'el campo codigo es obligatorio',
+                'codigo.min' => 'El codigo debe ser más extenso',
+                'codigo.max' => 'El codigo es muy extenso',
+                'nombre.regex' => "Debe ingresar letras no numeros",
+                'codigo.unique' => 'este codigo ya existe'
+            ]
+        );
         //
         $nombre = $request->get('nombre');
         $activo = $request->get('activo');
         $codigo = $request->get('codigo');
-
         $id->nombre = $nombre;
         $id->activo = $activo;
         $id->codigo = $codigo;
