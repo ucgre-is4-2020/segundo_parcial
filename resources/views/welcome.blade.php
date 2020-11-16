@@ -68,7 +68,7 @@
 
             <div class="top-right links">
                 <ul>
-                    <li>Nombre - Apellido - Matricula aqui</li>
+                    <li>Anniella Almada - UG0059 - annialma27@gmail.com</li>
                 </ul>
             </div>
 
@@ -80,7 +80,7 @@
                 Enlaces:
                 <div class="links">
                     <!-- Agregar los enlaces a cada pagina aqui -->
-
+                    <a href="{{route ('listado_contacto_tipo')}}">Listado de Contactos</a>
                 </div>
             </div>
         </div>
