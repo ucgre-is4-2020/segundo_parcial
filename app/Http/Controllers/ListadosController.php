@@ -19,12 +19,15 @@ class ListadosController extends Controller
       
        return view('listado-ug0317', compact('misListados', 'buscarpor'));
 
+
+
     //-----------------------------------------------------------------------------
 
       $listado = \App\Listado::get();
         return view('listado-ug0317',
             ['misListados' => $listado]
         );
+
     }
 
     /**
@@ -50,10 +53,12 @@ class ListadosController extends Controller
 
         $this->validate($request, 
             [
-                'nombre' => 'required|min:3|max:30|unique:seguimiento_tipo,nombre',
+                'nombre' => 'required|min:3|max:10|unique:seguimiento_tipo,nombre|regex:/[a-zA-Z]+$/',
             ],
             [
                 'nombre.min' => 'El campo nombre debe tener al menos 3 letras',
+                'nombre.max' => 'El campo nombre debe tener maximo 10 letras',
+                'nombre.regex' => 'El campo nombre debe ser palabras NO numeros',
                 'nombre.unique' => 'El nombre que ingresaste ya existe'
             ]
         );
@@ -63,8 +68,7 @@ class ListadosController extends Controller
         $nuevoRegistro->save();
 
         return back()->with('mensaje', 'Haz agregado un Registro a la Lista');
-
-        return view('crear-ug0317');
+        //return view('crear-ug0317');
 
       /*$nombre = $request->input('nombre');
 
@@ -113,6 +117,19 @@ class ListadosController extends Controller
     public function update(Request $request, \App\Listado $id)
     {
         $nombre = $request->get('nombre');
+        
+         $this->validate($request, 
+            [
+                'nombre' => 'required|min:3|max:10|unique:seguimiento_tipo,nombre|regex:/[a-zA-Z]+$/',
+            ],
+            [
+                'nombre.min' => 'El campo nombre debe tener al menos 3 letras',
+                'nombre.max' => 'El campo nombre debe tener maximo 10 letras',
+                'nombre.regex' => 'El campo nombre debe ser palabras NO numeros',
+                'nombre.unique' => 'El nombre que ingresaste ya existe'
+            ]
+        );
+
 
         $id->nombre = $nombre;
 

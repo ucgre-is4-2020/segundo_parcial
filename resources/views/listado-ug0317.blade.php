@@ -12,15 +12,16 @@
 
 
 <ul>
-@foreach($misListados as $unListado)
-<li>
-	<a href="{{route('ver-formulario', ['id' => $unListado->id]) }}"> Ver - </a>
-	<a href="{{route('borrar-formulario', ['id' => $unListado->id])}}" onclick= "return confirm('Estas Seguro de Eliminar este Registro?')"> Borrar -</a>
-	<a href="{{route('editar-formulario', ['id' => $unListado->id]) }}"> Editar </a>
-	{{ $unListado->id }} - {{ $unListado->nombre }}
-</li>
-@endforeach
+	@foreach($misListados as $unListado)
 
+		<li>
+			<a href="{{route('ver-formulario', ['id' => $unListado->id]) }}"> Ver - </a>
+			<a href="{{route('borrar-formulario', ['id' => $unListado->id])}}" onclick= "return confirm('Estas Seguro de Eliminar este Registro?')"> Borrar -</a>
+			<a href="{{route('editar-formulario', ['id' => $unListado->id]) }}"> Editar </a>
+			{{ $unListado->id }} - {{ $unListado->nombre }}
+			
+		</li>
+	@endforeach
 </ul>
 
 
