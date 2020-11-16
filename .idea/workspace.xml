@@ -19,31 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02bc55ab-ffde-45eb-97ef-0b0f01696c22" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/UG0287.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Factura.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/factura_tipoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capturas/ug0287/paso1/migracion.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capturas/ug0287/paso1/proyecto laravel.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capturas/ug0287/paso1/tablas.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capturas/ug0287/paso2/Captura.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capturas/ug0287/paso2/php seeders.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capturas/ug0287/paso2/seeders.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/factura_tipoSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/borrar-ug0287.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/crear-ug0287.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/editar-ug0287.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/listado-ug0287.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="02bc55ab-ffde-45eb-97ef-0b0f01696c22" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

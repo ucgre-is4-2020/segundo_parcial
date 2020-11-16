@@ -44,6 +44,24 @@ class factura_tipoController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate(
+            [
+        'nombre' => 'required|min:3|max:255',
+        'codigo' => 'required|max:6|min:1|unique:factura_tipo,codigo',
+        ],
+
+        [
+            'nombre.required' => 'El campo nombre es obligatorio',
+            'codigo.required' => 'El campo codigo es obligatorio',
+            'nombre.min' => 'El campo nombre debe tener como minimo 3 caracteres',
+            'codigo.max' => 'El campo codigo debe tener como maximo 6 caracteres',
+            'codigo.min' => 'El campo codigo debe tener como minimo 1 caracter',
+            'codigo.unique' => 'El campo codigo ya existe',
+        ]
+        );
+
+
+
           $codigo = $request->input('codigo');
           $nombre = $request->input('nombre');
 
