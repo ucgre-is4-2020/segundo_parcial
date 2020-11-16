@@ -46,6 +46,30 @@ class DocumentoController extends Controller
     public function store(Request $request)
     {
         //
+
+    $validatedData = $request->validate(
+        [
+        'nombre' => 'required|min:3|max:60|alpha',
+        'abreviacion' => 'required|unique:documento_tipo,abreviacion|min:2|max:10|alpha',
+        'activo' => 'required',
+        ],
+
+        [
+            'nombre.required' => 'El campo nombre es obligatorio',
+            'abreviacion.required' => 'El campo abreviación es obligatorio', 
+            'activo.required' => 'El campo activo es obligatorio',
+            'nombre.min' => 'El campo nombre debe tener un minimo de 3 caracteres',
+            'abreviacion.max' => 'El campo abreviacion no debe superar el máximo de 10 caracteres',
+            'abreviacion.min' => 'El campo abreviacion debe tener un minimo de 2 caracteres',
+            'nombre.max' => 'El campo nombre supera el máximo de 60 caracteres',
+            'abreviacion.unique' => 'La abreviacion ya esta utilizada',
+            'nombre.alpha' => 'El nombre solo puede incluir letras',
+            'abreviacion.alpha' => 'La abreviacion solo puede incluir letras',
+        ]
+    
+    );
+
+    // The blog post is valid..
        try{
             $nombre=$request->input('nombre');
             $abreviacion=$request->input('abreviacion');
@@ -107,6 +131,26 @@ class DocumentoController extends Controller
     public function update(Request $request, \App\Documento_tipo $id)
     {
         //
+        $validatedData = $request->validate(
+            [
+            'nombre' => 'required|min:3|max:60|alpha',
+            'abreviacion' => 'required|min:2|max:10|alpha',
+            'activo' => 'required',
+            ],
+    
+            [
+                'nombre.required' => 'El campo nombre es obligatorio',
+                'abreviacion.required' => 'El campo abreviación es obligatorio', 
+                'activo.required' => 'El campo activo es obligatorio',
+                'nombre.min' => 'El campo nombre debe tener un minimo de 3 caracteres',
+                'abreviacion.max' => 'El campo abreviacion no debe superar el máximo de 10 caracteres',
+                'abreviacion.min' => 'El campo abreviacion debe tener un minimo de 2 caracteres',
+                'nombre.max' => 'El campo nombre supera el máximo de 60 caracteres',
+                'nombre.alpha' => 'El nombre solo puede incluir letras',
+                'abreviacion.alpha' => 'La abreviacion solo puede incluir letras',
+            ]
+        
+        );
         try{
             $nombre=$request->get ('nombre');
             $abreviacion=$request->get ('abreviacion');
