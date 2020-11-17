@@ -15,4 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/listado-coche', 'CochesController@index')->name('listado-ug0278');
+
+Route::get('/crear-coche', 'CochesController@create')->name('crear-ug0278');
+
+Route::post('/creacion-coche', 'CochesController@store')->name('creacion-ug0278');
+
+Route::get('/editar-coche/{id}', 'CochesController@edit')->name('editar-ug0278');
+
+Route::put('/edicion-coche/{id}', 'CochesController@update')->name('edicion-ug0278');
+
+Route::get('/borrar-coche/{id}', 'CochesController@destroy')->name('borrar-ug0278');
+
+Route::get('/confirmar-borrar-coche/{id}', 'CochesController@confirm')->name('confirmar-borrar-ug0278');
+
+Route::get('/ver-coche/{id}', 'CochesController@show')->name('ver-ug0278');
