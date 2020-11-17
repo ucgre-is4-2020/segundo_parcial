@@ -68,6 +68,7 @@
 
             <div class="top-right links">
                 <ul>
+                    <li>Higinio Raúl Bordón Martínez - UG0282 - raulbordon94@gmail.com</li>
                     <li>Juan - Barreto - UG0278</li>
                 </ul>
             </div>
@@ -79,6 +80,7 @@
                 </div>
                 Enlaces:
                 <div class="links">
+                    <a href=listado_tubo_estado>Listado UG0282 tubo_estado</a>
                     <!-- Agregar los enlaces a cada pagina aqui -->
                     <a href="{{ route('listado-ug0278') }}"
                        title="Listado de Coches">Listado de Coches</a>
