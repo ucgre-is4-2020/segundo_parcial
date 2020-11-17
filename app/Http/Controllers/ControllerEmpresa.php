@@ -21,7 +21,7 @@ class ControllerEmpresa extends Controller
         }else {
             //Filtrado por campo Codigo de la tabla
             $nom = $request->get('buscar');
-            if(!empty($cod)){
+            if(!empty($nom)){
                 $empresatipo = \DB::table('Empresa')
                                 ->whereRaw('upper(nombre) like \'%'.strtoupper($nom).'%\'')
                                 ->get();

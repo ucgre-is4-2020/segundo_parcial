@@ -91,7 +91,7 @@
 				<td>
 					<input type="{!! $Empresa->created_at?'date-time':'text' !!}" 
 					name="fec_create" id="fec_create" 
-					value="{!! $Empresa->created_at?$coche->created_at:'Sin datos' !!}"
+					value="{!! $Empresa->created_at?$Empresa->created_at:'Sin datos' !!}"
 					title="Fecha de Creación de Registro" disabled>
 				</td>
 			</tr>
