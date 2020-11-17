@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('raiz');
+})->name('welcome');
 
 Route::get('/listado_tubo_estado', 'UG0282Controller@index')->name('listado_tubo_estado'); 
 
@@ -29,3 +29,19 @@ Route::get('/ver/{id}','UG0282Controller@show')->name('ver_tubo_estado');
 Route::get('/editar/{id}','UG0282Controller@edit')->name('editar_tubo_estado');
 
 Route::put('/edicion/{id}','UG0282Controller@update')->name('edicion_tubo_estado');
+
+Route::get('/listado-coche', 'CochesController@index')->name('listado-ug0278');
+
+Route::get('/crear-coche', 'CochesController@create')->name('crear-ug0278');
+
+Route::post('/creacion-coche', 'CochesController@store')->name('creacion-ug0278');
+
+Route::get('/editar-coche/{id}', 'CochesController@edit')->name('editar-ug0278');
+
+Route::put('/edicion-coche/{id}', 'CochesController@update')->name('edicion-ug0278');
+
+Route::get('/borrar-coche/{id}', 'CochesController@destroy')->name('borrar-ug0278');
+
+Route::get('/confirmar-borrar-coche/{id}', 'CochesController@confirm')->name('confirmar-borrar-ug0278');
+
+Route::get('/ver-coche/{id}', 'CochesController@show')->name('ver-ug0278');
