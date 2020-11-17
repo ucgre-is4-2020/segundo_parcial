@@ -26,7 +26,7 @@
 
             .flex-center {
                 align-items: center;
-                
+
                 justify-content: center;
             }
 
@@ -36,7 +36,7 @@
             }
 
             #formulario{
-					
+
 					width: 680px;
 					margin: auto;
 					padding: 6px;
@@ -44,7 +44,7 @@
 				}
 
 			table, td{
-				border: black solid 1px; 
+				border: black solid 1px;
 				border-collapse: collapse;
 			}
 
@@ -72,9 +72,9 @@
 				    <a href="{{ route('crear-ug0314') }}">Nuevo compuesto</a>
 				  </form>
 				</nav><br>
-				
-				
-				
+
+
+
 					<table>
 						<tr style="font-weight: bold;">
 							<td>Id</td>
@@ -110,24 +110,24 @@
 
 
 
-							
+
 						@endforeach
-				
+
 					</table><br>
 
 				<div class="sms">
 					{{ session ('mensaje') }}
 				</div>
-				
+
 
 				<h5>Tengo un total de {{count($misCompuestos)}} compuestos químicos</h5>
 
 
-				<a href="{{route('home')}}"> Volver a la página principal</a>
+				<a href="{{route('welcome')}}"> Volver a la página principal</a>
 
 			</div>
 
-  
+
         </div>
     </body>
 </html>
