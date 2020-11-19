@@ -9,6 +9,5 @@
 </div>
 <br>
 <br>
-<a href = "{{route ('raiz')}}"> Página Principal </a><br><br>
+<a href = "{{route ('welcome')}}"> Página Principal </a><br><br>
 <a href = "{{route ('listado_documento_tipo')}}"> Listado de Documentos </a>
-    

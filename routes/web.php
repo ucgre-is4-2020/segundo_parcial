@@ -20,10 +20,10 @@ Route::get('/', function () {
 Route::get('/listado-documento_tipo', 'DocumentoController@index')->name('listado_documento_tipo');
 Route::get('/documento_tipo/crear', 'DocumentoController@create')->name('crear_documento_tipo');
 Route::post('/documento_tipo/creacion', 'DocumentoController@store')->name('creacion-documento');
-Route::get('/ver/{id}', 'DocumentoController@show')->name('ver_documento_tipo');
-Route::get('/editar/{id}', 'DocumentoController@edit')->name('editar_documento_tipo');
-Route::put('/edicion/{id}', 'DocumentoController@update')->name('edicion');
-Route::get('/borrar/{id}', 'DocumentoController@destroy')->name('borrar_documento_tipo');
+Route::get('/ver-dt/{id}', 'DocumentoController@show')->name('ver_documento_tipo');
+Route::get('/editar-dt/{id}', 'DocumentoController@edit')->name('editar_documento_tipo');
+Route::put('/edicion-dt/{id}', 'DocumentoController@update')->name('edicion');
+Route::get('/borrar-dt/{id}', 'DocumentoController@destroy')->name('borrar_documento_tipo');
 
 Route::get('/listado_adm_contenido', 'ContenidoController@index')->name('listado-ug0314');
 
@@ -48,7 +48,7 @@ Route::put('/listado_adm_contenido/edicion_adm_contenido/{id}', 'ContenidoContro
 Route::get('post/create', [ContenidoController::class, 'create']);
 Route::post('post', [ContenidoController::class, 'store']);
 
-Route::get('/listado_tubo_estado', 'UG0282Controller@index')->name('listado_tubo_estado'); 
+Route::get('/listado_tubo_estado', 'UG0282Controller@index')->name('listado_tubo_estado');
 
 Route::get('/listado_tubo_estado/crear_tubo_estado', 'UG0282Controller@create')->name('crear_tubo_estado');
 Route::post('/listado_tubo_estado/creacion', 'UG0282Controller@store')-> name('creacion_tubo_estado');
