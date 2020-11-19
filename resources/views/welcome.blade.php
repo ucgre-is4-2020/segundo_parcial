@@ -76,7 +76,9 @@
                     <li>Justo Miguel Ojeda Rojas - UG0093</li>
                     <li>just.ojeda1997@gmail.com</li>
                     <li>0984-648-576</li>
+                    <li>Dahiana - Taboada - UG0317 - dahiiataboada@gmail.com</li>
                 </ul>
+
             </div>
 
 
@@ -86,6 +88,8 @@
                 </div>
                 Enlaces:
                 <div class="links">
+                     <a href="{{ route('listado-ug0317') }}">Listados de Registros</a>
+
                     <a href = "{{route ('listado_documento_tipo')}}"> Listado de Documentos </a>
                     <a href=listado_tubo_estado>Listado UG0282 tubo_estado</a>
                     <!-- Agregar los enlaces a cada pagina aqui -->
