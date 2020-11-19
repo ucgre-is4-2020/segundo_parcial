@@ -14,7 +14,7 @@
 	  </style>
     </head>
     <body>
- <h1> Lista de productos </h1>
+ <h1> Lista de Departamentos </h1>
 
  <div class="links" style="display: inline-block; position: ">
    
