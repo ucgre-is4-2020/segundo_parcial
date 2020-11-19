@@ -29,6 +29,6 @@
         @endforeach
     </ul>
 </form>
-    <a href="{{ route('raiz') }}">Volver al inicio</a>
+    <a href="{{ route('welcome') }}">Volver al inicio</a>
 </div>
 
