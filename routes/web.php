@@ -26,13 +26,13 @@ Route::post('/listado/creacion', 'ListadosController@store')->name('creacion-ug0
 
 //----------------------------------------------------------------------------
 
-Route::get('/ver/{id}', 'ListadosController@show')->name('ver-formulario');
+Route::get('/ver-l/{id}', 'ListadosController@show')->name('ver-formulario');
 
-Route::get('/borrar/{id}', 'ListadosController@destroy')->name('borrar-formulario');
+Route::get('/borrar-l/{id}', 'ListadosController@destroy')->name('borrar-formulario');
 
-Route::get('/editar/{id}', 'ListadosController@edit')->name('editar-formulario');
+Route::get('/editar-l/{id}', 'ListadosController@edit')->name('editar-formulario');
 
-Route::put('/edicion/{id}', 'ListadosController@update')->name('edicion');
+Route::put('/edicion-l/{id}', 'ListadosController@update')->name('edicion');
 
 Route::get('/Listado-Color', 'ColorController@index')->name('Listado-Ug0093');
 
