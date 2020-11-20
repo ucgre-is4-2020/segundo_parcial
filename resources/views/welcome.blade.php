@@ -12,9 +12,8 @@
         <!-- Styles -->
         <style>
             html, body {
-
-
-                color: black;
+                background-color: #fff;
+                color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -37,8 +36,8 @@
 
             .top-right {
                 position: absolute;
-                align: center;
-                top: 518px;
+                right: 10px;
+                top: 18px;
             }
 
             .content {
@@ -46,11 +45,11 @@
             }
 
             .title {
-                font-size: 100px;
+                font-size: 84px;
             }
 
             .links > a {
-                color: blue;
+                color: #636b6f;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -87,12 +86,9 @@
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
-                    <!-- Agregar los enlaces a cada pagina aqui -->
                 </div>
 
-
-		   </div>
-                Enlaces:
+                Enlaces Primera Entrega TP:
                 <br>
                 <br>
                 <div class="links">
@@ -100,7 +96,7 @@
                   <a href="{{ route('listado-ug0287') }}">Tipo de Facturas</a>
                      <a href="{{ route('listado-ug0317') }}">Seguimientos Tipos</a>
                     <a href = "{{route ('listado_documento_tipo')}}"> Tipos de Documentos </a>
-                    <a href=listado_tubo_estado>Estados de Tubos</a>
+                    <a href={{route('listado_tubo_estado')}}>Estados de Tubos</a>
                     <!-- Agregar los enlaces a cada pagina aqui -->
                     <a href="{{route ('listado_contacto_tipo')}}">Tipos de Contactos</a>
                     <a href="{{route('listar-ug0307')}}">Listar Departamentos</a>
@@ -110,7 +106,21 @@
                     <a href="{{ route('listado-ug0278') }}"
                        title="Listado de Coches">Listado de Coches</a>
                 </div>
+
+                <br>
+                <br>
+
+                <div class="content">
+                    Enlaces 2da Entrega TP:
+
+                    <div class="links">
+                        <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
+                        AQUI LOS ENLACES
+                    </div>
+                </div>
+
             </div>
+
         </div>
     </body>
 </html>
