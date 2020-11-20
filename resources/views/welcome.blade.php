@@ -69,19 +69,37 @@
             <div class="top-right links">
                 <ul>
                     <li>Sinthia Raquel Cristaldo Gill - UG0287 - sinthiacristaldo11@gmail.com </li>
+                    <li>Mercedes María Luz - Enciso Núñez - UG0289</li>
+                    <li>Luis Felipe- Samaniego Mora- ug0314</li>
+                    <li>luissamaniegobusiness@gmail.com</li>
+                    <li>Higinio Raúl Bordón Martínez - UG0282 - raulbordon94@gmail.com</li>
+                    <li>Juan - Barreto - UG0278</li>
+                    <li>Justo Miguel Ojeda Rojas - UG0093</li>
+                    <li>just.ojeda1997@gmail.com</li>
+                    <li>0984-648-576</li>
+                    <li>Dahiana - Taboada - UG0317 - dahiiataboada@gmail.com</li>
                 </ul>
+
             </div>
 
 
             <div class="content">
                 <div class="title m-b-md">
-                   // Laravel //
-
+                    Laravel 
                     <!-- Agregar los enlaces a cada pagina aqui -->
-                    <a href="{{ route('listado-ug0287') }}">Facturas -</a>
-
-
-
+                </div>
+                Enlaces:
+                <div class="links">
+                  <a href="{{ route('listado-ug0287') }}">Facturas -</a>
+                     <a href="{{ route('listado-ug0317') }}">Listados de Registros</a>
+                    <a href = "{{route ('listado_documento_tipo')}}"> Listado de Documentos </a>
+                    <a href=listado_tubo_estado>Listado UG0282 tubo_estado</a>
+                    <!-- Agregar los enlaces a cada pagina aqui -->
+                    <a href="{{ route ('Listado-Ug0093') }}">Listado-Ug0093</a>
+                    <a href="{{ route ('Crear-Ug0093') }}">Crear-Ug0093</a>
+                    <a href="{{route('listado-ug0314')}}">Compuestos</a>
+                    <a href="{{ route('listado-ug0278') }}"
+                       title="Listado de Coches">Listado de Coches</a>
                 </div>
             </div>
         </div>
