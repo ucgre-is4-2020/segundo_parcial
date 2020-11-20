@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class listado_tubo_estado extends Model
+class TuboEstado extends Model
 {
     protected $table = 'tubo_estado';
 }

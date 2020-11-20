@@ -2,28 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\SeguimientoTipo;
 use Illuminate\Http\Request;
 
-class ListadosController extends Controller
+class SeguimientoTipoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-   
+
     public function index(Request $request)
     {
        $buscarpor =  strtoupper($request->get('buscarpor'));
        $misListados = \DB::table('seguimiento_tipo')->whereRaw('upper(nombre) like \'%'.$buscarpor. '%\'')->get();
-      
+
        return view('listado-ug0317', compact('misListados', 'buscarpor'));
 
 
 
     //-----------------------------------------------------------------------------
 
-      $listado = \App\Listado::get();
+      $listado = SeguimientoTipo::get();
         return view('listado-ug0317',
             ['misListados' => $listado]
         );
@@ -51,7 +52,7 @@ class ListadosController extends Controller
     {
         $nombre = $request->input('nombre');
 
-        $this->validate($request, 
+        $this->validate($request,
             [
                 'nombre' => 'required|min:3|max:10|unique:seguimiento_tipo,nombre|regex:/[a-zA-Z]+$/',
             ],
@@ -63,7 +64,7 @@ class ListadosController extends Controller
             ]
         );
 
-        $nuevoRegistro = new \App\Listado();
+        $nuevoRegistro = new SeguimientoTipo();
         $nuevoRegistro->nombre = $nombre;
         $nuevoRegistro->save();
 
@@ -84,9 +85,9 @@ class ListadosController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(\App\Listado $id)
+    public function show(SeguimientoTipo $id)
     {
         //
         return view('ver-ug0317', ['resgitroVer' => $id]);
@@ -97,9 +98,9 @@ class ListadosController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit(\App\Listado $id)
+    public function edit(SeguimientoTipo $id)
     {
         //
 
@@ -112,13 +113,13 @@ class ListadosController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, \App\Listado $id)
+    public function update(Request $request, SeguimientoTipo $id)
     {
         $nombre = $request->get('nombre');
-        
-         $this->validate($request, 
+
+         $this->validate($request,
             [
                 'nombre' => 'required|min:3|max:10|unique:seguimiento_tipo,nombre|regex:/[a-zA-Z]+$/',
             ],
@@ -134,7 +135,7 @@ class ListadosController extends Controller
         $id->nombre = $nombre;
 
         $id->save();
-        $request->session()->flash('mensaje', "Edicion exitosa del Registro $id->nombre"); 
+        $request->session()->flash('mensaje', "Edicion exitosa del Registro $id->nombre");
         return redirect('/ver/'. $id->id);
     }
 
@@ -142,9 +143,9 @@ class ListadosController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destroy(\App\Listado $id)
+    public function destroy(SeguimientoTipo $id)
     {
         $request = request();
 

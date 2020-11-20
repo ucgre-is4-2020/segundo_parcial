@@ -11,9 +11,9 @@
 
         <!-- Styles -->
         <style>
-            html, body {   
-                
-			
+            html, body {
+
+
                 color: black;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -75,12 +75,9 @@
                     <li>Sinthia Raquel Cristaldo Gill - UG0287 - sinthiacristaldo11@gmail.com </li>
                     <li>Mercedes María Luz - Enciso Núñez - UG0289</li>
                     <li>Luis Felipe- Samaniego Mora- ug0314</li>
-                    <li>luissamaniegobusiness@gmail.com</li>
                     <li>Higinio Raúl Bordón Martínez - UG0282 - raulbordon94@gmail.com</li>
                     <li>Juan - Barreto - UG0278</li>
                     <li>Justo Miguel Ojeda Rojas - UG0093</li>
-                    <li>just.ojeda1997@gmail.com</li>
-                    <li>0984-648-576</li>
                     <li>Dahiana - Taboada - UG0317 - dahiiataboada@gmail.com</li>
                 </ul>
 
@@ -92,23 +89,23 @@
                     Laravel
                     <!-- Agregar los enlaces a cada pagina aqui -->
                 </div>
-               <a href="{{ route('listado-ug0299') }}" title="Listado de Empresas"><img src="../resources/imagenes/listado.png" height= "50px" width= "50px"></a>
-           
+
+
 		   </div>
                 Enlaces:
                 <br>
                 <br>
                 <div class="links">
-                  <a href="{{ route('listado-ug0287') }}">Facturas -</a>
-                     <a href="{{ route('listado-ug0317') }}">Listados de Registros</a>
-                    <a href = "{{route ('listado_documento_tipo')}}"> Listado de Documentos </a>
-                    <a href=listado_tubo_estado>Listado UG0282 tubo_estado</a>
+                    <a href="{{ route('listado-ug0299') }}" >Tipos de Empresas</a>
+                  <a href="{{ route('listado-ug0287') }}">Tipo de Facturas</a>
+                     <a href="{{ route('listado-ug0317') }}">Seguimientos Tipos</a>
+                    <a href = "{{route ('listado_documento_tipo')}}"> Tipos de Documentos </a>
+                    <a href=listado_tubo_estado>Estados de Tubos</a>
                     <!-- Agregar los enlaces a cada pagina aqui -->
-                    <a href="{{route ('listado_contacto_tipo')}}">Listado de Contactos</a>
+                    <a href="{{route ('listado_contacto_tipo')}}">Tipos de Contactos</a>
                     <a href="{{route('listar-ug0307')}}">Listar Departamentos</a>
 
-                    <a href="{{ route ('Listado-Ug0093') }}">Listado-Ug0093</a>
-                    <a href="{{ route ('Crear-Ug0093') }}">Crear-Ug0093</a>
+                    <a href="{{ route ('Listado-Ug0093') }}">Colores</a>
                     <a href="{{route('listado-ug0314')}}">Compuestos</a>
                     <a href="{{ route('listado-ug0278') }}"
                        title="Listado de Coches">Listado de Coches</a>

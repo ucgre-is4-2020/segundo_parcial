@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\TuboEstado;
 use Illuminate\Http\Request;
 use \Illuminate\Database\QueryException;
-class UG0282Controller extends Controller
+class TuboEstadoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,13 +14,13 @@ class UG0282Controller extends Controller
      */
     public function index(Request $request)
     {
-        $listado_ug0282 = \App\listado_tubo_estado::get();
+        $listado_ug0282 = TuboEstado::get();
         //dd($listado_ug0282);
         $request=request();
         $nombre = $request->get('buscarpor');
         $id = $request->get('orden');
         return view('listado_ug0282',
-        ['listado' => $tubo_estado=\DB::table('tubo_estado')->whereRaw('upper(nombre)like\'%'.strtoupper($nombre).'%\'')->get()->sort()]);    
+        ['listado' => $tubo_estado=\DB::table('tubo_estado')->whereRaw('upper(nombre)like\'%'.strtoupper($nombre).'%\'')->get()->sort()]);
     }
 
     /**
@@ -36,7 +37,7 @@ class UG0282Controller extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -57,7 +58,7 @@ class UG0282Controller extends Controller
         $nombre= $request-> input('nombre');
         $activo= $request-> input ('activo');
 
-        $nuevotubo_estado = new \App\listado_tubo_estado();
+        $nuevotubo_estado = new TuboEstado();
         $nuevotubo_estado-> nombre = $nombre;
         $nuevotubo_estado-> activo =$activo;
         $nuevotubo_estado->save();
@@ -73,7 +74,7 @@ class UG0282Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(\App\listado_tubo_estado $id)
+    public function show(TuboEstado $id)
     {
        return view('ver_ug0282',['ver_tubo_estado'=>$id]);
     }
@@ -84,7 +85,7 @@ class UG0282Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(\App\listado_tubo_estado $id)
+    public function edit(TuboEstado $id)
     {
         return view('editar_ug0282',['editar_tubo_estado'=>$id]);
     }
@@ -94,9 +95,9 @@ class UG0282Controller extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request,\App\listado_tubo_estado $id)
+    public function update(Request $request,TuboEstado $id)
     {
         $validateData = $request->validate(
             [
@@ -120,16 +121,16 @@ class UG0282Controller extends Controller
       return redirect()->route('listado_tubo_estado',['id'=>$id->id]);}
       catch(QueryException $error){
         return redirect()->route('editar_tubo_estado',['id'=>$id->id])->with('error',$error->errorInfo[2]);
-      } 
+      }
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(\App\listado_tubo_estado $id)
+    public function destroy(TuboEstado $id)
     {
         $request=request();
         $id->delete();

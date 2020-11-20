@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Factura;
+use App\FacturaTipo;
 use Illuminate\Http\Request;
 
 class factura_tipoController extends Controller
@@ -9,7 +10,7 @@ class factura_tipoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Views\Factory\Illuminate\Views\Views
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
@@ -17,7 +18,7 @@ class factura_tipoController extends Controller
 
             $request = request();
             $nombre = $request->get('buscarpor');
-            $facturas = Factura::where('nombre', 'ilike', "%$nombre%")->paginate(10);
+            $facturas = FacturaTipo::where('nombre', 'ilike', "%$nombre%")->paginate(10);
 
             return view('listado-ug0287',
             ['misFacturas' => $facturas]
@@ -65,7 +66,7 @@ class factura_tipoController extends Controller
           $codigo = $request->input('codigo');
           $nombre = $request->input('nombre');
 
-          $nuevaFactura= new Factura();
+          $nuevaFactura= new FacturaTipo();
           $nuevaFactura->codigo = $codigo;
           $nuevaFactura->nombre = $nombre;
           $nuevaFactura->save();
@@ -78,7 +79,7 @@ class factura_tipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Factura $id)
+    public function show(FacturaTipo $id)
     {
         return view('ver-ug0287', ['factura'=>$id]);
     }
@@ -89,7 +90,7 @@ class factura_tipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Factura $id)
+    public function edit(FacturaTipo $id)
     {
         return view("editar-ug0287", ['factura' =>$id ]);
     }
@@ -99,19 +100,19 @@ class factura_tipoController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Factura $id)
+    public function update(Request $request, FacturaTipo $id)
     {
         //
          $nombre = $request->get('nombre');
-        
+
         $codigo = $request->get('codigo');
 
         $id->nombre = $nombre;
-       
+
         $id->codigo = $codigo;
-        
+
         $id->save();
 
         $request->session()->flash('mensaje', "La edición del registro $id->id fue exitoso");
@@ -123,15 +124,15 @@ class factura_tipoController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destroy(Factura $id)
+    public function destroy(FacturaTipo $id)
     {
         $request = request();
         $id->delete();
         $request->session()->flash('mensaje', "Registro Borrado $id->nombre ");
 
          return redirect('/listado-adm_factura_tipo');
-        
+
     }
 }

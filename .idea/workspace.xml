@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d09bd48-c33b-4e65-a395-0c71c1788993" name="Default Changelist" comment="se corrige enlace" />
+    <list default="true" id="0d09bd48-c33b-4e65-a395-0c71c1788993" name="Default Changelist" comment="se corrige enlace">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Empresa.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/EmpresaTipo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Factura.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/FacturaTipo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ControllerEmpresa.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ControllerEmpresaTipo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentoTipoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ListadosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SeguimientoTipoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UG0282Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TuboEstadoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/factura_tipoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/factura_tipoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listado.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SeguimientoTipo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/listado_tubo_estado.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/TuboEstado.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,6 +145,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">

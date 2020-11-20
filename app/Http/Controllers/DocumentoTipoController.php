@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \Illuminate\Database\QueryException;
 
-class DocumentoController extends Controller
+class DocumentoTipoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -56,7 +56,7 @@ class DocumentoController extends Controller
 
         [
             'nombre.required' => 'El campo nombre es obligatorio',
-            'abreviacion.required' => 'El campo abreviación es obligatorio', 
+            'abreviacion.required' => 'El campo abreviación es obligatorio',
             'activo.required' => 'El campo activo es obligatorio',
             'nombre.min' => 'El campo nombre debe tener un minimo de 3 caracteres',
             'abreviacion.max' => 'El campo abreviacion no debe superar el máximo de 10 caracteres',
@@ -66,7 +66,7 @@ class DocumentoController extends Controller
             'nombre.alpha' => 'El nombre solo puede incluir letras',
             'abreviacion.alpha' => 'La abreviacion solo puede incluir letras',
         ]
-    
+
     );
 
     // The blog post is valid..
@@ -88,8 +88,8 @@ class DocumentoController extends Controller
                 return redirect()->route('crear_documento_tipo', ['nuevoDocumento'=>$nuevoDocumento->nuevoDocumento])
                 ->with ('error',$error->errorInfo[2]);
             };
-        
-       
+
+
 
 
     }
@@ -137,10 +137,10 @@ class DocumentoController extends Controller
             'abreviacion' => 'required|min:2|max:10|alpha',
             'activo' => 'required',
             ],
-    
+
             [
                 'nombre.required' => 'El campo nombre es obligatorio',
-                'abreviacion.required' => 'El campo abreviación es obligatorio', 
+                'abreviacion.required' => 'El campo abreviación es obligatorio',
                 'activo.required' => 'El campo activo es obligatorio',
                 'nombre.min' => 'El campo nombre debe tener un minimo de 3 caracteres',
                 'abreviacion.max' => 'El campo abreviacion no debe superar el máximo de 10 caracteres',
@@ -149,13 +149,13 @@ class DocumentoController extends Controller
                 'nombre.alpha' => 'El nombre solo puede incluir letras',
                 'abreviacion.alpha' => 'La abreviacion solo puede incluir letras',
             ]
-        
+
         );
         try{
             $nombre=$request->get ('nombre');
             $abreviacion=$request->get ('abreviacion');
             $activo=$request->get ('activo');
-            
+
             $id->nombre = $nombre;
             $id->abreviacion = $abreviacion;
             $id->activo = $activo;
@@ -182,7 +182,7 @@ class DocumentoController extends Controller
 
         $id-> delete();
         return redirect ()-> route('listado_documento_tipo');
-  
+
         //
     }
 }
