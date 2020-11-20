@@ -68,6 +68,7 @@
 
             <div class="top-right links">
                 <ul>
+                    <li>Sinthia Raquel Cristaldo Gill - UG0287 - sinthiacristaldo11@gmail.com </li>
                     <li>Mercedes María Luz - Enciso Núñez - UG0289</li>
                     <li>Luis Felipe- Samaniego Mora- ug0314</li>
                     <li>luissamaniegobusiness@gmail.com</li>
@@ -84,12 +85,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel 
+                    <!-- Agregar los enlaces a cada pagina aqui -->
                 </div>
                 Enlaces:
                 <div class="links">
+                  <a href="{{ route('listado-ug0287') }}">Facturas -</a>
                      <a href="{{ route('listado-ug0317') }}">Listados de Registros</a>
-
                     <a href = "{{route ('listado_documento_tipo')}}"> Listado de Documentos </a>
                     <a href=listado_tubo_estado>Listado UG0282 tubo_estado</a>
                     <!-- Agregar los enlaces a cada pagina aqui -->
