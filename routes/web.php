@@ -122,3 +122,18 @@ Route::get('/borrar-coche/{id}', 'CochesController@destroy')->name('borrar-ug027
 Route::get('/confirmar-borrar-coche/{id}', 'CochesController@confirm')->name('confirmar-borrar-ug0278');
 
 Route::get('/ver-coche/{id}', 'CochesController@show')->name('ver-ug0278');
+
+Route::get('/listado-departamento','controldepartamentos@index')->name('listar-ug0307');
+
+Route::get('/listado-departamento/crear-departamento','controldepartamentos@create')->name('crear-ug0307');
+
+Route::post('/listado-departamento/creacion','controldepartamentos@store')->name('creacion-departamento');
+
+Route::get('/editar-departamento/{id}','controldepartamentos@edit')->name('editar-ug0307');
+
+Route::get('/borrar-departamento/{id}','controldepartamentos@destroy')->name('borrar-ug0307');
+
+
+Route::get('ver-departamento/{id}','controldepartamentos@show' )->name('ver-ug0307');
+
+Route::put('/edicion/{id}','controldepartamentos@update' )->name('edicion');
