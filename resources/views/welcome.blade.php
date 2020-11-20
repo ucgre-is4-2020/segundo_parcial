@@ -69,6 +69,7 @@
 
             <div class="top-right links">
                 <ul>
+                    <li>Anniella Almada - UG0059 - annialma27@gmail.com</li>
                     <li>Carlos Dario - Gonzalez Veron - UG0299 - CVeron20@gmail.com</li>
                     <li>Dennis Rafael - Noguera Mongelos - ug0307</li>
                     <li>Sinthia Raquel Cristaldo Gill - UG0287 - sinthiacristaldo11@gmail.com </li>
@@ -103,6 +104,7 @@
                     <a href = "{{route ('listado_documento_tipo')}}"> Listado de Documentos </a>
                     <a href=listado_tubo_estado>Listado UG0282 tubo_estado</a>
                     <!-- Agregar los enlaces a cada pagina aqui -->
+                    <a href="{{route ('listado_contacto_tipo')}}">Listado de Contactos</a>
                     <a href="{{route('listar-ug0307')}}">Listar Departamentos</a>
 
                     <a href="{{ route ('Listado-Ug0093') }}">Listado-Ug0093</a>
