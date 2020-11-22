@@ -31,8 +31,8 @@
     @csrf
     <label>Nombre:</label> <input style= "text-align: center" name="nombre" placeholder="Ingrese el color" required="required"><br>
     <br>
-       <input type="checkbox" value="true" name="activo" placeholder="Ingrese codigo del color" >Inactivo
-    <input type="checkbox" value="false" name="activo" placeholder="Ingrese codigo del color" >Activo<br>
+       <input type="radio" value="true" name="activo" placeholder="Ingrese codigo del color" >Inactivo
+    <input type="radio" value="false" name="activo" placeholder="Ingrese codigo del color" >Activo<br>
     <br>
     <label>Codigo:</label> <input style= "text-align: center"  name="codigo" placeholder="Ingrese codigo del color" required="required"><br>
     <br>
