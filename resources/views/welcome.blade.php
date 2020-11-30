@@ -102,7 +102,7 @@
                     <a href="{{route('listar-ug0307')}}">Listar Departamentos</a>
 
                     <a href="{{ route ('Listado-Ug0093') }}">Colores</a>
-                    <a href="{{route('listado-ug0314')}}">Compuestos</a>
+                    <a href="{{route('listado-ug0314')}}">Gases</a>
                     <a href="{{ route('listado-ug0278') }}"
                        title="Listado de Coches">Listado de Coches</a>
                 </div>
@@ -115,7 +115,12 @@
 
                     <div class="links">
                         <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
-                        AQUI LOS ENLACES
+                        AQUI LOS ENLACES<br>
+                        <a href="{{ route('listado_unidad_medida_ug0282_ug0314') }}" >Unidad de Medida</a>
+                        <a href="{{ route('listado_unidad_medida_tubo_ug0282_ug0314') }}" >Unidad de Medida Tubo</a>
+                        <a href="{{ route('listado_tubo_ug0282_ug0314') }}" >Tubos</a>
+                        <a href="{{ route('listado_producto_ug0282_ug0314') }}" >Productos</a>
+                        
                     </div>
                 </div>
 
