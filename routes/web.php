@@ -161,3 +161,75 @@ Route::get('/borrar-departamento/{id}','controldepartamentos@destroy')->name('bo
 Route::get('ver-departamento/{id}','controldepartamentos@show' )->name('ver-ug0307');
 
 Route::put('/edicion/{id}','controldepartamentos@update' )->name('edicion');
+/*
+-------------------------
+	DIRECCION EMPRESA
+-------------------------
+*/
+Route::get('/tp2/ug0093-ug0278-ug0307/listado-direccion-empresa', 
+			'DireccionesEmpresasController@index')
+			->name('tp2-ug0093-ug0278-ug0307-listado-direccion-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/crear-direccion-empresa',
+			 'DireccionesEmpresasController@create')
+			->name('tp2-ug0093-ug0278-ug0307-crear-direccion-empresa');
+
+Route::post('/tp2/ug0093-ug0278-ug0307/creacion-direccion-empresa',
+			 'DireccionesEmpresasController@store')
+			->name('tp2-ug0093-ug0278-ug0307-creacion-direccion-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/ver-direccion-empresa/{id}',
+			 'DireccionesEmpresasController@show')
+			->name('tp2-ug0093-ug0278-ug0307-ver-direccion-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/editar-direccion-empresa/{id}',
+ 			'DireccionesEmpresasController@edit')
+			->name('tp2-ug0093-ug0278-ug0307-editar-direccion-empresa');
+
+Route::put('/tp2/ug0093-ug0278-ug0307/edicion-direccion-empresa/{id}',
+			'DireccionesEmpresasController@update')
+			->name('tp2-ug0093-ug0278-ug0307-edicion-direccion-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/borrar-direccion-empresa/{id}',
+			'DireccionesEmpresasController@destroy')
+			->name('tp2-ug0093-ug0278-ug0307-borrar-direccion-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/confirmar-borrar-direccion-empresa/{id}',
+ 			'DireccionesEmpresasController@confirm')
+			->name('tp2-ug0093-ug0278-ug0307-confirmar-borrar-direccion-empresa');
+/*
+-------------------------
+	MEDIO DE CONTACTO
+-------------------------
+*/
+Route::get('/tp2/ug0093-ug0278-ug0307/listado-medio-contacto', 
+			'MediosDeContactosController@index')
+			->name('tp2-ug0093-ug0278-ug0307-listado-medio-contacto');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/crear-medio-contacto',
+			 'MediosDeContactosController@create')
+			->name('tp2-ug0093-ug0278-ug0307-crear-medio-contacto');
+
+Route::post('/tp2/ug0093-ug0278-ug0307/creacion-medio-contacto',
+			 'MediosDeContactosController@store')
+			->name('tp2-ug0093-ug0278-ug0307-creacion-medio-contacto');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/ver-medio-contacto/{id}',
+		 	'MediosDeContactosController@show')
+			->name('tp2-ug0093-ug0278-ug0307-ver-medio-contacto');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/editar-medio-contacto/{id}',
+ 			'MediosDeContactosController@edit')
+			->name('tp2-ug0093-ug0278-ug0307-editar-medio-contacto');
+
+Route::put('/tp2/ug0093-ug0278-ug0307/edicion-medio-contacto/{id}',
+		 	'MediosDeContactosController@update')
+			->name('tp2-ug0093-ug0278-ug0307-edicion-medio-contacto');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/borrar-medio-contacto/{id}',
+		 	'MediosDeContactosController@destroy')
+			->name('tp2-ug0093-ug0278-ug0307-borrar-medio-contacto');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/confirmar-borrar-medio-contacto/{id}',
+ 			'MediosDeContactosController@confirm')
+			->name('tp2-ug0093-ug0278-ug0307-confirmar-borrar-medio-contacto');
