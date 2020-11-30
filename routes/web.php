@@ -38,9 +38,9 @@ Route::put('/edicion-empresa/{id}', 'ControllerEmpresaTipo@update')->name('edici
 
 Route::get('/borrar-empresa/{id}', 'ControllerEmpresaTipo@destroy')->name('borrar-ug0299');
 
-Route::get('/seguro-que-desea-borrar-ug0299/{id}', 'ControllerEmpresa@confirm')->name('confirmar-borrar-ug0299');
+Route::get('/seguro-que-desea-borrar-ug0299/{id}', 'ControllerEmpresaTipo@confirm')->name('confirmar-borrar-ug0299');
 
-Route::get('/ver-empresa/{id}', 'ControllerEmpresa@show')->name('ver-ug0299');
+Route::get('/ver-empresa/{id}', 'ControllerEmpresaTipo@show')->name('ver-ug0299');
 
 Route::get('/listado-adm_factura_tipo', 'factura_tipoController@index')->name('listado-ug0287');
 
@@ -161,3 +161,54 @@ Route::get('/borrar-departamento/{id}','controldepartamentos@destroy')->name('bo
 Route::get('ver-departamento/{id}','controldepartamentos@show' )->name('ver-ug0307');
 
 Route::put('/edicion/{id}','controldepartamentos@update' )->name('edicion');
+
+
+//...................................................................................................
+Route::get('/listadoUserRol', 'ControllerUserRol@index')->name('listadoRolUser-tp2-ug0289-ug0299');
+
+Route::get('/crearUserRol', 'ControllerUserRol@create')->name('crearRolUser-tp2-ug0289-ug0299');
+
+Route::post('/creacionUserRol', 'ControllerUserRol@store')->name('RolUser-tp2-ug0289-ug0299');
+
+Route::get('/editarUserRol/{id}', 'ControllerUserRol@edit')->name('editarRolUser-tp2-ug0289-ug0299');
+
+Route::put('/edicionUserRol/{id}', 'ControllerUserRol@update')->name('edicionRolUser-tp2-ug0289-ug0299');
+
+Route::get('/borrarUserRol/{id}', 'ControllerUserRol@destroy')->name('borrarRolUser-tp2-ug0289-ug0299');
+
+Route::get('/seguro-que-desea-borrarRolUser-tp2-ug0289-ug0299/{id}', 'ControllerUserRol@confirm')->name('confirmar-borrarRolUser-tp2-ug0289-ug0299');
+
+Route::get('/verUserRol/{id}', 'ControllerUserRol@show')->name('verRolUser-tp2-ug0289-ug0299');
+//........................................................................................................
+Route::get('/listadoRol', 'ControllerRol@index')->name('listadoRol-tp2-ug0289-ug0299');
+
+Route::get('/crearRol', 'ControllerRol@create')->name('crearRol-tp2-ug0289-ug0299');
+
+Route::post('/creacionRol', 'ControllerRol@store')->name('Rol-tp2-ug0289-ug0299');
+
+Route::get('/editarRol/{id}', 'ControllerRol@edit')->name('editarRol-tp2-ug0289-ug0299');
+
+Route::put('/edicionRol/{id}', 'ControllerRol@update')->name('ediciontp2-ug0289-ug0299');
+
+Route::get('/borrarRol/{id}', 'ControllerRol@destroy')->name('borrarRol-tp2-ug0289-ug0299');
+
+Route::get('/seguro-que-desea-borrarRol-tp2-ug0289-ug0299/{id}', 'ControllerRol@confirm')->name('confirmar-borrarRol-tp2-ug0289-ug0299');
+
+Route::get('/verRol/{id}', 'ControllerRol@show')->name('verRol-tp2-ug0289-ug0299');
+//............................................................................................................
+Route::get('/listadoUser', 'ControllerUser@index')->name('listadoUser-tp2-ug0289-ug0299');
+
+Route::get('/crearUser', 'ControllerUser@create')->name('crearUser-tp2-ug0289-ug0299');
+
+Route::post('/creacionUser', 'ControllerUser@store')->name('Users-tp2-ug0289-ug0299');
+
+Route::get('/editarUser/{id}', 'ControllerUser@edit')->name('editarUser-tp2-ug0289-ug0299');
+
+Route::put('/edicionUser/{id}', 'ControllerUser@update')->name('edicion_tp2-ug0289-ug0299');
+
+Route::get('/borrarUser/{id}', 'ControllerUser@destroy')->name('borrarUser-tp2-ug0289-ug0299');
+
+Route::get('/seguro-que-desea-borrarUser-tp2-ug0289-ug0299/{id}', 'ControllerUser@confirm')->name('confirmar-borrarUser-tp2-ug0289-ug0299');
+
+Route::get('/verUser/{id}', 'ControllerUser@show')->name('verUser-tp2-ug0289-ug0299');
+//......................................................................................................

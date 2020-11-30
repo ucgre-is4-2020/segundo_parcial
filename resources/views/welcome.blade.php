@@ -115,7 +115,9 @@
 
                     <div class="links">
                         <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
-                        AQUI LOS ENLACES
+                        <a href="{{ route('listadoRolUser-tp2-ug0289-ug0299') }}" >Listado de Roles de Usuario</a>
+                    
+                    
                     </div>
                 </div>
 
