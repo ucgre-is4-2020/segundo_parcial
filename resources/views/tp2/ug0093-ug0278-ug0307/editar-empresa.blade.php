@@ -32,7 +32,7 @@
     </div>
 @endif
 
-  <form action="{{route('edicionEmpresa-ug0093-ug0278-ug0307',['id' =>$empresa->id])}}" method="post">
+  <form action="{{route('tp2-ug0093-ug0278-ug0307-edicion-empresa',['id' =>$empresa->id])}}" method="post">
     @method('PUT')
     
   @csrf 
@@ -60,7 +60,7 @@
 
    <div class="links">
    
-                    <a href="{{route('listarEmpresa-ug0093-ug0278-ug0307')}}">Listar Empresas</a>
+                    <a href="{{route('tp2-ug0093-ug0278-ug0307-listar-empresa')}}">Listar Empresas</a>
   
    </div>
    

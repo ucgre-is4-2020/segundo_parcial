@@ -34,7 +34,7 @@
 
   
 
-  <form action="{{route('creacion-ug0093-ug0278-ug0307')}}" method="post">
+  <form action="{{route('tp2-ug0093-ug0278-ug0307-creacion-empresatipoempresa')}}" method="post">
     
   @csrf 
     <select name="empresa_tipo_id">
@@ -79,7 +79,7 @@
 
    <div class="links">
    
-                    <a href="{{route('listar-ug0093-ug0278-ug0307')}}">Listar empresa tipo empresa</a>
+                    <a href="{{route('tp2-ug0093-ug0278-ug0307-listar-empresatipoempresa')}}">Listar empresa tipo empresa</a>
   
    </div>
    

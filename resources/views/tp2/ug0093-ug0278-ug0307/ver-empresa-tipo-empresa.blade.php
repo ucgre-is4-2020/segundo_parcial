@@ -29,7 +29,7 @@
  <div class="links">
    
                   
-                <a href="{{route('listar-ug0093-ug0278-ug0307')}}">Volver al listado</a>  
+                <a href="{{route('tp2-ug0093-ug0278-ug0307-listar-empresatipoempresa')}}">Volver al listado</a>  
   
    </div>
       

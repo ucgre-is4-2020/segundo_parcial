@@ -19,7 +19,7 @@
  <div class="links" style="display: inline-block; position: ">
    
                     <a href="{{route('welcome')}}">Pagina principal</a>
-                    <a href="{{route('crearEmpresa-ug0093-ug0278-ug0307')}}">Crear empresa</a>
+                    <a href="{{route('tp2-ug0093-ug0278-ug0307-crear-empresa')}}">Crear empresa</a>
                     
    </div>
 
@@ -49,11 +49,11 @@
  
  <tr>
  <td>
-<a href="{{route('verEmpresa-ug0093-ug0278-ug0307',['id' => $empresas->id])}}">{{$empresas ->id}} </a>
+<a href="{{route('tp2-ug0093-ug0278-ug0307-ver-empresa',['id' => $empresas->id])}}">{{$empresas ->id}} </a>
 
-<a href="{{route('editarEmpresa-ug0093-ug0278-ug0307',['id' => $empresas->id])}}">Editar</a>
+<a href="{{route('tp2-ug0093-ug0278-ug0307-editar-empresa',['id' => $empresas->id])}}">Editar</a>
 
- <a href="{{route('borrarEmpresa-ug0093-ug0278-ug0307',['id' => $empresas->id])}}" onclick="return confirm('Esta seguro?')">Borrar</a>
+ <a href="{{route('tp2-ug0093-ug0278-ug0307-borrar-empresa',['id' => $empresas->id])}}" onclick="return confirm('Esta seguro?')">Borrar</a>
 </td>
 <td>{{$empresas->razon_social}}</td> <td>{{$empresas ->created_at}}</td> <td>{{$empresas ->updated_at}}</td>
  </tr>

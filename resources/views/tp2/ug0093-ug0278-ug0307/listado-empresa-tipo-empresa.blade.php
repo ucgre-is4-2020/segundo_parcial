@@ -19,7 +19,7 @@
 <div class="links" style="display: inline-block; position: ">
 <a href="{{route('welcome')}}">Pagina principal</a>
 
- <a href="{{route('crear-ug0093-ug0278-ug0307')}}">Crear-empresa tipo empresa</a> 
+ <a href="{{route('tp2-ug0093-ug0278-ug0307-crear-empresatipoempresa')}}">Crear-empresa tipo empresa</a> 
   </div>
 <!-- 
    
@@ -64,11 +64,11 @@
  <tr>
     <td>
 
-<a href="{{route('ver-ug0093-ug0278-ug0307',['id' => $empresaTipoEmpresa->id])}}">{{$empresaTipoEmpresa ->id}} </a>
+<a href="{{route('tp2-ug0093-ug0278-ug0307-ver-empresatipoempresa',['id' => $empresaTipoEmpresa->id])}}">{{$empresaTipoEmpresa ->id}} </a>
 
-<a href="{{route('editar-ug0093-ug0278-ug0307',['id' => $empresaTipoEmpresa->id])}}">Editar</a>
+<a href="{{route('tp2-ug0093-ug0278-ug0307-editar-empresatipoempresa',['id' => $empresaTipoEmpresa->id])}}">Editar</a>
 
-<a href="{{route('borrar-ug0093-ug0278-ug0307',['id' => $empresaTipoEmpresa->id])}}" onclick="return confirm('Esta seguro?')">Borrar</a>
+<a href="{{route('tp2-ug0093-ug0278-ug0307-borrar-empresatipoempresa',['id' => $empresaTipoEmpresa->id])}}" onclick="return confirm('Esta seguro?')">Borrar</a>
 
     </td>
 

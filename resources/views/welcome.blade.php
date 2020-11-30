@@ -114,11 +114,17 @@
                     Enlaces 2da Entrega TP:
 
                     <div class="links">
+
                         <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
-                        AQUI LOS ENLACES
+                       
                         <br>
-                        <a href="{{ route ('listar-ug0093-ug0278-ug0307') }}">Listar Empresa tipo empresa</a>
-                        <a href="{{ route ('listarEmpresa-ug0093-ug0278-ug0307') }}">Listar Empresa </a>
+                        <br>
+                        <a href="{{ route ('tp2-ug0093-ug0278-ug0307-listar-empresatipoempresa') }}">Listar Empresa tipo empresa</a>
+                        <a href="{{ route ('tp2-ug0093-ug0278-ug0307-listar-empresa') }}">Listar Empresa </a>
+
+                        <a href="{{ route('tp2-ug0093-ug0278-ug0307-listado-direccion-empresa') }}" title="Listado direcciones de empresas">Listado de direcciones de empresas</a>
+                        <a href="{{ route('tp2-ug0093-ug0278-ug0307-listado-medio-contacto') }}" title="Listado medios de contactos">Listado de medios de contactos</a>
+
                     </div>
                 </div>
 

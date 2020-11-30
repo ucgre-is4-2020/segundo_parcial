@@ -119,9 +119,9 @@ class empresaTipoEmpresaController extends Controller
         try{
              $nuevoEmpresaTipoEmpresa->save();
              session()->flash('Correcto','Nuevo Empresa-Tipo-Empresa guardado');
-             return redirect()->route('listar-ug0093-ug0278-ug0307');
+             return redirect()->route('tp2-ug0093-ug0278-ug0307-listar-empresatipoempresa');
         }catch (QueryException $e){
-            return redirect()->route('crear-ug0093-ug0278-ug0307')->with('incorrecto',$e->errorInfo[2]);
+            return redirect()->route('tp2-ug0093-ug0278-ug0307-crear-empresatipoempresa')->with('incorrecto',$e->errorInfo[2]);
         }
 
 
@@ -220,7 +220,7 @@ class empresaTipoEmpresaController extends Controller
              session()->flash('Correcto','Edicion de registro exitosa');
               return redirect('/tp2/ug0093-ug0278-ug0307/ver-empresa-tipo-empresa/'.$id->id);
         }catch (QueryException $e){
-            return redirect()->route('editar-ug0093-ug0278-ug0307',['id' => $id->id])->with('incorrecto',$e->errorInfo[2]);
+            return redirect()->route('tp2-ug0093-ug0278-ug0307-editar-empresatipoempresa',['id' => $id->id])->with('incorrecto',$e->errorInfo[2]);
         }
 
         

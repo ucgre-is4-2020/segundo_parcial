@@ -22,4 +22,8 @@ class Empresa extends Model
    	}
    }
 
+    public function direcciones_empresas() {
+    	return $this->hasMany('App\DireccionEmpresa', 'empresa_id', 'id');
+    }
+
 }
