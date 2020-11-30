@@ -116,6 +116,9 @@
                     <div class="links">
                         <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
                         AQUI LOS ENLACES
+                        <br>
+                        <a href="{{ route ('listar-ug0093-ug0278-ug0307') }}">Listar Empresa tipo empresa</a>
+                        <a href="{{ route ('listarEmpresa-ug0093-ug0278-ug0307') }}">Listar Empresa </a>
                     </div>
                 </div>
 
