@@ -67,7 +67,7 @@
 				<nav class="navbar navbar-light bg-light">
 				  <form class="form-inline">
 
-				    <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
+				    <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por serial" aria-label="Search">
 				    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
 				    <a href="{{ route('crear_tubo_ug0282_ug0314') }}">Nuevo tubo</a>
 				  </form>
@@ -106,7 +106,7 @@
 
 								<a href="{{ route ('ver_tubos_tp2_ug0282_ug0314', ['id' => $unaUnidad->id]) }}">Ver</a>
 
-								<a href="{{ route ('editar_unidad_medida_tp2_ug0282_ug0314', ['id' => $unaUnidad->id]) }}">Editar</a><br>
+								<a href="{{ route ('editar_tubo_tp2_ug0282_ug0314', ['id' => $unaUnidad->id]) }}">Editar</a><br>
 							</td>
 						</tr>
 

@@ -21,7 +21,7 @@ class TuboController extends Controller
 
         $codigo = $request->get('buscarpor');
 
-        $tubo = Tubo::with('producto')->where( 'codigo', 'ilike', "%$codigo%")->paginate(50);
+        $tubo = Tubo::with('producto')->where( 'serial', 'ilike', "%$codigo%")->paginate(50);
 
         //se ordena el array por id
         $tubo = $tubo->sortBy('id');
@@ -116,9 +116,10 @@ class TuboController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( Tubo $id)
     {
-        //
+        return view('tp2/ug0282-ug0314/editar_tubo_tp2_ug0282_ug0314', ['tubos' =>$id]);
+        
     }
 
     /**
@@ -128,9 +129,78 @@ class TuboController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tubo $id)
     {
         //
+        $codigo = $request->get('codigo');
+        $serial = $request->get('serial');
+
+
+//
+        if ($id->codigo == $codigo && $id->serial == $serial  ) {
+             $validatedData = $request->validate(
+                [
+                    
+                    'serial' => 'required|max:40',
+                    'codigo' => 'required|max:40'
+                ],
+                [
+                    
+                    'serial.required' => 'El campo serial es obligatorio',
+                    'codigo.required' => 'El campo codigo es obligatorio',
+                    'codigo.max' => 'El código no puede tener más de 40 caracteres',
+                    'serial.max' => 'El serial no puede tener más de 40 caracteres',
+                   
+                ]
+
+            );
+        }else{
+            //validador
+            $validatedData = $request->validate(
+                [
+                    
+                    'serial' => 'required|max:40|unique:tubo',
+                    'codigo' => 'required|max:40|unique:tubo',
+                    
+                ],
+                [
+                    
+                    'serial.required' => 'El campo serial es obligatorio',
+                    'codigo.required' => 'El campo codigo es obligatorio',
+                    'codigo.max' => 'El código no puede tener más de 40 caracteres',
+                    'codigo.unique' => 'El código  ya está en uso',
+                    'serial.unique' => 'El serial ya está en uso',
+                    'serial.max' => 'El serial no puede tener más de 40 caracteres',
+                   
+
+                ]
+
+            );
+        }
+
+        $serial = $request->get('serial');
+        $codigo = $request->get('codigo');
+        $compra = $request->get('compra');
+        $vencimiento = $request->get('vencimiento');
+
+       
+
+        $id->serial = $serial;
+        $id->codigo = $codigo;
+        $id->fecha_compra = $compra;
+        $id->fecha_vencimiento = $vencimiento;  
+        
+
+
+        
+        
+        $id->save();
+
+
+
+        $request->session()->flash('mensaje', "La edición del tubo $id->serial fue exitoso");
+
+        return redirect('/listado-tubo-tp2-ug0282-ug0314/editar-tubo/'. $id->id );
     }
 
     /**

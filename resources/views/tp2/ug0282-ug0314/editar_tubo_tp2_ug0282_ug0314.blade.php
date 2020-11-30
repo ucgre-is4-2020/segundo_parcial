@@ -37,7 +37,7 @@
 
             #formulario{
 					
-					width: 800px;
+					width: 900px;
 					margin: auto;
 					padding: 6px;
 
@@ -66,7 +66,7 @@
 				<h1>Editar tubo</h1>
 
 				
-				<form action="{{ route('edicion_unidad_medida_tp2_ug0282_ug0314', ['id' => $unidadMedida->id]) }}" method="POST" >
+				<form action="{{ route('edicion_tubo_tp2_ug0282_ug0314', ['id' => $tubos->id]) }}" method="POST" >
 
 					@method('PUT')
 					<!--Agregar siempre csrf en los formularios, es un token de seguridad-->
@@ -77,30 +77,25 @@
 						<tr>
 							<td style="width: 10px;"><label>Id</label></td>
 							
-							<td><label>Nombre</label></td>
-							<td><label>Abreviación</label></td>
-							<td><label>Activo</label></td>
+							
+							<td><label>Serial</label></td>
+							<td><label>Codigo</label></td>
+							<td><label>Fecha de compra</label></td>
+							<td><label>Fecha de vencimiento</label></td>
 							<td>Fecha de creación</td>
                             <td>Fecha de modificación</td>
 						</tr>
 						<tr>
-							<td><input name="id" value="{{$unidadMedida->id}}" disabled="disabled"></td>
-							<td><input type="text" name="nombre" value="{{$unidadMedida->nombre}}"></td>
-							<td> <input type="text" name="abreviacion" value="{{$unidadMedida->abreviacion}}"></td>
-							<td>@if ($unidadMedida->activo == true)
-							   		<select name="activo" value="{{$unidadMedida->activo}}">
-				  							<option value="true">activo </option>
-				  							<option value="false">inactivo </option>  
-									</select>
-							   	@else
-							   		<select name="activo" value="{{$unidadMedida->activo}}">
-				  							<option value="false">inactivo </option>
-				  							<option value="true">activo </option>  
-									</select>
-								@endif
-							</td>
-							<td><input type="text" name="creacion" value="{{$unidadMedida->created_at}}" disabled="disabled"></td>
-							<td><input type="text" name="modificacion" value="{{$unidadMedida->updated_at}}" disabled="disabled"></td>
+							<td><input name="id" value="{{$tubos->id}}" disabled="disabled"></td>
+							<td><input type="text" name="serial" value="{{$tubos->serial}}"></td>
+							<td> <input type="text" name="codigo" value="{{$tubos->codigo}}"></td>
+
+							<td><input type="date" name="compra" value="{{$tubos->fecha_compra}}"></td>
+							<td><input type="date" name="vencimiento" value="{{$tubos->fecha_vencimiento}}"></td>
+							
+							
+							<td><input type="text" name="creacion" value="{{$tubos->created_at}}" disabled="disabled"></td>
+							<td><input type="text" name="modificacion" value="{{$tubos->updated_at}}" disabled="disabled"></td>
 						</tr>
 
 					</table><br>
@@ -126,7 +121,7 @@
 					{{ session ('mensaje') }}
 				</div>
 
-				<a href="{{ route('listado_unidad_medida_ug0282_ug0314') }}">Listar registros</a>
+				<a href="{{ route('listado_tubo_ug0282_ug0314') }}">Listar registros</a>
 
 			</div>
 
