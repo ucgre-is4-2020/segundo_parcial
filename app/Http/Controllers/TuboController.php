@@ -51,7 +51,22 @@ class TuboController extends Controller
     public function store(Request $request)
     {
         //validador
-        
+        $validatedData = $request->validate(
+            [
+                'serial' => 'required|max:40|unique:tubo,serial',
+                'codigo' => 'required|max:40|unique:tubo,codigo'
+            ],
+            [
+                'codigo.required' => 'El campo codigo es obligatorio',
+                'serial.required' => 'El campo serial es obligatorio',
+                'codigo.max' => 'El codigo no puede tener más de 40 caracteres',
+                'serial.max' => 'El serial no puede tener más de 40 caracteres',
+                'codigo.unique' => 'El codigo ya existe',
+                'serial.unique' => 'El serial ya existe'
+
+            ]
+
+        );
 
         //en el $request estan todos los campos del formulario
         $serial = $request->input('serial');
@@ -70,12 +85,14 @@ class TuboController extends Controller
         $nuevoCompuesto->fecha_vencimiento = $vencimiento;
         $nuevoCompuesto->save(); // aca de guarda en la base de datos
 
-
+        $request->session()->flash('mensaje', "La creacion del tubo fue exitoso");
+       echo "<script>alert('Creación del producto exitosa'); </script>";
         
        echo "<script>alert('Creación exitosa'); </script>";
         
 
-        return view('tp2/ug0282-ug0314/listado_tubo_ug0282_ug0314'); //retornamos a la lista de productos
+       return redirect('/listado-tubo-ug0282-ug0314/crear-tubo'); 
+         //retornamos a la lista de productos
     }
 
     /**
@@ -130,6 +147,6 @@ class TuboController extends Controller
 
         $request->session()->flash('mensaje', "El borrado del producto $id->id fue exitoso");
 
-        return redirect('/listado-producto-tp2-ug0282-ug0314/');
+        return redirect('/listado-tubo-ug0282-ug0314/');
     }
 }

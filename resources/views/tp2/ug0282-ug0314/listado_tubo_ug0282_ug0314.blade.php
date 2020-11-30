@@ -90,7 +90,7 @@
 
 						</tr>
 
-						@foreach($misTubos ?? '' as $unaUnidad)
+						@foreach($misTubos as $unaUnidad)
 
 						<tr>
 							<td>{{ $unaUnidad->id }}</td>
@@ -102,7 +102,7 @@
 							<td>{{ $unaUnidad->updated_at }}</td>
 							
 
-							<td><a href="{{ route ('borrar_unidad_medida_tp2_ug0282_ug0314', ['id' => $unaUnidad->id]) }}" onclick="return confirm('¿Está seguro de borrar este registro?')">Borrar</a>
+							<td><a href="{{ route ('borrar_tubo_tp2_ug0282_ug0314', ['id' => $unaUnidad->id]) }}" onclick="return confirm('¿Está seguro de borrar este registro?')">Borrar</a>
 
 								<a href="{{ route ('ver_tubos_tp2_ug0282_ug0314', ['id' => $unaUnidad->id]) }}">Ver</a>
 
