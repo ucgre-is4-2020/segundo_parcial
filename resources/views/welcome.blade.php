@@ -115,7 +115,10 @@
 
                     <div class="links">
                         <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
-                        AQUI LOS ENLACES
+
+                       <a href="{{ route('tp2-ug0317-listado-ciudad') }}">Ciudad</a>
+                       <a href="{{ route('tp2-ug0317-listado-barrio') }}">Barrio</a>
+
                     </div>
                 </div>
 

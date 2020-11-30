@@ -56,14 +56,54 @@ Route::get('/listado-adm_factura_tipo/ver-adm_factura_tipo/{id}', 'factura_tipoC
 Route::get('/listado-adm_factura_tipo/editar-adm_factura_tipo/{id}', 'factura_tipoController@edit')->name('editar-ug0287');
 
 Route::put('/listado-adm_factura_tipo/edicion-adm_factura_tipo/{id}', 'factura_tipoController@update')->name('edicion-ug0287');
+//------------------------------------------------------------------------------------------
+
+
 
 Route::get('/listado-ug0317', 'SeguimientoTipoController@index')->name('listado-ug0317');
 
 Route::get('/listado/crear', 'SeguimientoTipoController@create')->name('crear-ug0317');
 
 Route::post('/listado/creacion', 'SeguimientoTipoController@store')->name('creacion-ug0317');
+//---------------------------------------------------------------------------------------
+
+
+
+Route::get('tp2/ug0317/listado-ciudad', 'CiudadController@index')->name('tp2-ug0317-listado-ciudad');
+
+Route::get('tp2/ug0317/crear-ciudad', 'CiudadController@create')->name('tp2-ug0317-crear-ciudad');
+
+Route::post('tp2/ug0317/creacion-ciudad', 'CiudadController@store')->name('tp2-ug0317-creacion-ciudad');
+//
+Route::get('tp2/ug0317/ver-ciudad/{id}', 'CiudadController@show')->name('tp2-ug0317-ver-ciudad');
+Route::get('tp2/ug0317/borrar-ciudad/{id}', 'CiudadController@destroy')->name('tp2-ug0317-borrar-ciudad');
+Route::get('tp2/ug0317/editar-ciudad/{id}', 'CiudadController@edit')->name('tp2-ug0317-editar-ciudad');
+Route::put('tp2/ug0317/edicion-ciudad/{id}', 'CiudadController@update')->name('tp2-ug0317-edicion-ciudad');
+
+
 
 //----------------------------------------------------------------------------
+
+
+
+
+Route::get('tp2/ug0317/listado-barrio', 'BarrioController@index')->name('tp2-ug0317-listado-barrio');
+
+Route::get('tp2/ug0317/crear-barrio', 'BarrioController@create')->name('tp2-ug0317-crear-barrio');
+
+Route::post('tp2/ug0317/creacion-barrio', 'BarrioController@store')->name('tp2-ug0317-creacion-barrio');
+//
+Route::get('tp2/ug0317/ver-barrio/{id}', 'BarrioController@show')->name('tp2-ug0317-ver-barrio');
+Route::get('tp2/ug0317/borrar-barrio/{id}', 'BarrioController@destroy')->name('tp2-ug0317-borrar-barrio');
+Route::get('tp2/ug0317/editar-barrio/{id}', 'BarrioController@edit')->name('tp2-ug0317-editar-barrio');
+Route::put('tp2/ug0317/edicion-barrio/{id}', 'BarrioController@update')->name('tp2-ug0317-edicion-barrio');
+
+
+
+
+
+
+//_-------------------------------------------------------------------------------
 
 Route::get('/ver-l/{id}', 'SeguimientoTipoController@show')->name('ver-formulario');
 
