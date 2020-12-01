@@ -38,9 +38,9 @@ Route::put('/edicion-empresa/{id}', 'ControllerEmpresaTipo@update')->name('edici
 
 Route::get('/borrar-empresa/{id}', 'ControllerEmpresaTipo@destroy')->name('borrar-ug0299');
 
-Route::get('/seguro-que-desea-borrar-ug0299/{id}', 'ControllerEmpresa@confirm')->name('confirmar-borrar-ug0299');
+Route::get('/seguro-que-desea-borrar-ug0299/{id}', 'ControllerEmpresaTipo@confirm')->name('confirmar-borrar-ug0299');
 
-Route::get('/ver-empresa/{id}', 'ControllerEmpresa@show')->name('ver-ug0299');
+Route::get('/ver-empresa/{id}', 'ControllerEmpresaTipo@show')->name('ver-ug0299');
 
 Route::get('/listado-adm_factura_tipo', 'factura_tipoController@index')->name('listado-ug0287');
 
@@ -161,3 +161,36 @@ Route::get('/borrar-departamento/{id}','controldepartamentos@destroy')->name('bo
 Route::get('ver-departamento/{id}','controldepartamentos@show' )->name('ver-ug0307');
 
 Route::put('/edicion/{id}','controldepartamentos@update' )->name('edicion');
+
+Route::get('/listadoFMP', 'ControllerFacturaMedioPago@index')->name('listadoFMP-tp2-ug0059');
+
+Route::get('/crearFMP', 'ControllerFacturaMedioPago@create')->name('crearFMP-tp2-ug0059');
+
+Route::post('/creacionFMP', 'ControllerFacturaMedioPago@store')->name('creacionFMP-ug0059');
+
+Route::get('/editarFMP/{id}', 'ControllerFacturaMedioPago@edit')->name('editarFMP-tp2-ug0059');
+
+Route::put('/edicionFMP/{id}', 'ControllerFacturaMedioPago@update')->name('edicionFMP-ug0059');
+
+Route::get('/borrarFMP/{id}', 'ControllerFacturaMedioPago@destroy')->name('borrarFMP-tp2-ug0059');
+
+Route::get('/seguro-que-desea-borrarFMP-tp2-ug0059/{id}', 'ControllerFacturaMedioPago@confirm')->name('confirmar-borrarFMP-tp2-ug0059');
+
+Route::get('/verFMP/{id}', 'ControllerFacturaMedioPago@show')->name('verFMP-tp2-ug0059');
+
+
+Route::get('/listadoChofer', 'ControllerChofer@index')->name('listadoChofer-tp2-ug0059');
+
+Route::get('/crearChofer', 'ControllerChofer@create')->name('crearChofer-tp2-ug0059');
+
+Route::post('/creacionChofer', 'ControllerChofer@store')->name('creacionChofer-ug0059');
+
+Route::get('/editarChofer/{id}', 'ControllerChofer@edit')->name('editarChofer-tp2-ug0059');
+
+Route::put('/edicionChofer/{id}', 'ControllerChofer@update')->name('edicionChofer-ug0059');
+
+Route::get('/borrarChofer/{id}', 'ControllerChofer@destroy')->name('borrarChofer-tp2-ug0059');
+
+Route::get('/seguro-que-desea-borrarChofer-tp2-ug0059/{id}', 'ControllerChofer@confirm')->name('confirmar-borrarChofer-tp2-ug0059');
+
+Route::get('/verChofer/{id}', 'ControllerChofer@show')->name('verChofer-tp2-ug0059');

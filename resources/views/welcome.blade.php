@@ -115,7 +115,10 @@
 
                     <div class="links">
                         <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
-                        AQUI LOS ENLACES
+                      <a href="{{ route('listadoFMP-tp2-ug0059') }}" title="Listado de FMP">Lista de Facturas Metodos de Pago</a>
+            <a href="{{ route('listadoChofer-tp2-ug0059') }}" title="Listado de FMP">Lista de Choferes</a>
+           
+                    
                     </div>
                 </div>
 
