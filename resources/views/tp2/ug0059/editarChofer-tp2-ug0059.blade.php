@@ -94,7 +94,7 @@
 					<label for="tipo_sangre">Tipo de Sangre</label>
 				</td>
 				<td>
-					<input type="text" name="tipo_sangre" id="tipo_sangre"  pattern="[A-Za-z0-9]{1,10}" required="required"
+					<input type="text" name="tipo_sangre" id="tipo_sangre"  pattern="{1,10}" required="required"
 					value="{{ empty(old('tipo_sangre'))?$Chofer->tipo_sangre:old('tipo_sangre') }}" onchange="habilitarBoton('{{ $Chofer }}')"
 					onkeyup="habilitarBoton('{{ $Chofer }}')">
 				</td>

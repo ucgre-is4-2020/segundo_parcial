@@ -54,7 +54,7 @@
 					<label for="tipo_sangre">Tipo de Sangre</label>
 				</td>
 				<td>
-					<input type="text" name="tipo_sangre" id="tipo_sangre" value="{{ old('tipo_sangre') }}" pattern="[A-Za-z0-9]{1,40}" required="required"
+					<input type="text" name="tipo_sangre" id="tipo_sangre" value="{{ old('tipo_sangre') }}" pattern="{1,40}" required="required"
 					value="{{ old('codigo') }}">
 				</td>
 			</tr>
