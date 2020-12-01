@@ -123,8 +123,18 @@
                                 @endforeach 
                             </td>
 
+<<<<<<< HEAD
                             
                             <td class="td" >{{ $productos->activo }} </td>
+=======
+                            <td>@if ($productos->activo == true)
+							   		activo
+							   	@else
+							   		inactivo
+								@endif
+							</td>
+                            
+>>>>>>> 309225a0264978c9dd9a2633970b502894ca9b3b
                             
                             <td class="td" >{{ $productos->created_at }} </td>
                             <td class="td" >{{ $productos->updated_at }}</td>
