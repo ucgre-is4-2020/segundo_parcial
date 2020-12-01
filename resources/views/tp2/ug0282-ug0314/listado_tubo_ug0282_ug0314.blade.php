@@ -67,11 +67,7 @@
 				<nav class="navbar navbar-light bg-light">
 				  <form class="form-inline">
 
-<<<<<<< HEAD
-				    <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
-=======
 				    <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por serial" aria-label="Search">
->>>>>>> 309225a0264978c9dd9a2633970b502894ca9b3b
 				    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
 				    <a href="{{ route('crear_tubo_ug0282_ug0314') }}">Nuevo tubo</a>
 				  </form>
@@ -90,15 +86,11 @@
 							<td>Fecha de actualizacion</td>
 
 							<td colspan="3">Acciones</td>
-							
+
 
 						</tr>
 
-<<<<<<< HEAD
-						@foreach($misTubos ?? '' as $unaUnidad)
-=======
 						@foreach($misTubos as $unaUnidad)
->>>>>>> 309225a0264978c9dd9a2633970b502894ca9b3b
 
 						<tr>
 							<td>{{ $unaUnidad->id }}</td>
@@ -108,21 +100,13 @@
 							<td>{{ $unaUnidad->fecha_vencimiento }}</td>
 							<td>{{ $unaUnidad->created_at }} </td>
 							<td>{{ $unaUnidad->updated_at }}</td>
-							
 
-<<<<<<< HEAD
-							<td><a href="{{ route ('borrar_unidad_medida_tp2_ug0282_ug0314', ['id' => $unaUnidad->id]) }}" onclick="return confirm('¿Está seguro de borrar este registro?')">Borrar</a>
 
-								<a href="{{ route ('ver_tubos_tp2_ug0282_ug0314', ['id' => $unaUnidad->id]) }}">Ver</a>
-
-								<a href="{{ route ('editar_unidad_medida_tp2_ug0282_ug0314', ['id' => $unaUnidad->id]) }}">Editar</a><br>
-=======
 							<td><a href="{{ route ('borrar_tubo_tp2_ug0282_ug0314', ['id' => $unaUnidad->id]) }}" onclick="return confirm('¿Está seguro de borrar este registro?')">Borrar</a>
 
 								<a href="{{ route ('ver_tubos_tp2_ug0282_ug0314', ['id' => $unaUnidad->id]) }}">Ver</a>
 
 								<a href="{{ route ('editar_tubo_tp2_ug0282_ug0314', ['id' => $unaUnidad->id]) }}">Editar</a><br>
->>>>>>> 309225a0264978c9dd9a2633970b502894ca9b3b
 							</td>
 						</tr>
 

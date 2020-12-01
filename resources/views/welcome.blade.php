@@ -114,24 +114,15 @@
                     Enlaces 2da Entrega TP:
 
                     <div class="links">
-<<<<<<< HEAD
-                        <a href="{{route('listado_unidad_medida_tubo_ug0282_ug0314')}}">Listado unidad medida tubo</a>
-                        
-                        <a href="{{route('listado_tubo_ug0282_ug0314')}}">Listado tubo</a>
-                        
-                        <a href="{{route('crear_tubo_ug0282_ug0314')}}">Crear tubo</a>
-                        <a href="{{route('listado_producto_ug0282_ug0314')}}">Listado Producto</a>
-                        <a href="{{route('crear_producto_ug0282_ug0314')}}">Crear Producto</a>
-                       
-=======
+
                         <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
                         AQUI LOS ENLACES<br>
                         <a href="{{ route('listado_unidad_medida_ug0282_ug0314') }}" >Unidad de Medida</a>
                         <a href="{{ route('listado_unidad_medida_tubo_ug0282_ug0314') }}" >Unidad de Medida Tubo</a>
                         <a href="{{ route('listado_tubo_ug0282_ug0314') }}" >Tubos</a>
                         <a href="{{ route('listado_producto_ug0282_ug0314') }}" >Productos</a>
-                        
->>>>>>> 309225a0264978c9dd9a2633970b502894ca9b3b
+
+
                     </div>
                 </div>
 

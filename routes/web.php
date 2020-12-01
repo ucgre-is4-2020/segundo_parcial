@@ -208,14 +208,12 @@ Route::get('/ver-tubos/{tubo}/ver-producto/{producto}', 'TuboController@show')->
 Route::get('/listado-tubo-ug0282-ug0314/crear-tubo', 'TuboController@create')->name('crear_tubo_ug0282_ug0314');
 Route::post('/listado-tubo-tp2-ug0282-ug0314/creacion-tubo', 'TuboController@store')->name('creacion_tubo_ug0282_ug0314');
 
-<<<<<<< HEAD
-=======
+
 Route::get('/listado-tubo-ug0282-ug0314/borrar-tubo/{id}', 'TuboController@destroy')->name('borrar_tubo_tp2_ug0282_ug0314');
 
 Route::get('/listado-tubo-tp2-ug0282-ug0314/editar-tubo/{id}', 'TuboController@edit')->name('editar_tubo_tp2_ug0282_ug0314');
 Route::put('/listado-tubo-tp2-ug0282-ug0314/edicion-tubo{id}', 'TuboController@update')->name('edicion_tubo_tp2_ug0282_ug0314');
 
->>>>>>> 309225a0264978c9dd9a2633970b502894ca9b3b
 
 
 
