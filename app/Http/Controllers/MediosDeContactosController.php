@@ -71,15 +71,22 @@ class MediosDeContactosController extends Controller
     public function store(Request $request)
     {
         $tipo_medio_contacto = intval($request->input('tipo_medio_contacto'));
-        $direccion_empresa = intval($request->input('direccion_empresa'));
-        $persona_contacto = intval($request->input('persona_contacto'));
+        $tipo_contacto = intval($request->input('tipo_contacto'));
         $valor = $request->input('valor');
         $observacion = $request->input('observacion');
 
+
         $nuevoMedioContacto = new \App\MedioDeContacto();
         $nuevoMedioContacto->medio_de_contacto_tipo_id = $tipo_medio_contacto;
-        $nuevoMedioContacto->direccion_empresa_id = $direccion_empresa;
-        $nuevoMedioContacto->contacto_persona_direccion_empresa_id = $persona_contacto;
+        if($tipo_contacto == 1){//Guardo empresa
+            $nuevoMedioContacto->direccion_empresa_id = intval($request->input('empresa_contacto'));
+            $nuevoMedioContacto->contacto_persona_direccion_empresa_id = null;
+        }else if($tipo_contacto == 2){//Guardo persona
+            $nuevoMedioContacto->direccion_empresa_id = null;
+            
+            $nuevoMedioContacto
+            ->contacto_persona_direccion_empresa_id = intval($request->input('persona_contacto'));
+        }
         $nuevoMedioContacto->valor = $valor;
         $nuevoMedioContacto->observacion = $observacion;
         
@@ -163,9 +170,17 @@ class MediosDeContactosController extends Controller
         
         try {
 
-            $id->medio_de_contacto_tipo_id = intval($request->input('tipo_contacto'));
-            $id->direccion_empresa_id = intval($request->input('direccion_empresa'));
-            $id->contacto_persona_direccion_empresa_id = intval($request->input('persona_contacto'));
+            $tipo_contacto = intval($request->input('tipo_contacto'));
+            $id->medio_de_contacto_tipo_id = intval($request->input('tipo_medio_contacto'));
+            if($tipo_contacto == 1){//Guardo empresa
+                $id->direccion_empresa_id = intval($request->input('empresa_contacto'));
+                $id->contacto_persona_direccion_empresa_id = null;
+            }else if($tipo_contacto == 2){//Guardo persona
+                $id->direccion_empresa_id = null;
+                
+                $id
+                ->contacto_persona_direccion_empresa_id = intval($request->input('persona_contacto'));
+            }
             $id->valor = $request->input('valor');
             $id->observacion = $request->input('observacion');
 

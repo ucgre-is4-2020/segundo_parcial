@@ -7,6 +7,19 @@
 		function cerrar() {
 			document.getElementById("miModal").style.display = "none";
 		}
+		function cambiar_tipo_contacto() {
+			opcion = document.getElementById("tipo_contacto").value;
+			if(opcion == 1){
+				document.getElementById("tipo_persona").style = "display: none;";	
+				document.getElementById("tipo_empresa").style = "display: block;";	
+			}else {				
+				document.getElementById("tipo_empresa").style = "display: none;";	
+				document.getElementById("tipo_persona").style = "display: block;";	
+			
+			}
+		}
+		
+		
 	</script>
 	<style type="text/css">
 		html {
@@ -137,7 +150,7 @@
 		}
 	</style>
 </head>
-<body>
+<body onload="cambiar_tipo_contacto()">
 	<h1>Creación de Registro de Medio de Contacto</h1>
 	<form action="{{ route('tp2-ug0093-ug0278-ug0307-creacion-medio-contacto') }}" method="POST">
 		@csrf
@@ -161,34 +174,68 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="direccion_empresa">Dirección de la Empresa</label>
+					<label for="tipo_contacto">Tipo de Contacto</label>
 				</td>
 				<td>
-					<select id="direccion_empresa" name="direccion_empresa">
-						@foreach($direccionesempresas->sortBy('id') as $direccionempresa)
-						<option
-						 <?= old('direccion_empresa')==$direccionempresa->id?"selected":"" ?> 
-						 value="<?php echo $direccionempresa->id ?>"
-						 >{{ $direccionempresa->nombre_ubicacion }}</option>
-						@endforeach
+					<select id="tipo_contacto" name="tipo_contacto" onchange="cambiar_tipo_contacto()">
+						<div id="tipo_empresa">
+							
+							<option
+							<?= 
+							 	(old('tipo_contacto')==null?"selected":
+							 	(old('tipo_contacto')==1?"selected":""))
+						 	?> 
+							 value="1">Empresa</option>
+							 <option
+							 <?= 
+							 	(old('tipo_contacto')==null?"":
+							 	(old('tipo_contacto')==2?"selected":""))
+						 	 ?> 
+							 value="2">Persona</option>
+						</div>
 					</select>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<label for="persona_contacto">Persona del Contacto</label>						
+					<label>Persona/Empresa del Contacto</label>	
 				</td>
 				<td>
-					<select id="persona_contacto" name="persona_contacto">
-						@foreach($contactospersonasdireccionesempresas->sortBy('id') as $personacontacto)
-							@if($personacontacto->activo)
-								<option
-								 <?= old('persona_contacto')==$personacontacto->id?"selected":"" ?> 
-								 value="<?php echo $personacontacto->id ?>"
-								 >{{ $personacontacto->persona_externa->nombres }}, {{ $personacontacto->persona_externa->apellidos }}</option>
-							@endif
-						@endforeach
-					</select>
+					<div id="tipo_empresa" style="
+						<?= 
+						 	(old('tipo_contacto')==null?"display: block;":
+						 	(old('tipo_contacto')==1?"display: block;":"display: none;"))
+					 	?>
+					">
+						<!-- En caso de ser seleccionado Empresa -->
+						<select id="empresa_contacto" name="empresa_contacto">
+							@foreach($direccionesempresas->sortBy('id') as $direccionempresa)
+							<option
+							 <?= old('empresa_contacto')==$direccionempresa->id?"selected":"" ?> 
+							 value="<?php echo $direccionempresa->id ?>"
+							 >{{ $direccionempresa->nombre_ubicacion }}</option>
+							@endforeach
+						</select>
+					</div>
+
+					<div id="tipo_persona" style="
+						<?= 
+						 	(old('tipo_contacto')==null?"display: none;":
+						 	(old('tipo_contacto')==2?"display: block;":"display: none;"))
+					 	?>
+					">
+						<!-- En caso de ser seleccionado Persona -->
+						<select id="persona_contacto" name="persona_contacto">
+							@foreach($contactospersonasdireccionesempresas->sortBy('id') as $personacontacto)
+								@if($personacontacto->activo)
+									<option id="tipo_persona" 
+									 <?= old('persona_contacto')==$personacontacto->id?"selected":"" ?> 
+									 value="<?php echo $personacontacto->id ?>"
+									 >{{ $personacontacto->persona_externa->nombres }}, {{ $personacontacto->persona_externa->apellidos }}</option>
+								@endif
+							@endforeach
+						</select>
+					</div>
 				</td>
 			</tr>
 			<tr>

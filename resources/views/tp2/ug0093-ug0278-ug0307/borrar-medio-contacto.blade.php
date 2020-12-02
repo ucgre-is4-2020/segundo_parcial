@@ -141,12 +141,13 @@
     			<td>{{ $mediodecontacto->medio_de_contacto_tipo->nombre }}</td>
     		</tr>
     		<tr>
-    			<th>Dirección de la Empresa:</th>
-    			<td><textarea disabled="disabled">{{ $mediodecontacto->direccion_empresa->calle }}</textarea></td>
-    		</tr>
-    		<tr>
-    			<th>Persona del Contacto:</th>
+    			<th>Persona/Empresa del Contacto:</th>
+    			@if($mediodecontacto->direccion_empresa)
+    			<td><textarea disabled="disabled">{{ $mediodecontacto->direccion_empresa->nombre_ubicacion }}</textarea></td>
+    			@endif
+				@if($mediodecontacto->contacto_persona_direccion_empresa)
     			<td><textarea disabled="disabled">{{ $mediodecontacto->contacto_persona_direccion_empresa->persona_externa->nombres }}, {{ $mediodecontacto->contacto_persona_direccion_empresa->persona_externa->apellidos }}</textarea></td>
+    			@endif
     		</tr>
     		<tr>
     			<th>Valor del Contacto:</th>

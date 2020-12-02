@@ -202,23 +202,26 @@
 		<tr>
 			<th>Id</th>
 			<th>Tipo de Medio de Contacto</th>
-			<th>Dirección de la Empresa</th>
-			<th>Persona del Contacto</th>
+			<th>Persona/Empresa del Contacto</th>
 			<th>Valor del Contacto</th>
 			<th>Observación</th>
 			<th>Fecha Creado</th>
 			<th>Fecha Actualizado</th>
 			<th colspan="2">Acciones</th>
 		</tr>
-		
+
 		@foreach($mediosdecontactos->sortBy('id') as $mediodecontacto)
 		<tr>
 			<td><a href="{{ route('tp2-ug0093-ug0278-ug0307-ver-medio-contacto',
 			 ['id' => $mediodecontacto->id]) }}"
 			 title="Mostrar datos de Medio de Contacto">{{ $mediodecontacto->id }}</a></td>
 			<td>{{ $mediodecontacto->medio_de_contacto_tipo->nombre }}</td>
-			<td>{{ $mediodecontacto->direccion_empresa->calle}} </td>
-			<td>{{ $mediodecontacto->contacto_persona_direccion_empresa->persona_externa->nombres }}, {{ $mediodecontacto->contacto_persona_direccion_empresa->persona_externa->apellidos }}</td>
+			@if($mediodecontacto->direccion_empresa)
+				<td>{{ $mediodecontacto->direccion_empresa->nombre_ubicacion }} </td>
+			@endif
+			@if($mediodecontacto->contacto_persona_direccion_empresa)
+				<td>{{ $mediodecontacto->contacto_persona_direccion_empresa->persona_externa->nombres }}, {{ $mediodecontacto->contacto_persona_direccion_empresa->persona_externa->apellidos }}</td>
+			@endif
 			<td>{{ $mediodecontacto->valor }}</td>
 			<td>{{ $mediodecontacto->observacion }}</td>
 			<td>{{ $mediodecontacto->created_at }}</td>
