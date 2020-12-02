@@ -116,7 +116,7 @@
                     <div class="links">
 
                         <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
-                       
+
                         <br>
                         <br>
                         <a href="{{ route ('tp2-ug0093-ug0278-ug0307-listar-empresatipoempresa') }}">Listar Empresa tipo empresa</a>
@@ -133,6 +133,17 @@
                     </div>
                 </div>
 
+                <br>
+                <br>
+
+                <div class="content" style="font-weight: bold; text-decoration: underline;">
+                    Enlaces 3era Entrega TP:
+
+                    <div class="links">
+                        <!-- Agregar los enlaces a cada pagina aqui 3era entrega tp-->
+
+                    </div>
+                </div>
             </div>
 
         </div>
