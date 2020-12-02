@@ -125,6 +125,11 @@
                         <a href="{{ route('tp2-ug0093-ug0278-ug0307-listado-direccion-empresa') }}" title="Listado direcciones de empresas">Listado de direcciones de empresas</a>
                         <a href="{{ route('tp2-ug0093-ug0278-ug0307-listado-medio-contacto') }}" title="Listado medios de contactos">Listado de medios de contactos</a>
 
+                       <a href="{{ route('tp2-ug0317-listado-ciudad') }}">Ciudad</a>
+                       <a href="{{ route('tp2-ug0317-listado-barrio') }}">Barrio</a>
+                        <a href="{{ route('listadoRolUser-tp2-ug0289-ug0299') }}" >Listado de Roles de Usuario</a>
+                      <a href="{{ route('listadoFMP-tp2-ug0059') }}" title="Listado de FMP">Lista de Facturas Metodos de Pago</a>
+            <a href="{{ route('listadoChofer-tp2-ug0059') }}" title="Listado de FMP">Lista de Choferes</a>
                     </div>
                 </div>
 
