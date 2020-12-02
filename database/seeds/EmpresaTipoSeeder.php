@@ -59,7 +59,7 @@ class EmpresaTipoSeeder extends Seeder
                    
                     'nombre' => 'NutriHuevos',
                    
-        ];
+        ]);
 		
 		   DB::table('empresa_tipo')->insert([
                    

@@ -2,84 +2,79 @@
 
 namespace App\Http\Controllers;
 
-use App\EmpresaTipo;
 use Illuminate\Http\Request;
 use \Illuminate\Database\QueryException;
 use Exception;
 
-class ControllerEmpresaTipo extends Controller
+class ControllerFacturaMedioPago extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
 
         if(empty($request->query())){
-        	$empresatipo = EmpresaTipo::get();
+        	$Fmp = \App\FacturaMedioPago::get();
         }else {
             //Filtrado por campo Codigo de la tabla
             $nom = $request->get('buscar');
             if(!empty($nom)){
-                $empresatipo = \DB::table('EmpresaTipo')
+                $Fmp = \DB::table('FacturaMedioPago')
                                 ->whereRaw('upper(nombre) like \'%'.strtoupper($nom).'%\'')
                                 ->get();
             }else {
-                $empresatipo = EmpresaTipo::get();
+                $Fmp = \App\FacturaMedioPago::get();
             }
-            return view('listado-ug0299',
-                ['empresatipo' => $empresatipo, 'busqueda' => $nom]
+            return view('tp2/ug0059/listadoFMP-tp2-ug0059', 
+                ['Fmp' => $Fmp, 'busqueda' => $nom]
             );
         }
 
-        return view('listado-ug0299',
-        	['empresatipo' => $empresatipo]
+        return view('tp2/ug0059/listadoFMP-tp2-ug0059', 
+        	['Fmp' => $Fmp]
         );
     }
 
-
-
-
-    
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-	   return view('crear-ug0299');
+	   return view('tp2/ug0059/crearFMP-tp2-ug0059');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $nombre = $request->input('nombre');
         $estado = $request->input('estado') === 'true'? true: false;
+        
 
-
-        $nuevaEmpresa = new EmpresaTipo();
-        $nuevaEmpresa->nombre = $nombre;
-        $nuevaEmpresa->activo = $estado;
-
-
-
-
+        $nuevaFMP = new \App\FacturaMedioPago();
+        $nuevaFMP->nombre = $nombre;
+        $nuevaFMP->activo = $estado;
+       
+		
+		
+	
 		//Alertas
 		try {
-        	$nuevaEmpresa->save();
+        	$nuevaFMP->save();
 			session()->flash('Guardando', 'El registro fue guardado sin errores');
-
-        	return redirect()->route('listado-ug0299');
+        	
+        	return redirect()->route('listadoFMP-tp2-ug0059');
 		}catch (QueryException $e){
-			return redirect()->route('crear-ug0299')->withInput()->with('error', $e->errorInfo[2]);
+			return redirect()->route('crearFMP-tp2-ug0059')->withInput()->with('error', $e->errorInfo[2]);
 		}
     }
 
@@ -87,22 +82,22 @@ class ControllerEmpresaTipo extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
-    public function show(EmpresaTipo $id)
+    public function show(\App\FacturaMedioPago $id)
     {
-        return view('ver-ug0299', ['Empresa' => $id]);
+        return view('tp2/ug0059/verFMP-tp2-ug0059', ['FacturaMedioPago' => $id]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
-    public function edit(EmpresaTipo $id)
+    public function edit(\App\FacturaMedioPago $id)
     {
-       return view('editar-ug0299', ['Empresa' => $id]);
+       return view('tp2/ug0059/editarFMP-tp2-ug0059', ['FacturaMedioPago' => $id]);
     }
 
     /**
@@ -110,32 +105,35 @@ class ControllerEmpresaTipo extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EmpresaTipo $id)
+    public function update(Request $request, \App\FacturaMedioPago $id)
     {
-    	$nombre = $request->get('nombre');
-
+    	$nombre = $request->input('nombre');
+	
+       
     	if($nombre != $id->nombre){
-
+    		
 			$request->validate([
-				'nombre' => 'unique:App\EmpresaTipo,nombre'
+				'nombre' => 'unique:App\FacturaMedioPago,nombre'
 			],
 			[
 				'unique' => 'Dato ingresado existente.'
 			]);
+			
+			
 		}
 
-
+		
 		try {
 			$id->nombre = $nombre;
 			$id->activo = $request->get('estado');
         	$id->save();
 			session()->flash('Guardando', 'Las actualizaciones fueron guardados');
-
-        	return redirect()->route('editar-ug0299', ['id' => $id->id]);
+        	
+        	return redirect()->route('editarFMP-tp2-ug0059', ['id' => $id->id]);
 		}catch (QueryException $e){
-			return redirect()->route('editar-ug0299', ['id' => $id->id])->withInput()->with('error', $e->errorInfo[2]);
+			return redirect()->route('editarFMP-tp2-ug0059', ['id' => $id->id])->withInput()->with('error', $e->errorInfo[2]);
 		}
     }
 
@@ -145,26 +143,26 @@ class ControllerEmpresaTipo extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function confirm(EmpresaTipo $id)
+    public function confirm(\App\FacturaMedioPago $id)
     {
-        return view('borrar-ug0299', ['Empresa' => $id]);
+        return view('tp2/ug0059/borrarFMP-tp2-ug0059', ['FacturaMedioPago' => $id]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\Response
      */
-    public function destroy(EmpresaTipo $id)
+    public function destroy(\App\FacturaMedioPago $id)
     {
         try{
             $id->delete();
             session()->flash('Borrando', 'Registro Borrado Satisfactoriamente');
 
-            return redirect()->route('listado-ug0299');
+            return redirect()->route('listadoFMP-tp2-ug0059');
         }catch (QueryException $e){
-            return redirect()->route('seguro-que-desea-borrar-ug0299', ['id' => $id->id])->with('error', $e->errorInfo[2]);
+            return redirect()->route('seguro-que-desea-borrarFMP-tp2-ug0059', ['id' => $id->id])->with('error', $e->errorInfo[2]);
         }
     }
 }

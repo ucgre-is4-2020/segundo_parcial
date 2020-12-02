@@ -115,10 +115,11 @@
 
                     <div class="links">
                         <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
-
                        <a href="{{ route('tp2-ug0317-listado-ciudad') }}">Ciudad</a>
                        <a href="{{ route('tp2-ug0317-listado-barrio') }}">Barrio</a>
-
+                        <a href="{{ route('listadoRolUser-tp2-ug0289-ug0299') }}" >Listado de Roles de Usuario</a>
+                      <a href="{{ route('listadoFMP-tp2-ug0059') }}" title="Listado de FMP">Lista de Facturas Metodos de Pago</a>
+            <a href="{{ route('listadoChofer-tp2-ug0059') }}" title="Listado de FMP">Lista de Choferes</a>
                     </div>
                 </div>
 
