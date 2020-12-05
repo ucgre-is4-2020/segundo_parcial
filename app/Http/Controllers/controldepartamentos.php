@@ -15,7 +15,7 @@ class controldepartamentos extends Controller
     public function index(Request $request)
     {
         
-        $departamentos = \App\Departamentos::get();
+        $departamentos = \App\Departamentos::with('ciudad')->get();
 
 
         $buscar = $request->get('buscarpor');

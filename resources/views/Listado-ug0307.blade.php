@@ -53,6 +53,9 @@
   @foreach ($misDepartamentos as $departamentos)
  
  <tr>
+      <span style="color: blue;">Id del Departamento {{ $departamentos }}</span>
+      <span style="color: darkred;"> Id del Tipo de Departamento, asociado a la Ciudad {{$departamentos->ciudad->id}} </span>
+
    <td><a href="{{route('ver-ug0307',['id' => $departamentos->id])}}">{{$departamentos ->id}} </a>
 <a href="{{route('editar-ug0307',['id' => $departamentos->id])}}">Editar</a>
   <a href="{{route('borrar-ug0307',['id' => $departamentos->id])}}" onclick="return confirm('Esta seguro?')">Borrar</a></td><td>{{$departamentos ->nombre}}</td> <td>{{$departamentos ->abreviacion}}</td> <td>{{$departamentos ->created_at}}</td> <td>{{$departamentos ->updated_at}}</td>
