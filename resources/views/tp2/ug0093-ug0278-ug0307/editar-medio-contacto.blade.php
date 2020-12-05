@@ -9,16 +9,24 @@
 		}
 		function habilitarBoton(coche){
 			btn = document.getElementById('guardar');
-			inpTipoContacto = parseInt(document.getElementById('tipo_contacto').value); 
-			inpDireccionEmpresa = parseInt(document.getElementById('direccion_empresa').value); 
-			inpPersonaContacto = parseInt(document.getElementById('persona_contacto').value); 
+			inpTipoContacto = parseInt(document.getElementById('tipo_medio_contacto').value); 
+			inpPersonaContacto = parseInt(document.getElementById('tipo_contacto').value); 
+			if(inpPersonaContacto==1){//empresa
+				inpDireccionEmpresa = parseInt(document.getElementById('empresa_contacto').value); 
+				
+				inpContactoPersona = '';
+			}else {//persona
+				inpDireccionEmpresa = ''; 
+				inpContactoPersona = parseInt(document.getElementById('persona_contacto').value);
+				
+			}
 			inpValor = document.getElementById('valor').value; 
 			inpObservacion = document.getElementById('observacion').value; 
 
 			//Verificar cambio de valores
 			if(inpTipoContacto != "{{ $mediodecontacto->medio_de_contacto_tipo_id }}" ||
 				inpDireccionEmpresa != "{{ $mediodecontacto->direccion_empresa_id }}" ||
-			   	inpPersonaContacto != "{{ $mediodecontacto->contacto_persona_direccion_empresa_id }}" ||
+				inpContactoPersona != "{{ $mediodecontacto->contacto_persona_direccion_empresa_id }}" ||
 			    inpValor != "{{ $mediodecontacto->valor }}" ||
 				inpObservacion != "{{ $mediodecontacto->observacion }}") {
 
@@ -29,6 +37,19 @@
 				btn.className = "";
 				btn.className += "disabled";
 			}
+		}
+
+		function cambiar_tipo_contacto(coche) {
+			opcion = document.getElementById("tipo_contacto").value;
+			if(opcion == 1){
+				document.getElementById("tipo_persona").style = "display: none;";	
+				document.getElementById("tipo_empresa").style = "display: block;";	
+			}else {				
+				document.getElementById("tipo_empresa").style = "display: none;";	
+				document.getElementById("tipo_persona").style = "display: block;";	
+			
+			}
+			habilitarBoton();
 		}
 	</script>
 	<style type="text/css">
@@ -190,17 +211,17 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="tipo_contacto">Tipo de Medio de Contacto</label>
+					<label for="tipo_medio_contacto">Tipo de Medio de Contacto</label>
 				</td>
 				<td>
-					<select id="tipo_contacto" name="tipo_contacto" onchange="habilitarBoton('{{ $mediodecontacto }}')">
+					<select id="tipo_medio_contacto" name="tipo_medio_contacto" onchange="habilitarBoton('{{ $mediodecontacto }}')">
 						@foreach($mediosdecontactostipos->sortBy('id') as $mediodecontactotipo)
 							@if($mediodecontactotipo->activo)
 								<option
 								 <?=
-								 	(old('tipo_contacto')==null?
+								 	(old('tipo_medio_contacto')==null?
 							 		($mediodecontacto->medio_de_contacto_tipo_id==$mediodecontactotipo->id?"selected":""):
-								 	(old('tipo_contacto')==$mediodecontactotipo->id?"selected":"" ))
+								 	(old('tipo_medio_contacto')==$mediodecontactotipo->id?"selected":"" ))
 
 								 ?>
 								 value="<?php echo $mediodecontactotipo->id ?>"
@@ -212,41 +233,83 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="direccion_empresa">Dirección de la Empresa</label>
+					<label for="tipo_contacto">Tipo de Contacto</label>
 				</td>
 				<td>
-					<select id="direccion_empresa" name="direccion_empresa" onchange="habilitarBoton('{{ $mediodecontacto }}')">
-						@foreach($direccionesempresas->sortBy('id') as $undireccion_empresa)
+					<select id="tipo_contacto" name="tipo_contacto" onchange="cambiar_tipo_contacto('{{ $mediodecontacto }}')">
+						<div>
+							
 							<option
 							<?= 
-									(old('direccion_empresa')==null?
-							 		($mediodecontacto->direccion_empresa_id==$undireccion_empresa->id?"selected":""):
-								 	(old('direccion_empresa')==$undireccion_empresa->id?"selected":"")) 
-							?> 
-							value="<?php echo $undireccion_empresa->id ?>">{{ $undireccion_empresa->nombre_ubicacion }}</option>
-						@endforeach
+							 	(old('tipo_contacto')==null?
+							 	($mediodecontacto->direccion_empresa==null?"":"selected"):
+							 	(old('tipo_contacto')==1?"selected":""))
+						 	?> 
+							 value="1">Empresa</option>
+							 <option
+							 <?= 
+							 	(old('tipo_contacto')==null?
+						 		($mediodecontacto
+						 			->contacto_persona_direccion_empresa==null?"":"selected"):
+							 	(old('tipo_contacto')==2?"selected":""))
+						 	 ?> 
+							 value="2">Persona</option>
+						</div>
 					</select>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<label for="persona_contacto">Persona del Contacto</label>						
+					<label>Persona/Empresa del Contacto</label>						
 				</td>
 				<td>
-					<select id="persona_contacto" name="persona_contacto" onchange="habilitarBoton('{{ $mediodecontacto }}')">
-						@foreach($contactospersonasdireccionesempresas->sortBy('id') as $personacontacto)
-							@if($personacontacto->activo)
-								<option
-								 <?=
-								 	(old('persona_contacto')==null?
-							 		($mediodecontacto->contacto_persona_direccion_empresa_id==$personacontacto->id?"selected":""):
-								 	(old('persona_contacto')==$personacontacto->id?"selected":"")) 
-								 ?> 
-								 value="<?php echo $personacontacto->id ?>"
-								 >{{ $personacontacto->persona_externa->nombres }}, {{ $personacontacto->persona_externa->apellidos }}</option>
-							@endif
-						@endforeach
-					</select>
+					<div id="tipo_empresa" style="
+						<?= 
+						 	(old('tipo_contacto')==null?
+					 		($mediodecontacto->direccion_empresa_id==null?
+					 			"display: none;":"display: block;"):
+						 	(old('tipo_contacto')==1?"display: block;":"display: none;"))
+					 	?>
+					">
+						<!-- En caso de ser seleccionado Empresa -->
+						<select id="empresa_contacto" name="empresa_contacto" onchange="habilitarBoton('{{ $mediodecontacto }}')">
+							@foreach($direccionesempresas->sortBy('id') as $direccionempresa)
+							<option
+							<?=
+								 	(old('empresa_contacto')==null?
+							 		($mediodecontacto->direccion_empresa_id==$direccionempresa->id?"selected":""):
+								 	(old('empresa_contacto')==$direccionempresa->id?"selected":"")) 
+							 ?>
+							 value="<?php echo $direccionempresa->id ?>"
+							 >{{ $direccionempresa->nombre_ubicacion }}</option>
+							@endforeach
+						</select>
+					</div>
+
+					<div id="tipo_persona" style="
+						<?= 
+						 	(old('tipo_contacto')==null?
+						 	($mediodecontacto->contacto_persona_direccion_empresa_id==null?
+					 			"display: none;":"display: block;"):
+						 	(old('tipo_contacto')==2?"display: block;":"display: none;"))
+					 	?>
+					">
+						<!-- En caso de ser seleccionado Persona -->
+						<select id="persona_contacto" name="persona_contacto" onchange="habilitarBoton('{{ $mediodecontacto }}')">
+							@foreach($contactospersonasdireccionesempresas->sortBy('id') as $personacontacto)
+								@if($personacontacto->activo)
+									<option id="tipo_persona" 
+									<?=
+									 	(old('persona_contacto')==null?
+								 		($mediodecontacto->contacto_persona_direccion_empresa_id==$personacontacto->id?"selected":""):
+									 	(old('persona_contacto')==$personacontacto->id?"selected":"")) 
+								 	?>
+									 value="<?php echo $personacontacto->id ?>"
+									 >{{ $personacontacto->persona_externa->nombres }}, {{ $personacontacto->persona_externa->apellidos }}</option>
+								@endif
+							@endforeach
+						</select>
+					</div>
 				</td>
 			</tr>
 			<tr>
