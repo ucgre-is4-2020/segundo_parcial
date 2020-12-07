@@ -137,8 +137,8 @@
                 <br>
 
                 <div class="content" style="font-weight: bold; text-decoration: underline;">
-                    Enlaces 3era Entrega TP:
-
+                  
+					<a href="{{ route('verRolesUsuariosTp3-ug0299') }}"> Listado Roles y Usuarios</a>
                     <div class="links">
                         <!-- Agregar los enlaces a cada pagina aqui 3era entrega tp-->
 
