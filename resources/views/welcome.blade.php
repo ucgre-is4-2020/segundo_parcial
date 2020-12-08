@@ -116,8 +116,6 @@
                     <div class="links">
                         <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
                         AQUI LOS ENLACES<br>
-                        <a href="{{ route('listado_unidad_medida_ug0282_ug0314') }}" >Unidad de Medida</a>
-                        <a href="{{ route('listado_unidad_medida_tubo_ug0282_ug0314') }}" >Unidad de Medida Tubo</a>
                         <a href="{{ route('listado_tubo_ug0282_ug0314') }}" >Tubos</a>
                         <a href="{{ route('listado_producto_ug0282_ug0314') }}" >Productos</a>
                         

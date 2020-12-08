@@ -92,18 +92,40 @@
 
                         <table>
                             <tr>
-                                
-                                <td>Id del producto</td>
-                                <td>tubo_id</td>
-                                <td>contenido_id</td>
+                                <td>Color</td>
+                                <td>Contenido</td>
+                                <td>Tubo Estado</td>
                                 <td>Accciones</td>
                             </tr>
                             @foreach($unidadMedida->producto as $u)
                             <tr>
                                 
-                                <td>{{ $u->id }} </td>
-                                <td>{{ $u->tubo_id }}</td>
-                                <td>{{ $u->contenido_id }}</td>
+                                <td> 
+                                    @foreach($colores as $color)
+                                        @if ($color->id == $u->color_id)
+                                            {{ $color->nombre}}
+                                            @break
+                                        @endif
+                                    @endforeach 
+                                </td>
+                                <td>
+                                    @foreach($contenidos as $contenido)
+                                        @if ($contenido->id == $u->contenido_id)
+                                            {{ $contenido->nombre}}
+                                            @break
+                                        @endif
+                                    @endforeach
+                                </td>
+                                <td> 
+                                    @foreach($tubos_estados as $estado)
+                                        @if ($estado->id == $u->tubo_estado_id)
+                                            {{ $estado->nombre}}
+                                            @break
+                                        @endif
+                                    @endforeach 
+                                </td>
+                                
+                                
                                 <td><a href="{{ route('ver_producto_producto_tp2_ug0282_ug0314', [
                                     'tubo' => $unidadMedida->id,
                                     'producto' => $u->id

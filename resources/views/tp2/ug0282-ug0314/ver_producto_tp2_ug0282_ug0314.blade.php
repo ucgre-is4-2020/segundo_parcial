@@ -70,10 +70,10 @@
                     <table>
                         <tr style="font-weight: bold;">
                             <td>Id</td>
-                            <td>tubo_id</td>
-                            <td>contenido_id</td>
-                            <td>color_id</td>
-                            <td>tubo_estado_id</td>
+                            <td>Tubo</td>
+                            <td>Contenido</td>
+                            <td>Color</td>
+                            <td>Tubo Estado_id</td>
                             <td>Activo</td>
                             <td>Fecha de creacion</td>
                             <td>Fecha de actualizacion</td>
@@ -105,9 +105,11 @@
                                     @endif
                                 @endforeach 
                             </td>
-
-                            
-                            <td>{{ $producto->activo }} </td>
+                            <td>@if ($producto->activo == true)
+                                    activo
+                                @else
+                                    inactivo
+                                @endif</td>
                             
                             <td>{{ $producto->created_at }} </td>
                             <td>{{ $producto->updated_at }}</td>

@@ -203,7 +203,7 @@ Route::get('/listado-tubo-ug0282-ug0314/', 'TuboController@index')->name('listad
 
 Route::get('/ver-tubos/{id}', 'TuboController@show')->name('ver_tubos_tp2_ug0282_ug0314');
 
-Route::get('/ver-tubos/{tubo}/ver-producto/{producto}', 'TuboController@show')->name('ver_tubos_producto_tp2_ug0282_ug0314');
+//Route::get('/ver-tubos/{tubo}/ver-producto/{producto}', 'TuboController@show')->name('ver_tubos_producto_tp2_ug0282_ug0314');
 
 Route::get('/listado-tubo-ug0282-ug0314/crear-tubo', 'TuboController@create')->name('crear_tubo_ug0282_ug0314');
 Route::post('/listado-tubo-tp2-ug0282-ug0314/creacion-tubo', 'TuboController@store')->name('creacion_tubo_ug0282_ug0314');
@@ -232,16 +232,4 @@ Route::get('/listado-producto-tp2-ug0282-ug0314/editar-producto/{id}', 'Producto
 Route::put('/listado-producto-tp2-ug0282-ug0314/edicion-producto{id}', 'ProductoController@update')->name('edicion_producto_tp2_ug0282_ug0314');
 
 
-/*Route::get('/listado-producto-tp2-ug0282-ug0314/crear-unidad-medida', 'ProductoController@create')->name('crear_unidad_medida_ug0282_ug0314');
-Route::post('/listado-producto-tp2-ug0282-ug0314/creacion-unidad-medida', 'ProductoController@store')->name('creacion_unidad_medida_ug0282_ug0314');
 
-
-Route::get('/listado-producto-tp2-ug0282-ug0314/ver-unidad-medida/{id}', 'ProductoController@show')->name('ver_unidad_medida_tp2_ug0282_ug0314');
-
-
-Route::get('/listado-producto-tp2-ug0282-ug0314/editar-unidad-medida/{id}', 'ProductoController@edit')->name('editar_unidad_medida_tp2_ug0282_ug0314');
-Route::put('/listado-producto-tp2-ug0282-ug0314/edicion-unidad-medida{id}', 'ProductoController@update')->name('edicion_unidad_medida_tp2_ug0282_ug0314');
-
-
-Route::get('/listado-producto-tp2-ug0282-ug0314/borrar-unidad-medida/{id}', 'ProductoController@destroy')->name('borrar_unidad_medida_tp2_ug0282_ug0314');
-*/

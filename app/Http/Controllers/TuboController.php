@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 
-use App\Tubo;
 use App\Producto;
+use App\Tubo;
+use App\Contenido;
+use App\Color;
+use App\TuboEstado;
 use Illuminate\Http\Request;
 
 class TuboController extends Controller
@@ -103,11 +106,16 @@ class TuboController extends Controller
      */
     public function show(Tubo $id)
     {
+        $request = request();
+
+        $contenidoP = Contenido::get();
+        $colorP = Color::get();
+        $tubo_estadoP = TuboEstado::get();
 
 
         /*return view('tp2/ug0282-ug0314/ver_producto_tp2_ug0282_ug0314', ['producto' => $producto, 'tubo' => $tubo]);*/
         $id->load('unidad_medida_tubo', 'producto');
-        return view('tp2/ug0282-ug0314/ver_tubos_tp2_ug0282_ug0314', ['unidadMedida'=>$id]);
+        return view('tp2/ug0282-ug0314/ver_tubos_tp2_ug0282_ug0314', ['unidadMedida'=>$id, 'contenidos' =>$contenidoP, 'colores' =>$colorP, 'tubos_estados' =>$tubo_estadoP]);
     }
 
     /**
