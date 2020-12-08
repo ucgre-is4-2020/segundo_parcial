@@ -26,7 +26,7 @@
 
             .flex-center {
                 align-items: center;
-                
+
                 justify-content: center;
             }
 
@@ -36,7 +36,7 @@
             }
 
             #formulario{
-					
+
 					width: 800px;
 					margin: auto;
 					padding: 6px;
@@ -44,7 +44,7 @@
 				}
 
 			#tabla1, .td{
-				border: black solid 1px; 
+				border: black solid 1px;
 				border-collapse: collapse;
 
 			}
@@ -68,7 +68,7 @@
 
 				<h1>Editar producto</h1>
 
-				
+
 				<form action="{{ route('edicion_producto_tp2_ug0282_ug0314', ['id' => $productos->id]) }}" method="POST" >
 
 					@method('PUT')
@@ -90,37 +90,37 @@
 						Datos actuales
 						<tr>
 							<td class="td" > {{ $productos->id }} </td>
-                             <td class="td" > 
+                             <td class="td" >
                                 @foreach($tubos as $tubo)
                                     @if ($tubo->id == $productos->tubo_id)
                                         {{ $tubo->serial}}
                                         @break
                                     @endif
-                                @endforeach 
+                                @endforeach
                             </td>
-                            <td class="td" > 
+                            <td class="td" >
                                 @foreach($contenidos as $contenido)
                                     @if ($contenido->id == $productos->contenido_id)
                                         {{ $contenido->nombre}}
                                         @break
                                     @endif
-                                @endforeach 
+                                @endforeach
                             </td>
-                            <td class="td" > 
+                            <td class="td" >
                                 @foreach($colores as $color)
                                     @if ($color->id == $productos->color_id)
                                         {{ $color->nombre}}
                                         @break
                                     @endif
-                                @endforeach 
+                                @endforeach
                             </td>
-                            <td class="td" > 
+                            <td class="td" >
                                 @foreach($tubos_estados as $estado)
                                     @if ($estado->id == $productos->tubo_estado_id)
                                         {{ $estado->nombre}}
                                         @break
                                     @endif
-                                @endforeach 
+                                @endforeach
                             </td>
 
                             <td>@if ($productos->activo == true)
@@ -129,14 +129,13 @@
 							   		inactivo
 								@endif
 							</td>
-                            
-                            
+
                             <td class="td" >{{ $productos->created_at }} </td>
                             <td class="td" >{{ $productos->updated_at }}</td>
-							
+
 						</tr>
-						
-						
+
+
 
 					</table><br>
 					<table>
@@ -147,48 +146,48 @@
 							<td class="td" ><label>Color</label></td>
 							<td class="td" ><label>Tubo Estado</label></td>
 							<td class="td" ><label>Activo</label></td>
-							
+
 						</tr>
 						<tr>
-							
+
 							<td>
-								<select name="tubo_id">  
+								<select name="tubo_id">
 									@foreach($tubos as $tubo)
 										<option value="{{ $tubo->id}}">{{ $tubo->serial}}</option>
 									@endforeach
 								</select>
 							</td>
-						
+
 							</td>
 							<td>
-								<select name="contenido_id">  
+								<select name="contenido_id">
 									@foreach($contenidos as $contenido)
 										<option value="{{ $contenido->id}}">{{ $contenido->nombre}}</option>
 									@endforeach
 								</select>
 							</td>
-						
-							
+
+
 							<td>
-								<select name="color_id">  
+								<select name="color_id">
 									@foreach($colores as $color)
 										<option value="{{ $color->id}}">{{ $color->nombre}}</option>
 									@endforeach
 								</select>
 							</td>
-						
+
 							 </td>
 							<td>
-								<select name="tubo_estado_id">  
+								<select name="tubo_estado_id">
 									@foreach($tubos_estados as $tubo_estado)
 										<option value="{{ $tubo_estado->id}}">{{ $tubo_estado->nombre}}</option>
 									@endforeach
 								</select>
 							</td>
-						
+
 							<td><select name="activo" >
 				  							<option value="true">activo </option>
-				  							<option value="false">inactivo </option>  
+				  							<option value="false">inactivo </option>
 								</select><br>
 							</td>
 						</tr>
@@ -197,7 +196,7 @@
 
 					<input type="submit">
 
-					
+
 				</form><br>
 
 				<div class="sms">
@@ -220,7 +219,7 @@
 
 			</div>
 
-  
+
         </div>
     </body>
 </html>

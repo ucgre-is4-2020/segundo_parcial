@@ -86,7 +86,7 @@
 							<td>Fecha de actualizacion</td>
 
 							<td colspan="3">Acciones</td>
-							
+
 
 						</tr>
 
@@ -100,7 +100,7 @@
 							<td>{{ $unaUnidad->fecha_vencimiento }}</td>
 							<td>{{ $unaUnidad->created_at }} </td>
 							<td>{{ $unaUnidad->updated_at }}</td>
-							
+
 
 							<td><a href="{{ route ('borrar_tubo_tp2_ug0282_ug0314', ['id' => $unaUnidad->id]) }}" onclick="return confirm('¿Está seguro de borrar este registro?')">Borrar</a>
 

@@ -18,3 +18,5 @@ class Tubo extends Model
    		return $this->hasMany('App\Producto', 'tubo_id', 'id' );
     }
 }
+
+

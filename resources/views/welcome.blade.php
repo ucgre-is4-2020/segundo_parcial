@@ -96,7 +96,7 @@
                   <a href="{{ route('listado-ug0287') }}">Tipo de Facturas</a>
                      <a href="{{ route('listado-ug0317') }}">Seguimientos Tipos</a>
                     <a href = "{{route ('listado_documento_tipo')}}"> Tipos de Documentos </a>
-                    <a href={{route('listado_tubo_estado')}}>Estados de Tubos</a>
+                    <a href="{{route('listado_tubo_estado')}}">Estados de Tubos</a>
                     <!-- Agregar los enlaces a cada pagina aqui -->
                     <a href="{{route ('listado_contacto_tipo')}}">Tipos de Contactos</a>
                     <a href="{{route('listar-ug0307')}}">Listar Departamentos</a>
@@ -114,11 +114,13 @@
                     Enlaces 2da Entrega TP:
 
                     <div class="links">
+
                         <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
                         AQUI LOS ENLACES<br>
                         <a href="{{ route('listado_tubo_ug0282_ug0314') }}" >Tubos</a>
                         <a href="{{ route('listado_producto_ug0282_ug0314') }}" >Productos</a>
-                        
+
+
                     </div>
                 </div>
 
