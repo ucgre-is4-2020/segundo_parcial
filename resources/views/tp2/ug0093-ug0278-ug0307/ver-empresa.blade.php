@@ -27,6 +27,7 @@
  <div class="links">
    
                 <a href="{{route('tp2-ug0093-ug0278-ug0307-listar-empresa')}}">Volver al listado</a>     
+                <a href="{{ URL::previous() }}">Atras</a>
   
    </div>
       
