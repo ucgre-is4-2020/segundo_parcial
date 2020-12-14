@@ -283,6 +283,9 @@ Route::get('/tp2/ug0093-ug0278-ug0307/borrar-direccion-empresa/{id}',
 Route::get('/tp2/ug0093-ug0278-ug0307/confirmar-borrar-direccion-empresa/{id}',
  			'DireccionesEmpresasController@confirm')
 			->name('tp2-ug0093-ug0278-ug0307-confirmar-borrar-direccion-empresa');
+Route::get('/tp3/ug0278/listado-direccion-empresa', 
+			'DireccionesEmpresasController@list')
+			->name('tp3-ug0278-listado-direccion-empresa');
 /*
 -------------------------
 	MEDIO DE CONTACTO
