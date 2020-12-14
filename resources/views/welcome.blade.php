@@ -111,11 +111,11 @@
                 <br>
 
                 <div class="content">
-                    Enlaces 2da Entrega TP:
+                    Enlaces 3ra Entrega TP:
 
                     <div class="links">
-                        <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
-                        AQUI LOS ENLACES
+                    <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
+                     <a href="{{route('listado_producto_ug0282')}}">Listar Producto</a>   
                     </div>
                 </div>
 
