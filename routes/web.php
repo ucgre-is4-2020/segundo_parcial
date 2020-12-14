@@ -39,9 +39,9 @@ Route::put('/edicion-empresa/{id}', 'ControllerEmpresaTipo@update')->name('edici
 
 Route::get('/borrar-empresa/{id}', 'ControllerEmpresaTipo@destroy')->name('borrar-ug0299');
 
-Route::get('/seguro-que-desea-borrar-ug0299/{id}', 'ControllerEmpresa@confirm')->name('confirmar-borrar-ug0299');
+Route::get('/seguro-que-desea-borrar-ug0299/{id}', 'ControllerEmpresaTipo@confirm')->name('confirmar-borrar-ug0299');
 
-Route::get('/ver-empresa/{id}', 'ControllerEmpresa@show')->name('ver-ug0299');
+Route::get('/ver-empresa/{id}', 'ControllerEmpresaTipo@show')->name('ver-ug0299');
 
 Route::get('/listado-adm_factura_tipo', 'factura_tipoController@index')->name('listado-ug0287');
 
@@ -57,14 +57,54 @@ Route::get('/listado-adm_factura_tipo/ver-adm_factura_tipo/{id}', 'factura_tipoC
 Route::get('/listado-adm_factura_tipo/editar-adm_factura_tipo/{id}', 'factura_tipoController@edit')->name('editar-ug0287');
 
 Route::put('/listado-adm_factura_tipo/edicion-adm_factura_tipo/{id}', 'factura_tipoController@update')->name('edicion-ug0287');
+//------------------------------------------------------------------------------------------
+
+
 
 Route::get('/listado-ug0317', 'SeguimientoTipoController@index')->name('listado-ug0317');
 
 Route::get('/listado/crear', 'SeguimientoTipoController@create')->name('crear-ug0317');
 
 Route::post('/listado/creacion', 'SeguimientoTipoController@store')->name('creacion-ug0317');
+//---------------------------------------------------------------------------------------
+
+
+
+Route::get('tp2/ug0317/listado-ciudad', 'CiudadController@index')->name('tp2-ug0317-listado-ciudad');
+
+Route::get('tp2/ug0317/crear-ciudad', 'CiudadController@create')->name('tp2-ug0317-crear-ciudad');
+
+Route::post('tp2/ug0317/creacion-ciudad', 'CiudadController@store')->name('tp2-ug0317-creacion-ciudad');
+//
+Route::get('tp2/ug0317/ver-ciudad/{id}', 'CiudadController@show')->name('tp2-ug0317-ver-ciudad');
+Route::get('tp2/ug0317/borrar-ciudad/{id}', 'CiudadController@destroy')->name('tp2-ug0317-borrar-ciudad');
+Route::get('tp2/ug0317/editar-ciudad/{id}', 'CiudadController@edit')->name('tp2-ug0317-editar-ciudad');
+Route::put('tp2/ug0317/edicion-ciudad/{id}', 'CiudadController@update')->name('tp2-ug0317-edicion-ciudad');
+
+
 
 //----------------------------------------------------------------------------
+
+
+
+
+Route::get('tp2/ug0317/listado-barrio', 'BarrioController@index')->name('tp2-ug0317-listado-barrio');
+
+Route::get('tp2/ug0317/crear-barrio', 'BarrioController@create')->name('tp2-ug0317-crear-barrio');
+
+Route::post('tp2/ug0317/creacion-barrio', 'BarrioController@store')->name('tp2-ug0317-creacion-barrio');
+//
+Route::get('tp2/ug0317/ver-barrio/{id}', 'BarrioController@show')->name('tp2-ug0317-ver-barrio');
+Route::get('tp2/ug0317/borrar-barrio/{id}', 'BarrioController@destroy')->name('tp2-ug0317-borrar-barrio');
+Route::get('tp2/ug0317/editar-barrio/{id}', 'BarrioController@edit')->name('tp2-ug0317-editar-barrio');
+Route::put('tp2/ug0317/edicion-barrio/{id}', 'BarrioController@update')->name('tp2-ug0317-edicion-barrio');
+
+
+
+
+
+
+//_-------------------------------------------------------------------------------
 
 Route::get('/ver-l/{id}', 'SeguimientoTipoController@show')->name('ver-formulario');
 
@@ -148,6 +188,14 @@ Route::get('/confirmar-borrar-coche/{id}', 'CochesController@confirm')->name('co
 
 Route::get('/ver-coche/{id}', 'CochesController@show')->name('ver-ug0278');
 
+
+
+
+
+
+
+//-------------------------------------------------------------------------------------------------------
+
 Route::get('/listado-departamento','controldepartamentos@index')->name('listar-ug0307');
 
 Route::get('/listado-departamento/crear-departamento','controldepartamentos@create')->name('crear-ug0307');
@@ -162,3 +210,195 @@ Route::get('/borrar-departamento/{id}','controldepartamentos@destroy')->name('bo
 Route::get('ver-departamento/{id}','controldepartamentos@show' )->name('ver-ug0307');
 
 Route::put('/edicion/{id}','controldepartamentos@update' )->name('edicion');
+
+//-----------------------------------------------------------------------------------------------
+
+Route::get('/tp2/ug0093-ug0278-ug0307/listado-empresa-tipo-empresa','empresaTipoEmpresaController@index')->name('tp2-ug0093-ug0278-ug0307-listar-empresatipoempresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/crear-empresa-tipo-empresa','empresaTipoEmpresaController@create')->name('tp2-ug0093-ug0278-ug0307-crear-empresatipoempresa');
+
+Route::post('/tp2/ug0093-ug0278-ug0307/creacion-empresa-tipo-empresa','empresaTipoEmpresaController@store')->name('tp2-ug0093-ug0278-ug0307-creacion-empresatipoempresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/ver-empresa-tipo-empresa/{id}','empresaTipoEmpresaController@show' )->name('tp2-ug0093-ug0278-ug0307-ver-empresatipoempresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/editar-empresa-tipo-empresa/{id}','empresaTipoEmpresaController@edit')->name('tp2-ug0093-ug0278-ug0307-editar-empresatipoempresa');
+
+
+Route::put('/tp2/ug0093-ug0278-ug0307/edicion-empresa-tipo-empresa/{id}','empresaTipoEmpresaController@update')->name('tp2-ug0093-ug0278-ug0307-edicion-empresatipoempresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/borrar-empresa-tipo-empresa/{id}','empresaTipoEmpresaController@destroy')->name('tp2-ug0093-ug0278-ug0307-borrar-empresatipoempresa');
+
+
+
+
+Route::get('/tp2/ug0093-ug0278-ug0307/listar-empresa','empresaController@index')->name('tp2-ug0093-ug0278-ug0307-listar-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/crear-empresa','empresaController@create')->name('tp2-ug0093-ug0278-ug0307-crear-empresa');
+
+Route::post('/tp2/ug0093-ug0278-ug0307/creacion-empresa','empresaController@store')->name('tp2-ug0093-ug0278-ug0307-creacion-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/ver-empresa/{id}','empresaController@show' )->name('tp2-ug0093-ug0278-ug0307-ver-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/editar-empresa/{id}','empresaController@edit')->name('tp2-ug0093-ug0278-ug0307-editar-empresa');
+
+Route::put('/tp2/ug0093-ug0278-ug0307/edicion-empresa/{id}','empresaController@update' )->name('tp2-ug0093-ug0278-ug0307-edicion-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/borrar-empresa/{id}','empresaController@destroy')->name('tp2-ug0093-ug0278-ug0307-borrar-empresa');
+
+
+
+
+/*
+-------------------------
+	DIRECCION EMPRESA
+-------------------------
+*/
+Route::get('/tp2/ug0093-ug0278-ug0307/listado-direccion-empresa', 
+			'DireccionesEmpresasController@index')
+			->name('tp2-ug0093-ug0278-ug0307-listado-direccion-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/crear-direccion-empresa',
+			 'DireccionesEmpresasController@create')
+			->name('tp2-ug0093-ug0278-ug0307-crear-direccion-empresa');
+
+Route::post('/tp2/ug0093-ug0278-ug0307/creacion-direccion-empresa',
+			 'DireccionesEmpresasController@store')
+			->name('tp2-ug0093-ug0278-ug0307-creacion-direccion-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/ver-direccion-empresa/{id}',
+			 'DireccionesEmpresasController@show')
+			->name('tp2-ug0093-ug0278-ug0307-ver-direccion-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/editar-direccion-empresa/{id}',
+ 			'DireccionesEmpresasController@edit')
+			->name('tp2-ug0093-ug0278-ug0307-editar-direccion-empresa');
+
+Route::put('/tp2/ug0093-ug0278-ug0307/edicion-direccion-empresa/{id}',
+			'DireccionesEmpresasController@update')
+			->name('tp2-ug0093-ug0278-ug0307-edicion-direccion-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/borrar-direccion-empresa/{id}',
+			'DireccionesEmpresasController@destroy')
+			->name('tp2-ug0093-ug0278-ug0307-borrar-direccion-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/confirmar-borrar-direccion-empresa/{id}',
+ 			'DireccionesEmpresasController@confirm')
+			->name('tp2-ug0093-ug0278-ug0307-confirmar-borrar-direccion-empresa');
+/*
+-------------------------
+	MEDIO DE CONTACTO
+-------------------------
+*/
+Route::get('/tp2/ug0093-ug0278-ug0307/listado-medio-contacto', 
+			'MediosDeContactosController@index')
+			->name('tp2-ug0093-ug0278-ug0307-listado-medio-contacto');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/crear-medio-contacto',
+			 'MediosDeContactosController@create')
+			->name('tp2-ug0093-ug0278-ug0307-crear-medio-contacto');
+
+Route::post('/tp2/ug0093-ug0278-ug0307/creacion-medio-contacto',
+			 'MediosDeContactosController@store')
+			->name('tp2-ug0093-ug0278-ug0307-creacion-medio-contacto');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/ver-medio-contacto/{id}',
+		 	'MediosDeContactosController@show')
+			->name('tp2-ug0093-ug0278-ug0307-ver-medio-contacto');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/editar-medio-contacto/{id}',
+ 			'MediosDeContactosController@edit')
+			->name('tp2-ug0093-ug0278-ug0307-editar-medio-contacto');
+
+Route::put('/tp2/ug0093-ug0278-ug0307/edicion-medio-contacto/{id}',
+		 	'MediosDeContactosController@update')
+			->name('tp2-ug0093-ug0278-ug0307-edicion-medio-contacto');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/borrar-medio-contacto/{id}',
+		 	'MediosDeContactosController@destroy')
+			->name('tp2-ug0093-ug0278-ug0307-borrar-medio-contacto');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/confirmar-borrar-medio-contacto/{id}',
+ 			'MediosDeContactosController@confirm')
+			->name('tp2-ug0093-ug0278-ug0307-confirmar-borrar-medio-contacto');
+//...................................................................................................
+Route::get('/listadoUserRol', 'ControllerUserRol@index')->name('listadoRolUser-tp2-ug0289-ug0299');
+
+Route::get('/crearUserRol', 'ControllerUserRol@create')->name('crearRolUser-tp2-ug0289-ug0299');
+
+Route::post('/creacionUserRol', 'ControllerUserRol@store')->name('RolUser-tp2-ug0289-ug0299');
+
+Route::get('/editarUserRol/{id}', 'ControllerUserRol@edit')->name('editarRolUser-tp2-ug0289-ug0299');
+
+Route::put('/edicionUserRol/{id}', 'ControllerUserRol@update')->name('edicionRolUser-tp2-ug0289-ug0299');
+
+Route::get('/borrarUserRol/{id}', 'ControllerUserRol@destroy')->name('borrarRolUser-tp2-ug0289-ug0299');
+
+Route::get('/seguro-que-desea-borrarRolUser-tp2-ug0289-ug0299/{id}', 'ControllerUserRol@confirm')->name('confirmar-borrarRolUser-tp2-ug0289-ug0299');
+
+Route::get('/verUserRol/{id}', 'ControllerUserRol@show')->name('verRolUser-tp2-ug0289-ug0299');
+//........................................................................................................
+Route::get('/listadoRol', 'ControllerRol@index')->name('listadoRol-tp2-ug0289-ug0299');
+
+Route::get('/crearRol', 'ControllerRol@create')->name('crearRol-tp2-ug0289-ug0299');
+
+Route::post('/creacionRol', 'ControllerRol@store')->name('Rol-tp2-ug0289-ug0299');
+
+Route::get('/editarRol/{id}', 'ControllerRol@edit')->name('editarRol-tp2-ug0289-ug0299');
+
+Route::put('/edicionRol/{id}', 'ControllerRol@update')->name('ediciontp2-ug0289-ug0299');
+
+Route::get('/borrarRol/{id}', 'ControllerRol@destroy')->name('borrarRol-tp2-ug0289-ug0299');
+
+Route::get('/seguro-que-desea-borrarRol-tp2-ug0289-ug0299/{id}', 'ControllerRol@confirm')->name('confirmar-borrarRol-tp2-ug0289-ug0299');
+
+Route::get('/verRol/{id}', 'ControllerRol@show')->name('verRol-tp2-ug0289-ug0299');
+//............................................................................................................
+Route::get('/listadoUser', 'ControllerUser@index')->name('listadoUser-tp2-ug0289-ug0299');
+
+Route::get('/crearUser', 'ControllerUser@create')->name('crearUser-tp2-ug0289-ug0299');
+
+Route::post('/creacionUser', 'ControllerUser@store')->name('Users-tp2-ug0289-ug0299');
+
+Route::get('/editarUser/{id}', 'ControllerUser@edit')->name('editarUser-tp2-ug0289-ug0299');
+
+Route::put('/edicionUser/{id}', 'ControllerUser@update')->name('edicion_tp2-ug0289-ug0299');
+
+Route::get('/borrarUser/{id}', 'ControllerUser@destroy')->name('borrarUser-tp2-ug0289-ug0299');
+
+Route::get('/seguro-que-desea-borrarUser-tp2-ug0289-ug0299/{id}', 'ControllerUser@confirm')->name('confirmar-borrarUser-tp2-ug0289-ug0299');
+
+Route::get('/verUser/{id}', 'ControllerUser@show')->name('verUser-tp2-ug0289-ug0299');
+//......................................................................................................
+
+Route::get('/listadoFMP', 'ControllerFacturaMedioPago@index')->name('listadoFMP-tp2-ug0059');
+
+Route::get('/crearFMP', 'ControllerFacturaMedioPago@create')->name('crearFMP-tp2-ug0059');
+
+Route::post('/creacionFMP', 'ControllerFacturaMedioPago@store')->name('creacionFMP-ug0059');
+
+Route::get('/editarFMP/{id}', 'ControllerFacturaMedioPago@edit')->name('editarFMP-tp2-ug0059');
+
+Route::put('/edicionFMP/{id}', 'ControllerFacturaMedioPago@update')->name('edicionFMP-ug0059');
+
+Route::get('/borrarFMP/{id}', 'ControllerFacturaMedioPago@destroy')->name('borrarFMP-tp2-ug0059');
+
+Route::get('/seguro-que-desea-borrarFMP-tp2-ug0059/{id}', 'ControllerFacturaMedioPago@confirm')->name('confirmar-borrarFMP-tp2-ug0059');
+
+Route::get('/verFMP/{id}', 'ControllerFacturaMedioPago@show')->name('verFMP-tp2-ug0059');
+
+
+Route::get('/listadoChofer', 'ControllerChofer@index')->name('listadoChofer-tp2-ug0059');
+
+Route::get('/crearChofer', 'ControllerChofer@create')->name('crearChofer-tp2-ug0059');
+
+Route::post('/creacionChofer', 'ControllerChofer@store')->name('creacionChofer-ug0059');
+
+Route::get('/editarChofer/{id}', 'ControllerChofer@edit')->name('editarChofer-tp2-ug0059');
+
+Route::put('/edicionChofer/{id}', 'ControllerChofer@update')->name('edicionChofer-ug0059');
+
+Route::get('/borrarChofer/{id}', 'ControllerChofer@destroy')->name('borrarChofer-tp2-ug0059');
+
+Route::get('/seguro-que-desea-borrarChofer-tp2-ug0059/{id}', 'ControllerChofer@confirm')->name('confirmar-borrarChofer-tp2-ug0059');
+
+Route::get('/verChofer/{id}', 'ControllerChofer@show')->name('verChofer-tp2-ug0059');

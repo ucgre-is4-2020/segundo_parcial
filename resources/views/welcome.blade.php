@@ -114,11 +114,36 @@
                     Enlaces 2da Entrega TP:
 
                     <div class="links">
+
                         <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
-                        AQUI LOS ENLACES
+
+                        <br>
+                        <br>
+                        <a href="{{ route ('tp2-ug0093-ug0278-ug0307-listar-empresatipoempresa') }}">Listar Empresa tipo empresa</a>
+                        <a href="{{ route ('tp2-ug0093-ug0278-ug0307-listar-empresa') }}">Listar Empresa </a>
+
+                        <a href="{{ route('tp2-ug0093-ug0278-ug0307-listado-direccion-empresa') }}" title="Listado direcciones de empresas">Listado de direcciones de empresas</a>
+                        <a href="{{ route('tp2-ug0093-ug0278-ug0307-listado-medio-contacto') }}" title="Listado medios de contactos">Listado de medios de contactos</a>
+
+                       <a href="{{ route('tp2-ug0317-listado-ciudad') }}">Ciudad</a>
+                       <a href="{{ route('tp2-ug0317-listado-barrio') }}">Barrio</a>
+                        <a href="{{ route('listadoRolUser-tp2-ug0289-ug0299') }}" >Listado de Roles de Usuario</a>
+                      <a href="{{ route('listadoFMP-tp2-ug0059') }}" title="Listado de FMP">Lista de Facturas Metodos de Pago</a>
+            <a href="{{ route('listadoChofer-tp2-ug0059') }}" title="Listado de FMP">Lista de Choferes</a>
                     </div>
                 </div>
 
+                <br>
+                <br>
+
+                <div class="content" style="font-weight: bold; text-decoration: underline;">
+                    Enlaces 3era Entrega TP:
+
+                    <div class="links">
+                        <!-- Agregar los enlaces a cada pagina aqui 3era entrega tp-->
+
+                    </div>
+                </div>
             </div>
 
         </div>
