@@ -401,3 +401,50 @@ Route::get('/borrarChofer/{id}', 'ControllerChofer@destroy')->name('borrarChofer
 Route::get('/seguro-que-desea-borrarChofer-tp2-ug0059/{id}', 'ControllerChofer@confirm')->name('confirmar-borrarChofer-tp2-ug0059');
 
 Route::get('/verChofer/{id}', 'ControllerChofer@show')->name('verChofer-tp2-ug0059');
+
+
+
+
+
+
+
+/*------------------
+         TUBO
+ -------------------*/
+
+Route::get('/vista-prueba/', 'TuboController@prueba')->name('vista_prueba');
+
+
+Route::get('/listado-tubo/', 'TuboController@index')->name('listado_tubos');
+
+Route::get('/ver-tubo/{id}', 'TuboController@show')->name('ver_tubo');
+
+
+Route::get('/crear-tubo', 'TuboController@create')->name('crear_tubo');
+Route::post('/creacion-tubo-ug0314', 'TuboController@store')->name('creacion_tubo_ug0314');
+
+
+Route::get('/borrar-tubo/{id}', 'TuboController@destroy')->name('borrar_tubo');
+
+Route::get('/editar-tubo/{id}', 'TuboController@edit')->name('editar_tubo');
+Route::put('/edicion-tubo/{id}', 'TuboController@update')->name('edicion_tubo');
+
+
+
+
+/*--------------------
+        PRODUCTO
+ ---------------------*/
+
+Route::get('/listado-producto-tp2-ug0282-ug0314/', 'ProductoController@index')->name('listado_producto_ug0282_ug0314');
+
+
+Route::get('/listado-producto-tp2-ug0282-ug0314/ver-tubos/{tubo}/ver-producto/{producto}', 'ProductoController@show')->name('ver_producto_producto_tp2_ug0282_ug0314');
+
+Route::get('/listado-producto-tp2-ug0282-ug0314/crear-producto', 'ProductoController@create')->name('crear_producto_ug0282_ug0314');
+Route::post('/listado-producto-tp2-ug0282-ug0314/creacion-producto', 'ProductoController@store')->name('creacion_producto_ug0282_ug0314');
+
+Route::get('/listado-producto-tp2-ug0282-ug0314/borrar-producto/{id}', 'ProductoController@destroy')->name('borrar_producto_tp2_ug0282_ug0314');
+
+Route::get('/listado-producto-tp2-ug0282-ug0314/editar-producto/{id}', 'ProductoController@edit')->name('editar_producto_tp2_ug0282_ug0314');
+Route::put('/listado-producto-tp2-ug0282-ug0314/edicion-producto{id}', 'ProductoController@update')->name('edicion_producto_tp2_ug0282_ug0314');

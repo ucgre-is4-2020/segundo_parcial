@@ -142,6 +142,7 @@
                     <div class="links">
                         <!-- Agregar los enlaces a cada pagina aqui 3era entrega tp-->
 
+                         <a href="{{ route('listado_tubos') }}">Lista de Tubos</a>
                     </div>
                 </div>
             </div>
