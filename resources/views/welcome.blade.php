@@ -141,7 +141,7 @@
 
                     <div class="links">
                         <!-- Agregar los enlaces a cada pagina aqui 3era entrega tp-->
-
+                         <a href="{{ route ('tp3-ug0307-listar-empresa') }}">Listar Empresas</a>
                     </div>
                 </div>
             </div>
