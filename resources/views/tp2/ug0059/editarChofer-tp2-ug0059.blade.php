@@ -163,7 +163,7 @@
 			<button  type="submit" title="Editar Registro">Editar</button>
 			 <a href="{{ route('listadoChofer-tp2-ug0059') }}" title="Listado Chofer">Listado Chofer</a>
            
-		
+		<a href="{{  route('listadoChoferyCoche-tp3-ug0059') }}" >Listado Chofer y Coche</a>
 	</form>
 
 	@if($errors->any()) 

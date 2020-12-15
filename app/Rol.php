@@ -13,4 +13,5 @@ class Rol extends Model
     {
         return $this->hasOne('App\RolUser');
     }
+
 }

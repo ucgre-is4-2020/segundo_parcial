@@ -40,6 +40,8 @@
 	   
 		    <a href="{{  route('borrarChofer-tp2-ug0059', ['id' => $Chofer->id]) }}" title="Borrar">Borrar</a>
 		    <a href="{{  route('listadoChofer-tp2-ug0059') }}" title="Cancelar">Cancelar</a>
+			<a href="{{  route('listadoChoferyCoche-tp3-ug0059') }}" >Listado Chofer y Coche</a>
+			
 	    
 	  </div>  
 	</div>

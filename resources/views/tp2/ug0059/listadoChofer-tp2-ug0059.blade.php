@@ -71,6 +71,7 @@
 		
 			<a href="{{ route('welcome') }}" title="Inicio">Inicio</a>
 	        <a href="{{ route('crearChofer-tp2-ug0059') }}" title="Crear">Crear</a>
+			<a href="{{  route('listadoChoferyCoche-tp3-ug0059') }}" >Listado Chofer y Coche</a>
 	
 	<br><br>
 		<form action="listadoChofer" method="GET">
