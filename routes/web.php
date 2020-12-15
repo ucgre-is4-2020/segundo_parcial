@@ -106,6 +106,27 @@ Route::put('tp2/ug0317/edicion-barrio/{id}', 'BarrioController@update')->name('t
 
 //_-------------------------------------------------------------------------------
 
+
+Route::get('tp3/ug0317/listado-ciudad', 'CiudadController@index')->name('tp3-ug0317-listado-ciudad');
+
+Route::get('tp3/ug0317/crear-ciudad', 'CiudadController@create')->name('tp3-ug0317-crear-ciudad');
+
+Route::post('tp3/ug0317/creacion-ciudad', 'CiudadController@store')->name('tp3-ug0317-creacion-ciudad');
+//
+Route::get('tp3/ug0317/listado-barrio', 'BarrioController@index')->name('tp3-ug0317-listado-barrio');
+
+Route::get('tp3/ug0317/crear-barrio', 'BarrioController@create')->name('tp3-ug0317-crear-barrio');
+
+Route::post('tp3/ug0317/creacion-barrio', 'BarrioController@store')->name('tp3-ug0317-creacion-barrio');
+
+
+
+
+
+
+
+
+//---------------------------------------------------------------------------------------
 Route::get('/ver-l/{id}', 'SeguimientoTipoController@show')->name('ver-formulario');
 
 Route::get('/borrar-l/{id}', 'SeguimientoTipoController@destroy')->name('borrar-formulario');
