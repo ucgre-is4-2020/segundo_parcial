@@ -37,6 +37,10 @@ class ControllerChofer extends Controller
         	['chof' => $chof]
         );
     }
+	
+	
+	
+	
 
     /**
      * Show the form for creating a new resource.

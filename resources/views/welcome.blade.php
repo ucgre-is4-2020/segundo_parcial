@@ -141,6 +141,8 @@
                     Enlaces 3era Entrega TP:
 
                     <div class="links">
+                        <!-- Agregar los enlaces a cada pagina aqui 3era entrega tp-->
+						<a href="{{ route('listadoChoferyCoche-tp3-ug0059') }}" title="Listado Chofer y Coche">Listado Chofer y Coche</a>
                         <a href="{{ route('listar_direccion_empresa_tipo') }}" title="Listado direcciones de empresas">Listado de direcciones de empresas tipo</a>
                         <!-- Agregar los enlaces a cada pagina aqui 3era entrega tp-->  
                         <a href="{{ route('tp3-ug0317-listado-barrio') }}"> Lisado de Barrios</a>
