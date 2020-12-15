@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -26,7 +27,7 @@ Route::put('/edicion{id}', 'ContactoController@update')->name('edicion');
 Route::get('/borrar{id}', 'ContactoController@destroy')->name('borrar_contacto_tipo');
 
 
-Route::get('/listado-empresa', 'ControllerEmpresaTipo@index')->name('listado-ug0299');
+Route::get('/listado-ug0299', 'ControllerEmpresaTipo@index')->name('listado-ug0299');
 
 Route::get('/crear-empresa', 'ControllerEmpresaTipo@create')->name('crear-ug0299');
 
@@ -406,8 +407,10 @@ Route::get('/seguro-que-desea-borrarChofer-tp2-ug0059/{id}', 'ControllerChofer@c
 Route::get('/verChofer/{id}', 'ControllerChofer@show')->name('verChofer-tp2-ug0059');
 
 
+Route::get('/listar_direccion_empresa_tipo', 'DireccionEmpresaTipoController@index')->name('listar_direccion_empresa_tipo');
 
 
+Route::get('/sub_pagina/{id}', 'DireccionEmpresaTipoController@show')->name('sub_pagina');
 
 /*------------------
          TUBO

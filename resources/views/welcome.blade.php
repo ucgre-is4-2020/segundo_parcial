@@ -105,6 +105,7 @@
                     <a href="{{route('listado-ug0314')}}">Compuestos</a>
                     <a href="{{ route('listado-ug0278') }}"
                        title="Listado de Coches">Listado de Coches</a>
+
                 </div>
 
                 <br>
@@ -140,6 +141,7 @@
                     Enlaces 3era Entrega TP:
 
                     <div class="links">
+                        <a href="{{ route('listar_direccion_empresa_tipo') }}" title="Listado direcciones de empresas">Listado de direcciones de empresas tipo</a>
                         <!-- Agregar los enlaces a cada pagina aqui 3era entrega tp-->
                          <a href="{{ route('listado_tubos') }}">Lista de Tubos</a>
                          <a href="{{ route ('tp3-ug0307-listar-empresa') }}">Listar Empresas</a>
