@@ -401,3 +401,5 @@ Route::get('/borrarChofer/{id}', 'ControllerChofer@destroy')->name('borrarChofer
 Route::get('/seguro-que-desea-borrarChofer-tp2-ug0059/{id}', 'ControllerChofer@confirm')->name('confirmar-borrarChofer-tp2-ug0059');
 
 Route::get('/verChofer/{id}', 'ControllerChofer@show')->name('verChofer-tp2-ug0059');
+
+Route::get('/listarRol','ControllerUser@listar');

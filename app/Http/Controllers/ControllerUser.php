@@ -188,4 +188,9 @@ class ControllerUser extends Controller
             return redirect()->route('seguro-que-desea-borrarUser-tp2-ug0289-ug0299', ['id' => $id->id])->with('error', $e->errorInfo[2]);
         }
     }
+
+    public function listar(){
+        $respuesta = Users::where('id','>',0)->with('rolUser.roles')->get();
+        return $respuesta;
+    }
 }
