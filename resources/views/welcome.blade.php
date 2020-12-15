@@ -112,11 +112,9 @@
                 <br>
 
                 <div class="content">
-                    Enlaces 3ra Entrega TP:
+                    Enlaces 2da Entrega TP:
 
                     <div class="links">
-                    <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
-                     <a href="{{route('listado_producto_ug0282')}}">Listar Producto</a>   
 
                         <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
 
@@ -148,6 +146,7 @@
                          <a href="{{ route('listado_tubos') }}">Lista de Tubos</a>
                          <a href="{{ route ('tp3-ug0307-listar-empresa') }}">Listar Empresas</a>
                         <a href="{{ route ('tp3-ug0278-listado-direccion-empresa') }}">Listado Direcciones de Empresas</a>
+                        <a href="{{route('listado_producto_ug0282')}}">Listar Producto</a>
                     </div>
                 </div>
             </div>
