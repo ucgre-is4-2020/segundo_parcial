@@ -404,5 +404,9 @@ Route::get('/verChofer/{id}', 'ControllerChofer@show')->name('verChofer-tp2-ug00
 
 
 //.............................................................................................................
-Route::get('RolUser', 'Controllertp3ug0299@show')->name('verRolesUsuariosTp3-ug0299');
+Route::get('listar','ControllerUserRol@listar');
+
+Route::get('activo','ControllerUserRol@activos');
+
+Route::get('inactivo','ControllerUserRol@inactivos');
 //.............................................................................................................

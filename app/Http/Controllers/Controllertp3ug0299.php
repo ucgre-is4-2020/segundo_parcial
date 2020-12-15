@@ -87,6 +87,7 @@ class Controllertp3ug0299 extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(\App\RolUser $id)
+
     {
         return view('tp3/ug0299/verRolesUsuariosTp3-ug0299');
     }

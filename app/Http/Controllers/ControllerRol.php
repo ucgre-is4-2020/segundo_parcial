@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \Illuminate\Database\QueryException;
 use Exception;
+use App\Rol;
 
 class ControllerRol extends Controller
 {
@@ -173,4 +174,18 @@ class ControllerRol extends Controller
             return redirect()->route('seguro-que-desea-borrarRol-tp2-ug0289-ug0299', ['id' => $id->id])->with('error', $e->errorInfo[2]);
         }
     }
+
+    public function listar(){
+        $respuesta = Rol::where('id','>',0)->with('rolUser.users')->get();
+        
+        return view('tp3/ug0299/verRolesUsuarios-tp3-ug0299',['respuesta' => $respuesta]);
+
+//.........................................................
+    }
 }
+
+
+
+
+
+

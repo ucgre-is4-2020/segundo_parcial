@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \Illuminate\Database\QueryException;
 use Exception;
+use App\RolUser;
 
 class ControllerUserRol extends Controller
 {
@@ -88,6 +89,8 @@ class ControllerUserRol extends Controller
      */
     public function show(\App\RolUser $id)
     {
+		$respuesta=RolUser::with('rol')->with('users')->get();
+        return $respuesta;
         return view('tp2/ug0289-ug0299/verRolUser-tp2-ug0289-ug0299', ['RolUser' => $id]);
     }
 
@@ -173,4 +176,32 @@ class ControllerUserRol extends Controller
             return redirect()->route('seguro-que-desea-borrarRolUser-tp2-ug0289-ug0299', ['id' => $id->id])->with('error', $e->errorInfo[2]);
         }
     }
+
+    public function listar()
+    {
+        //$rol = Rol::all();
+        $rol = Rol::with('rolUser.users')->get();
+        return $rol->toJson();
+        //return view('tp3/ug0299/verRolesUsuarios-tp3-ug0299',['rol'=>$rol,'usuarios'=>]);
+    }
+
+    public function activos()
+    {
+        $rol = DB::table('roles_users')->where('activo','=','true')->select('rol_id',DB::raw('COUNT(rol_id)'))->groupBy('rol_id')->get();
+        return $rol;
+    }
+
+    public function inactivos()
+    {
+        $rol = DB::table('roles_users')->where('activo','=','false')->select('rol_id',DB::raw('COUNT(rol_id)'))->groupBy('rol_id')->get();
+        if(isset($rol)){
+            return 0;
+        }else{
+            return $rol;
+        }
+
+    }
+
+
+
 }
