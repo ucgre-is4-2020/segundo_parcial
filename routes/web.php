@@ -161,3 +161,6 @@ Route::get('/borrar-departamento/{id}','controldepartamentos@destroy')->name('bo
 Route::get('ver-departamento/{id}','controldepartamentos@show' )->name('ver-ug0307');
 
 Route::put('/edicion/{id}','controldepartamentos@update' )->name('edicion');
+
+/*Vista TP3*/
+Route::get('/Contacto-Persona-Direccion-empresa', 'contactoEmpresaDirEmpresa@index')->name('Listado_ConEmprPer');

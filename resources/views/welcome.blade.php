@@ -111,11 +111,10 @@
                 <br>
 
                 <div class="content">
-                    Enlaces 2da Entrega TP:
+
 
                     <div class="links">
-                        <!-- Agregar los enlaces a cada pagina aqui 2da entrega tp-->
-                        AQUI LOS ENLACES
+                        <a href="{{route('/Contacto-Persona-Direccion-empresa')}}">Listado de Contacto Persona Direccion Empresa</a>
                     </div>
                 </div>
 
