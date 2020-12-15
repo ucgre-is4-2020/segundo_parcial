@@ -16,4 +16,5 @@
     {{$color->created_at}} <br>
     {{$color->updated_at}} <br>
 </div>
-<a href="{{ route('Listado-Ug0093') }}">Volver al listado</a>
+<a href="{{ route('Listado-Ug0093') }}">Volver al listado</a><br>
+<a href="{{ URL::previous() }}">Atrás</a>
