@@ -8,4 +8,9 @@ class Color extends Model
 {
     //
     protected $table ='color';
+
+    public function producto()
+    {
+    	return $this->hasMany('App\Producto', 'color_id', 'id');
+    }
 }
