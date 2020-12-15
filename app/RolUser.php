@@ -20,5 +20,4 @@ class RolUser extends Model
         return $this->belongsTo('App\Users','user_id','id');
 
     }
-   
 }

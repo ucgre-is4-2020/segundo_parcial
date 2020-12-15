@@ -138,13 +138,14 @@
                 <br>
 
                 <div class="content" style="font-weight: bold; text-decoration: underline;">
-                  
-					<a href="{{ route('verRolesUsuarios-tp3-ug0299') }}"> Listado Roles y Usuarios</a>
+
+					<!-- <a href=" /*route('verRolesUsuarios-tp3-ug0299')*/ "> Listado Roles y Usuarios</a> -->
+                    <a href="#"> Listado Roles y Usuarios</a>
                     <div class="links">
                         <!-- Agregar los enlaces a cada pagina aqui 3era entrega tp-->
 						<a href="{{ route('listadoChoferyCoche-tp3-ug0059') }}" title="Listado Chofer y Coche">Listado Chofer y Coche</a>
                         <a href="{{ route('listar_direccion_empresa_tipo') }}" title="Listado direcciones de empresas">Listado de direcciones de empresas tipo</a>
-                        <!-- Agregar los enlaces a cada pagina aqui 3era entrega tp-->  
+                        <!-- Agregar los enlaces a cada pagina aqui 3era entrega tp-->
                         <a href="{{ route('tp3-ug0317-listado-barrio') }}"> Lisado de Barrios</a>
                          <a href="{{ route('listado_tubos') }}">Lista de Tubos</a>
                          <a href="{{ route ('tp3-ug0307-listar-empresa') }}">Listar Empresas</a>

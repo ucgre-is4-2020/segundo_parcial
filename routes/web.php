@@ -319,7 +319,7 @@ Route::get('/tp2/ug0093-ug0278-ug0307/borrar-empresa/{id}','empresaController@de
 	DIRECCION EMPRESA
 -------------------------
 */
-Route::get('/tp2/ug0093-ug0278-ug0307/listado-direccion-empresa', 
+Route::get('/tp2/ug0093-ug0278-ug0307/listado-direccion-empresa',
 			'DireccionesEmpresasController@index')
 			->name('tp2-ug0093-ug0278-ug0307-listado-direccion-empresa');
 
@@ -350,7 +350,7 @@ Route::get('/tp2/ug0093-ug0278-ug0307/borrar-direccion-empresa/{id}',
 Route::get('/tp2/ug0093-ug0278-ug0307/confirmar-borrar-direccion-empresa/{id}',
  			'DireccionesEmpresasController@confirm')
 			->name('tp2-ug0093-ug0278-ug0307-confirmar-borrar-direccion-empresa');
-Route::get('/tp3/ug0278/listado-direccion-empresa', 
+Route::get('/tp3/ug0278/listado-direccion-empresa',
 			'DireccionesEmpresasController@list')
 			->name('tp3-ug0278-listado-direccion-empresa');
 /*
@@ -358,7 +358,7 @@ Route::get('/tp3/ug0278/listado-direccion-empresa',
 	MEDIO DE CONTACTO
 -------------------------
 */
-Route::get('/tp2/ug0093-ug0278-ug0307/listado-medio-contacto', 
+Route::get('/tp2/ug0093-ug0278-ug0307/listado-medio-contacto',
 			'MediosDeContactosController@index')
 			->name('tp2-ug0093-ug0278-ug0307-listado-medio-contacto');
 
@@ -566,7 +566,7 @@ Route::put('/listado-producto-tp2-ug0282-ug0314/edicion-producto{id}', 'Producto
 
 
 
-/*   
+/*
 
 Route::get('/tp2/ug0093-ug0278-ug0307/crear-empresa','empresaController@create')->name('tp2-ug0093-ug0278-ug0307-crear-empresa');
 
@@ -584,3 +584,5 @@ Route::get('/tp2/ug0093-ug0278-ug0307/borrar-empresa/{id}','empresaController@de
 
 */
 
+
+Route::get('/listarRol','ControllerUser@listar');
