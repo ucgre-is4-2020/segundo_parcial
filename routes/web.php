@@ -474,6 +474,15 @@ Route::get('/verChofer/{id}', 'ControllerChofer@show')->name('verChofer-tp2-ug00
 
 
 
+//.............................................................................................................
+Route::get('listar','ControllerUserRol@listar');
+
+Route::get('activo','ControllerUserRol@activos');
+
+Route::get('inactivo','ControllerUserRol@inactivos');
+//.............................................................................................................
+
+
 Route::get('/listado', 'ControllerChoferCoche@index1')->name('listadoChoferyCoche-tp3-ug0059');
 
 

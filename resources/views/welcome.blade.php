@@ -138,8 +138,8 @@
                 <br>
 
                 <div class="content" style="font-weight: bold; text-decoration: underline;">
-                    Enlaces 3era Entrega TP:
-
+                  
+					<a href="{{ route('verRolesUsuarios-tp3-ug0299') }}"> Listado Roles y Usuarios</a>
                     <div class="links">
                         <!-- Agregar los enlaces a cada pagina aqui 3era entrega tp-->
 						<a href="{{ route('listadoChoferyCoche-tp3-ug0059') }}" title="Listado Chofer y Coche">Listado Chofer y Coche</a>
