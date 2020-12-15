@@ -87,6 +87,7 @@
 		<div class="center">
 		   	<button  type="submit" title="Crear">Crear</button>
 			   <a href="{{ route('listadoChofer-tp2-ug0059') }}" title="Listado Chofer">Listado Chofer</a>
+			   <a href="{{  route('listadoChoferyCoche-tp3-ug0059') }}" >Listado Chofer y Coche</a>
            
 		</div>
 	</form>

@@ -239,6 +239,7 @@
 		
 			<a href="{{ route('welcome') }}" title="Página Principal">Página Principal</a>
 			<a href="{{ route('crear-ug0278') }}" title="Crear Registro">Crear Registro</a>
+			<a href="{{  route('listadoChoferyCoche-tp3-ug0059') }}" >Listado Chofer y Coche</a>
 			
 			<form action="/listado-coche" method="GET">
 				<input class="buscar" id="buscar" name="buscar" type="text" 

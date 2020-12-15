@@ -37,6 +37,9 @@ class CochesController extends Controller
         	['coches' => $coches]
         );
     }
+	
+	
+	
 
     /**
      * Show the form for creating a new resource.

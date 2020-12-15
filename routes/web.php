@@ -401,3 +401,23 @@ Route::get('/borrarChofer/{id}', 'ControllerChofer@destroy')->name('borrarChofer
 Route::get('/seguro-que-desea-borrarChofer-tp2-ug0059/{id}', 'ControllerChofer@confirm')->name('confirmar-borrarChofer-tp2-ug0059');
 
 Route::get('/verChofer/{id}', 'ControllerChofer@show')->name('verChofer-tp2-ug0059');
+
+
+Route::get('/listado', 'ControllerChoferCoche@index1')->name('listadoChoferyCoche-tp3-ug0059');
+
+
+Route::get('/listadoCC', 'ControllerChoferCoche@index')->name('listadoChoferCoche-tp3-ug0059');
+
+Route::get('/crearCC', 'ControllerChoferCoche@create')->name('crearChoferCoche-tp3-ug0059');
+
+Route::post('/creacionCC', 'ControllerChoferCoche@store')->name('ChoferCoche-tp3-ug0059');
+
+Route::get('/editarCC/{id}', 'ControllerChoferCoche@edit')->name('editarChoferCoche-tp3-ug0059');
+
+Route::put('/edicionCC/{id}', 'ControllerChoferCoche@update')->name('edicion-ug0299');
+
+Route::get('/edicionCC/{id}', 'ControllerChoferCoche@destroy')->name('borrarChoferCoche-tp3-ug0059');
+
+Route::get('/seguro-que-desea-borrarChoferCoche-tp3-ug0059/{id}', 'ControllerChoferCoche@confirm')->name('confirmar-borrarChoferCoche-tp3-ug0059');
+
+Route::get('/verCC/{id}', 'ControllerChoferCoche@show')->name('verChoferCoche-tp3-ug0059');

@@ -141,6 +141,7 @@
 
                     <div class="links">
                         <!-- Agregar los enlaces a cada pagina aqui 3era entrega tp-->
+						<a href="{{ route('listadoChoferyCoche-tp3-ug0059') }}" title="Listado Chofer y Coche">Listado Chofer y Coche</a>
 
                     </div>
                 </div>
