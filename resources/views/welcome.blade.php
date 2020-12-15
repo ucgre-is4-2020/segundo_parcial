@@ -114,7 +114,7 @@
 
 
                     <div class="links">
-                        <a href="{{route('/Contacto-Persona-Direccion-empresa')}}">Listado de Contacto Persona Direccion Empresa</a>
+                        <a href="{{route('Listado_ConEmprPer')}}">Listado de Contacto Persona Direccion Empresa</a>
                     </div>
                 </div>
 
