@@ -19,16 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d09bd48-c33b-4e65-a395-0c71c1788993" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/tp3/ug0093/Listado_ConEmprPer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ContactoPersonaDireccionEmpresa.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ContactoPersonaDireccionEmpresa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Contacto_tipo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contacto_tipo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DireccionEmpresa.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DireccionEmpresa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PersonaExterna.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PersonaExterna.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="0d09bd48-c33b-4e65-a395-0c71c1788993" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,7 +187,7 @@
       <workItem from="1605833265492" duration="660000" />
       <workItem from="1607993247209" duration="31000" />
       <workItem from="1607994637864" duration="39000" />
-      <workItem from="1607995017910" duration="3746000" />
+      <workItem from="1607995017910" duration="4101000" />
     </task>
     <task id="LOCAL-00001" summary="correcciones generales">
       <created>1605837191496</created>
