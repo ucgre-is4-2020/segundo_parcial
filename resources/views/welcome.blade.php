@@ -141,8 +141,9 @@
 
                     <div class="links">
                         <!-- Agregar los enlaces a cada pagina aqui 3era entrega tp-->
-
                          <a href="{{ route('listado_tubos') }}">Lista de Tubos</a>
+                         <a href="{{ route ('tp3-ug0307-listar-empresa') }}">Listar Empresas</a>
+                        <a href="{{ route ('tp3-ug0278-listado-direccion-empresa') }}">Listado Direcciones de Empresas</a>
                     </div>
                 </div>
             </div>
