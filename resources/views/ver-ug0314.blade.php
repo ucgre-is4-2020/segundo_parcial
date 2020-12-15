@@ -97,7 +97,8 @@
                 </div>
 				
                 </div>
-				<a href="{{ route('listado-ug0314') }}">Listar registros</a>
+				<a href="{{ route('listado-ug0314') }}">Listar registros</a><br>
+                <a href="{{ URL::previous() }}">Atrás</a>
 
 			</div>
 

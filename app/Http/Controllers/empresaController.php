@@ -12,6 +12,66 @@ class empresaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+       public function mostrar(\App\Empresa $id)
+    {
+        
+        $id->load('direcciones_empresas');
+        
+        return view('/tp3/ug0307/ver-empresa',['empresa'=>$id]);
+
+    }
+
+
+
+ public function index_2(Request $request)
+    {
+        
+
+
+        $documento_tipo = \App\Documento_tipo::get();
+
+        $empresa = \App\Empresa::with(['empresa_tipo_empresa','direcciones_empresas','empresa_documento'])->orderBy('id')->paginate(10);
+
+
+
+        $busqueda = $request ->get('filtro1');
+
+
+        if($busqueda !=0){
+
+            $empresa = \App\Empresa::with(['empresa_tipo_empresa','direcciones_empresas','empresa_documento'])
+            ->select ('empresa.*')
+            ->join ('empresa_documento','empresa.id','=','empresa_documento.empresa_id')
+            ->join ('documento_tipo','empresa_documento.documento_tipo_id','=','documento_tipo.id')
+            ->where('documento_tipo.id',$busqueda)
+            ->orderBy('empresa.id')->distinct()->paginate(10);
+
+        }
+
+
+       /* $buscar = $request->get('buscarpor');
+
+        $tipo = 'razon_social';
+   $empresas2 = \App\Empresa::buscarpor($tipo, $buscar)->paginate(100);
+
+      */  
+
+       // $ordenado = $empresa->sortBy('id');
+
+
+     
+
+        return view('/tp3/ug0307/Listado_empresa_ug0307',['misEmpresas'=>$empresa,'doc_tipo' =>$documento_tipo,'buscar'=>$busqueda]);
+
+      
+
+
+    }
+
+
+
+    
     public function index(Request $request)
     {
         
@@ -108,6 +168,9 @@ class empresaController extends Controller
         return view('\tp2\ug0093-ug0278-ug0307\ver-empresa',['empresa'=>$id]);
 
     }
+
+
+
 
     /**
      * Show the form for editing the specified resource.
