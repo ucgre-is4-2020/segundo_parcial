@@ -146,6 +146,7 @@
                          <a href="{{ route('listado_tubos') }}">Lista de Tubos</a>
                          <a href="{{ route ('tp3-ug0307-listar-empresa') }}">Listar Empresas</a>
                         <a href="{{ route ('tp3-ug0278-listado-direccion-empresa') }}">Listado Direcciones de Empresas</a>
+                        <a href="{{route('listado_producto_ug0282')}}">Listar Producto</a>
                     </div>
                 </div>
             </div>
