@@ -31,4 +31,24 @@ class Producto extends Model
     public function unidadmedidaid(){
         return $this->belongsto('App\UnidadMedida', 'UnidadMedida_id','id');
     }
+      
+    public function tubo()
+    {
+    	return $this->belongsTo('App\Tubo', 'tubo_id', 'id');
+    }
+
+    public function contenido()
+    {
+    	return $this->belongsTo('App\Contenido', 'contenido_id', 'id');
+    }
+
+    public function color()
+    {
+    	return $this->belongsTo('App\Color', 'color_id', 'id');
+    }
+
+    public function tubo_estado()
+    {
+    	return $this->belongsTo('App\TuboEstado', 'tubo_estado_id', 'id');
+    }
 }

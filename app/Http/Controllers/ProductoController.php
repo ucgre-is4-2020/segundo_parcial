@@ -11,6 +11,7 @@ use App\UnidadMedida;
 use App\UnidadMedidaTubo;
 
 
+
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -27,18 +28,22 @@ class ProductoController extends Controller
         $contenidoP = Contenido::get();
         $colorP = Color::get();
         $tubo_estadoP = TuboEstado::get();
-        
+
+        //TP 2
+
         $request = request();
 
         $nombre = $request->get('buscarpor');
 
         $unidadMedida = Producto::with('tuboid', 'colorid', 'contenidoid', 'tuboestadoid','unidadmedidatuboid','unidadmedidaid')->where( 'color_id', 'ilike', "%$nombre%")->paginate(10);
 
+
         //se ordena el array por id
         $unidadMedida = $unidadMedida->sortBy('id');
 
         //a que vista queremos ir desde aqui
         return view('tp3/listado_producto_ug0282', 
+
             ['misProductos' => $unidadMedida, 'tubos' => $tubosP, 'contenidos' =>$contenidoP, 'colores' =>$colorP, 'tubos_estados' =>$tubo_estadoP] // aqui pasamos a la vista $unidadMedida, en una variable $misUnidades
         ); 
     }
