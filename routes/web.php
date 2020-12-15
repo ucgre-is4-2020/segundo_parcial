@@ -284,6 +284,9 @@ Route::get('/tp2/ug0093-ug0278-ug0307/borrar-direccion-empresa/{id}',
 Route::get('/tp2/ug0093-ug0278-ug0307/confirmar-borrar-direccion-empresa/{id}',
  			'DireccionesEmpresasController@confirm')
 			->name('tp2-ug0093-ug0278-ug0307-confirmar-borrar-direccion-empresa');
+Route::get('/tp3/ug0278/listado-direccion-empresa', 
+			'DireccionesEmpresasController@list')
+			->name('tp3-ug0278-listado-direccion-empresa');
 /*
 -------------------------
 	MEDIO DE CONTACTO
@@ -404,17 +407,84 @@ Route::get('/seguro-que-desea-borrarChofer-tp2-ug0059/{id}', 'ControllerChofer@c
 Route::get('/verChofer/{id}', 'ControllerChofer@show')->name('verChofer-tp2-ug0059');
 
 
-
-
-
-
-
-
-
-
-
-
 Route::get('/listar_direccion_empresa_tipo', 'DireccionEmpresaTipoController@index')->name('listar_direccion_empresa_tipo');
 
 
 Route::get('/sub_pagina/{id}', 'DireccionEmpresaTipoController@show')->name('sub_pagina');
+
+/*------------------
+         TUBO
+ -------------------*/
+
+Route::get('/vista-prueba/', 'TuboController@prueba')->name('vista_prueba');
+
+
+Route::get('/listado-tubo/', 'TuboController@index')->name('listado_tubos');
+
+Route::get('/ver-tubo/{id}', 'TuboController@show')->name('ver_tubo');
+
+
+Route::get('/crear-tubo', 'TuboController@create')->name('crear_tubo');
+Route::post('/creacion-tubo-ug0314', 'TuboController@store')->name('creacion_tubo_ug0314');
+
+
+Route::get('/borrar-tubo/{id}', 'TuboController@destroy')->name('borrar_tubo');
+
+Route::get('/editar-tubo/{id}', 'TuboController@edit')->name('editar_tubo');
+Route::put('/edicion-tubo/{id}', 'TuboController@update')->name('edicion_tubo');
+
+//----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+Route::get('/tp3/ug0307/listar-empresa','empresaController@index_2')->name('tp3-ug0307-listar-empresa');
+
+
+Route::get('/tp3/ug0307/ver-empresa/{id}','empresaController@mostrar' )->name('tp3-ug0307-ver-empresa');
+
+
+
+
+
+
+
+
+/*--------------------
+        PRODUCTO
+ ---------------------*/
+
+Route::get('/listado-producto-tp2-ug0282-ug0314/', 'ProductoController@index')->name('listado_producto_ug0282_ug0314');
+
+
+Route::get('/listado-producto-tp2-ug0282-ug0314/ver-tubos/{tubo}/ver-producto/{producto}', 'ProductoController@show')->name('ver_producto_producto_tp2_ug0282_ug0314');
+
+Route::get('/listado-producto-tp2-ug0282-ug0314/crear-producto', 'ProductoController@create')->name('crear_producto_ug0282_ug0314');
+Route::post('/listado-producto-tp2-ug0282-ug0314/creacion-producto', 'ProductoController@store')->name('creacion_producto_ug0282_ug0314');
+
+Route::get('/listado-producto-tp2-ug0282-ug0314/borrar-producto/{id}', 'ProductoController@destroy')->name('borrar_producto_tp2_ug0282_ug0314');
+
+Route::get('/listado-producto-tp2-ug0282-ug0314/editar-producto/{id}', 'ProductoController@edit')->name('editar_producto_tp2_ug0282_ug0314');
+Route::put('/listado-producto-tp2-ug0282-ug0314/edicion-producto{id}', 'ProductoController@update')->name('edicion_producto_tp2_ug0282_ug0314');
+
+
+/*   
+
+Route::get('/tp2/ug0093-ug0278-ug0307/crear-empresa','empresaController@create')->name('tp2-ug0093-ug0278-ug0307-crear-empresa');
+
+Route::post('/tp2/ug0093-ug0278-ug0307/creacion-empresa','empresaController@store')->name('tp2-ug0093-ug0278-ug0307-creacion-empresa');
+
+
+
+Route::get('/tp2/ug0093-ug0278-ug0307/editar-empresa/{id}','empresaController@edit')->name('tp2-ug0093-ug0278-ug0307-editar-empresa');
+
+Route::put('/tp2/ug0093-ug0278-ug0307/edicion-empresa/{id}','empresaController@update' )->name('tp2-ug0093-ug0278-ug0307-edicion-empresa');
+
+Route::get('/tp2/ug0093-ug0278-ug0307/borrar-empresa/{id}','empresaController@destroy')->name('tp2-ug0093-ug0278-ug0307-borrar-empresa');
+
+
+
+*/
+
