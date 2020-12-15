@@ -144,6 +144,7 @@
 	<div class="center">
 		<a href="{{ route('listado-ug0278') }}"
 		 title="Listado de Coches">Listado de Coches</a>
+		 <a href="{{  route('listadoChoferyCoche-tp3-ug0059') }}" >Listado Chofer y Coche</a>
 	</div>
 </body>
 </html>

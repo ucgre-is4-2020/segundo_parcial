@@ -91,21 +91,20 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="direccion_empresa">Dirección de la Empresa</label>						
+					<label>Persona/Empresa del Contacto</label>
 				</td>
-				<td>				 
-					<textarea id="direccion_empresa" name="direccion_empresa"
-					 disabled="disabled">{{ $mediodecontacto->direccion_empresa->calle }}</textarea>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="persona_contacto">Persona del Contacto</label>
-				</td>
-				<td>
-					<textarea id="persona_contacto" name="persona_contacto"
-					 disabled="disabled">{{  $mediodecontacto->contacto_persona_direccion_empresa->persona_externa->nombres }}, {{ $mediodecontacto->contacto_persona_direccion_empresa->persona_externa->apellidos }}</textarea>
-				</td>
+				@if($mediodecontacto->direccion_empresa)
+					<td>				 
+						<textarea id="direccion_empresa" name="direccion_empresa"
+						 disabled="disabled">{{ $mediodecontacto->direccion_empresa->nombre_ubicacion }}</textarea>
+					</td>
+				@endif
+				@if($mediodecontacto->contacto_persona_direccion_empresa)
+					<td>
+						<textarea id="persona_contacto" name="persona_contacto"
+						 disabled="disabled">{{  $mediodecontacto->contacto_persona_direccion_empresa->persona_externa->nombres }}, {{ $mediodecontacto->contacto_persona_direccion_empresa->persona_externa->apellidos }}</textarea>
+					</td>
+				@endif
 			</tr>
 			<tr>
 				<td>

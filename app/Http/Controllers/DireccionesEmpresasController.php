@@ -41,6 +41,135 @@ class DireccionesEmpresasController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list(Request $request)
+    {
+        $empresas = \App\Empresa::get();
+        $departamentos = \App\Departamentos::get();
+        $cod = '';
+        $empresa= '';
+        $departamento = '';
+        if(empty($request->query())){
+            $direccionesempresas= \App\DireccionEmpresa::with(
+                ['direccion_empresa_tipo', 'barrio', 'empresa', 'medios_de_contactos'])->orderBy('id')->paginate(10);
+        }else {
+            $cod = $request->get('buscar');
+            $empresa = $request->get('empresa');
+            $departamento = $request->get('departamento');
+            if(!empty($cod)){
+
+                if($empresa != 0) {
+                    if($departamento != 0) {
+                        //calle, empresa y departamento 
+                        $direccionesempresas = \App\DireccionEmpresa::with(
+                                    ['direccion_empresa_tipo', 'barrio', 'empresa',
+                                    'medios_de_contactos'])
+                                    ->select('direccion_empresa.*')
+                                    ->join('empresa','direccion_empresa.empresa_id','=','empresa.id')
+                                    ->join('barrio','direccion_empresa.barrio_id','=','barrio.id')
+                                    ->join('ciudad','barrio.ciudad_id','=','ciudad.id')
+                                    ->join('departamento','ciudad.departamento_id','=','departamento.id')
+                                    ->where('departamento.id',$departamento)
+                                    ->where('empresa.id',$empresa)
+                                    ->whereRaw('upper(calle) like \'%'.strtoupper($cod).'%\'')
+                                    ->orderBy('direccion_empresa.id')->paginate(10);
+                    }else {
+                        //calle y empresa
+                        $direccionesempresas = \App\DireccionEmpresa::with(
+                                    ['direccion_empresa_tipo', 'barrio', 'empresa',
+                                    'medios_de_contactos'])
+                                    ->select('direccion_empresa.*')
+                                    ->join('empresa','direccion_empresa.empresa_id','=','empresa.id')
+                                    ->where('empresa.id',$empresa)
+                                    ->whereRaw('upper(calle) like \'%'.strtoupper($cod).'%\'')
+                                    ->orderBy('direccion_empresa.id')->paginate(10);
+                    }
+                }else {
+                    if($departamento != 0) {
+                        //calle y departamento
+                        $direccionesempresas = \App\DireccionEmpresa::with(
+                                    ['direccion_empresa_tipo', 'barrio', 'empresa',
+                                    'medios_de_contactos'])
+                                    ->select('direccion_empresa.*')
+                                    ->join('barrio','direccion_empresa.barrio_id','=','barrio.id')
+                                    ->join('ciudad','barrio.ciudad_id','=','ciudad.id')
+                                    ->join('departamento','ciudad.departamento_id','=','departamento.id')
+                                    ->where('departamento.id',$departamento)
+                                    ->whereRaw('upper(calle) like \'%'.strtoupper($cod).'%\'')
+                                    ->orderBy('direccion_empresa.id')->paginate(10);
+                    }else {
+                        //solo calle
+                        $direccionesempresas = \App\DireccionEmpresa::with(
+                                            ['direccion_empresa_tipo', 'barrio', 'empresa',
+                                            'medios_de_contactos'])
+                                            ->select('direccion_empresa.*')
+                                            ->whereRaw('upper(calle) like \'%'.strtoupper($cod).'%\'')
+                                            ->orderBy('direccion_empresa.id')->paginate(10);
+                    }
+                }  
+            }else {
+                if($empresa != 0) {
+                    if($departamento != 0){ 
+                        //empresa y departamento
+                        $direccionesempresas = \App\DireccionEmpresa::with(
+                                    ['direccion_empresa_tipo', 'barrio', 'empresa',
+                                    'medios_de_contactos'])
+                                    ->select('direccion_empresa.*')
+                                    ->join('empresa','direccion_empresa.empresa_id','=','empresa.id')
+                                    ->join('barrio','direccion_empresa.barrio_id','=','barrio.id')
+                                    ->join('ciudad','barrio.ciudad_id','=','ciudad.id')
+                                    ->join('departamento','ciudad.departamento_id','=','departamento.id')
+                                    ->where('departamento.id',$departamento)
+                                    ->where('empresa.id',$empresa)
+                                    ->orderBy('direccion_empresa.id')->paginate(10);
+                    }else {
+                        //solo empresa
+                        $direccionesempresas = \App\DireccionEmpresa::with(
+                                    ['direccion_empresa_tipo', 'barrio', 'empresa',
+                                    'medios_de_contactos'])
+                                    ->select('direccion_empresa.*')
+                                    ->where('empresa_id',$empresa)
+                                    ->orderBy('direccion_empresa.id')->paginate(10);
+                    }
+                }else {
+                   if($departamento != 0){
+                        //solo departamento
+                        $direccionesempresas = \App\DireccionEmpresa::with(
+                                    ['direccion_empresa_tipo', 'barrio', 'empresa',
+                                    'medios_de_contactos'])
+                                    ->select('direccion_empresa.*')
+                                    ->join('barrio','direccion_empresa.barrio_id','=','barrio.id')
+                                    ->join('ciudad','barrio.ciudad_id','=','ciudad.id')
+                                    ->join('departamento','ciudad.departamento_id','=','departamento.id')
+                                    ->where('departamento.id',$departamento)
+                                    ->orderBy('direccion_empresa.id')->paginate(10);
+                   }else {
+                        //sin filtro
+                        $direccionesempresas= \App\DireccionEmpresa::with(
+                        ['direccion_empresa_tipo', 'barrio', 'empresa', 'medios_de_contactos'])->orderBy('id')->paginate(10);
+                   }
+                }
+            }
+
+            return
+             view('tp3/ug0278/listado-direccion-empresa',
+                ['direccionesempresas' => $direccionesempresas, 'empresas' => $empresas,
+                'departamentos' => $departamentos, 'busqueda' => $cod, 'inp_empresa' => $empresa,
+                'inp_departamento' => $departamento]
+            );
+        }
+
+        return view('tp3/ug0278/listado-direccion-empresa', 
+            ['direccionesempresas' => $direccionesempresas, 'empresas' => $empresas, 
+            'departamentos' => $departamentos, 'busqueda' => $cod, 'inp_empresa' => $empresa,
+                'inp_departamento' => $departamento]
+        );
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
